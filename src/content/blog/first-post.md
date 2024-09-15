@@ -1,16 +1,36 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+title: 'My First Track Session'
+description: 'Today I run my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!'
+pubDate: 'July 12 2024'
+heroImage: './first-session.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+Today I run my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+Before the session I had to run some drills. I was not prepared for this but managed to think on my feet. I will have to do some research for next time. I did high knees, but kicks, gates and strides. But I am sure there are more I can to get people warmed up. Maybe some stretches as well?
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+The session was “500m Chasers”. You work in pairs for a series of intervals on the track. One runner will set off first, with the goal of staying ahead. After 50 meters, the second runner will start, aiming to catch their partner before we reach the 500-meter mark. This session works on…
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+1. **Speed Development:** By trying to catch the runner ahead, each participant is pushed to run
+faster than they might typically do on their own. This helps develop speed and improves
+anaerobic capacity.
+
+2. **Race Simulation:** The concept of chasing someone down simulates the competitive aspect of
+racing, which can help runners mentally prepare for real races where they might need to
+strategically pace themselves and make moves to catch competitors.
+
+3. **Endurance:** Repeating this exercise 10 times at varying distances challenges both speed
+and endurance. It can help improve overall cardiovascular fitness and stamina.
+
+4. **Fun and Motivating:** Working in pairs adds an element of fun and camaraderie to the
+training session. It can also be motivating to have a specific target to chase, which can
+push runners to give their best effort.
+
+5. **Variety:** It breaks away from the monotony of traditional interval training by adding a
+playful and competitive twist. This variety can keep athletes engaged and excited about
+their training.
+
+Depending on your ability you can do 7 to 10 intervals. This is a great session to push runners while being quite fun for them!
+
+Here’s to the next session!
