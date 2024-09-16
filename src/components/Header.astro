@@ -16,7 +16,7 @@ const { transparent } = Astro.props;
 <header class:list={[transparent ? "bg-transparent" : "bg-white"]}>
   <nav>
     <h2 class="uppercase font-[900]">
-      <a href="/" class="flex items-center gap-2">
+      <a href="/" class="flex items-center gap-2 text-lg md:text-2xl">
         <Image
           class="h-auto w-[70px]"
           width={512}
@@ -29,7 +29,7 @@ const { transparent } = Astro.props;
     </h2>
     <div>
       <Sheet client:idle>
-        <Icon slot="trigger" name="radix-icons:hamburger-menu" />
+        <Icon slot="trigger" name="radix-icons:hamburger-menu" class="font-bold" />
         <div slot="description" class="flex flex-col gap-5 font-bold text-black text-lg mt-5 w-full justify-center items-center">
 			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[var(--accent)]" href="/">Home</HeaderLink>
 			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[var(--accent)]" href="/blog">Blog</HeaderLink>

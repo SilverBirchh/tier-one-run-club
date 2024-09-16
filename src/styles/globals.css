@@ -9,7 +9,7 @@
  @tailwind utilities;
 
 :root {
-	--accent: #ffd900;
+	--accent: #dcbc06;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
 	--white: 255, 255, 255;
@@ -19,41 +19,6 @@
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Poppins';
-	src: url('/fonts/poppins-regular.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Poppins';
-	src: url('/fonts/poppins-bold.ttf') format('ttf');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Poppins';
-	src: url('/fonts/poppins-black.ttf') format('ttf');
-	font-weight: 900;
-	font-style: normal;
-	font-display: swap;
 }
 body {
 	font-family: 'Poppins', sans-serif;
