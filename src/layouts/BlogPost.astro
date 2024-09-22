@@ -16,7 +16,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<BaseHead title={title} description={description} />
 		<style>
 			main {
-				width: calc(100% - 2em);
+				width: 100%;
 				max-width: 100%;
 				margin: 0;
 			}
@@ -56,13 +56,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</head>
 
 	<body>
-		<Header />
+		<div class="relative" id="header">
+		<div class="z-20 sticky top-0 transition-all" id="header">
+			<Header transparent />
+		</div>
 		<main>
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
-				<div class="prose">
+				<div class="prose !p-0 md:p-[1em]">
 					<div class="title">
 						<div class="date">
 							{pubDate && <FormattedDate date={pubDate} />}
@@ -82,5 +85,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</article>
 		</main>
 		<Footer />
+	</div>
 	</body>
 </html>

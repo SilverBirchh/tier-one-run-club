@@ -5,9 +5,9 @@ pubDate: 'July 12 2024'
 heroImage: './first-session.jpg'
 ---
 
-Today I run my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!
+Today I ran my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!
 
-Before the session I had to run some drills. I was not prepared for this but managed to think on my feet. I will have to do some research for next time. I did high knees, but kicks, gates and strides. But I am sure there are more I can to get people warmed up. Maybe some stretches as well?
+Before the session I had to run some drills. I was not prepared for this but managed to think on my feet. I will have to do some research for next time. I did high knees, butt kicks, open the gates and strides. But I am sure there are more I can to get people warmed up. Maybe some stretches as well? I should have done some strides as well.
 
 The session was “500m Chasers”. You work in pairs for a series of intervals on the track. One runner will set off first, with the goal of staying ahead. After 50 meters, the second runner will start, aiming to catch their partner before we reach the 500-meter mark. This session works on…
 
