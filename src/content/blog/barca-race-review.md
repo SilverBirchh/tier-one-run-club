@@ -14,7 +14,7 @@ The race was set for March 10, 2024, in the heart of Barcelona. We all had about
 
 Early on, I knew I had to get my training right. For London, I had been lax, and I paid for it dearly. I didn’t want to pay for a coach, so I researched training plans. At the start of the year, I aimed to run a 2:35:00—quite an improvement on my London time of 3:02:00—but I felt in good shape. I also had a few friends at my local running club I wanted to beat!
 
-I decided to follow Runner’s World’s ["Mission Marathon Training Plan: sub-3 hours"](https://www.runnersworld.com/uk/training/marathon/a776660/mission-marathon-training-plan-sub-3-hours/). It turned out to be a fantastically detailed and well-thought-out plan, which included strength training, hill reps, and some fantastic long runs. I adjusted the paces slightly for my target time, and the 12-week program was thoroughly enjoyable.
+I decided to follow Runner’s World’s ["Mission Marathon Training Plan: sub-3 hours"](https://www.runnersworld.com/uk/training/marathon/a776660/mission-marathon-training-plan-sub-3-hours/). It turned out to be a fantastically detailed and well-thought-out plan, which included strength training, hill reps, and some challenging long runs. I adjusted the paces slightly for my target time, and the 12-week program was thoroughly enjoyable.
 
 I trained through winter, coinciding with the cross-country season. This meant I had a few runs where I slogged through mud and then ran home! Just like this one:
 <div style="width: 100%; display: flex; justify-content: center;"> <iframe src='https://connect.garmin.com/modern/activity/embed/13402253511' title='St Albans Running' width='465' height='500' frameborder='0'></iframe> </div>
@@ -24,7 +24,7 @@ My longest run of the plan was incredible and boosted my confidence to new heigh
 
 ### Pre-Race
 
-We flew into Barcelona on March 8, which gave us plenty of time to go to the expo, do a shakeout run, and see some tourist sights. Barcelona is a fantastic city. We visited the Sagrada Família, La Rambla, and the Arc de Triomf.
+We flew into Barcelona on March 8, which gave us plenty of time to go to the expo, do a shakeout run, and see some tourist sights. Barcelona is a superb city. We visited the Sagrada Família, La Rambla, and the Arc de Triomf.
 
 Unfortunately, it was pouring rain on Saturday. The 5 km shakeout run was wet, but everyone was in high spirits. The website suggests signing up for this run, but plenty of people just showed up and joined in.
 
@@ -35,7 +35,7 @@ The atmosphere at the expo and around the city was buzzing. We had an early dinn
 
 Race day arrived, and the clouds had parted—the sun was shining. We were up early, around 5:30 AM, to have breakfast. With the race starting at 8:30, we wanted to be properly fueled. Thankfully, our hotel was only a 20-minute walk from the start line, so we weren’t stressed or rushed. Bag drop was easy, and there were plenty of toilets at the start.
 
-I started well, planning to take a gel every 20 minutes. These gels had 25g of carbs, and I hoped they’d help prevent cramps. I flew through the first half of the race in about 1:13:00, feeling great. The support was fantastic, with lots of cheering. There were also plenty of aid stations offering water, isotonic drinks, and gels. The race-provided gels had 50g of carbs and were a lifesaver toward the end of the race.
+I started well, planning to take a gel every 20 minutes. These gels had 25g of carbs, and I hoped they’d help prevent cramps. I flew through the first half of the race in about 1:13:00, feeling great. The support was great, with lots of cheering. There were also plenty of aid stations offering water, isotonic drinks, and gels. The race-provided gels had 50g of carbs and were a lifesaver toward the end of the race.
 
 The course winds all around Barcelona and is mostly flat. You pass landmarks like the Sagrada Família, the beach, and many Art Deco buildings.
 
