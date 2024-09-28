@@ -14,7 +14,7 @@ The race was set for March 10, 2024, in the heart of Barcelona. We all had about
 
 Early on, I knew I had to get my training right. For London, I had been lax, and I paid for it dearly. I didn’t want to pay for a coach, so I researched training plans. At the start of the year, I aimed to run a 2:35:00—quite an improvement on my London time of 3:02:00—but I felt in good shape. I also had a few friends at my local running club I wanted to beat!
 
-I decided to follow Runner’s World’s "Mission Marathon Training Plan: Sub-3 Hours". It turned out to be a fantastically detailed and well-thought-out plan, which included strength training, hill reps, and some fantastic long runs. I adjusted the paces slightly for my target time, and the 12-week program was thoroughly enjoyable.
+I decided to follow Runner’s World’s ["Mission Marathon Training Plan: sub-3 hours"](https://www.runnersworld.com/uk/training/marathon/a776660/mission-marathon-training-plan-sub-3-hours/). It turned out to be a fantastically detailed and well-thought-out plan, which included strength training, hill reps, and some fantastic long runs. I adjusted the paces slightly for my target time, and the 12-week program was thoroughly enjoyable.
 
 I trained through winter, coinciding with the cross-country season. This meant I had a few runs where I slogged through mud and then ran home! Just like this one:
 <div style="width: 100%; display: flex; justify-content: center;"> <iframe src='https://connect.garmin.com/modern/activity/embed/13402253511' title='St Albans Running' width='465' height='500' frameborder='0'></iframe> </div>
