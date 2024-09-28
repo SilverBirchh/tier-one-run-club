@@ -60,10 +60,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<div class="z-20 sticky top-0 transition-all" id="header">
 			<Header transparent />
 		</div>
-		<main>
+		<main class="!pt-0">
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image loading={"eager"} width={1020} height={510} src={heroImage} alt="" />}
 				</div>
 				<div class="prose !p-0 md:p-[1em]">
 					<div class="title">

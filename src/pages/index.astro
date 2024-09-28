@@ -27,7 +27,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       class="h-[90vh] bg-cover bg-no-repeat relative"
       style={`background-image: url(${optimizedBackground.src}); background-position: bottom;`}
     >
-      <div class="z-20 sticky top-0 transition-all" id="header">
+      <div class="z-20 fixed top-0 left-0 right-0 transition-all" id="header">
         <Header transparent />
       </div>
       <span
@@ -61,13 +61,14 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
 
     <main>
       <section>
-        <ul>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {
-            posts.map((post) => (
+            posts.map((post, index) => (
               <li>
                 <a href={`/blog/${post.slug}/`}>
                   <div class="h-min overflow-hidden rounded-md mb-5">
                     <Image
+                      loading={index < 5 ? "eager" : "lazy"}
                       class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
                       src={post.data.heroImage}
                       alt=""
@@ -90,18 +91,17 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
     <Footer />
     <style>
       main {
-        width: 960px;
+        width: min(2000px, 100%);
       }
       ul {
-        display: flex;
-        flex-wrap: wrap;
         gap: 2rem;
         list-style-type: none;
         margin: 0;
         padding: 0;
+        justify-content: space-around;
       }
       ul li {
-        width: calc(50% - 1rem);
+        width: 100%;
       }
       ul li * {
         text-decoration: none;

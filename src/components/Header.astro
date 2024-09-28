@@ -18,6 +18,7 @@ const { transparent } = Astro.props;
     <h2 class="uppercase font-[900]">
       <a href="/" class="flex items-center gap-2 text-lg md:text-2xl">
         <Image
+          loading={"eager"}
           class="h-auto w-[70px]"
           width={512}
           height={512}
@@ -43,8 +44,6 @@ const { transparent } = Astro.props;
   header {
     margin: 0;
     padding: 0 1em;
-    
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
   h2 {
     margin: 0;
