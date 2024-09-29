@@ -1,7 +1,7 @@
 ---
 title: "Barcelona Marathon"
 description: "On March 10 2024 I ran the Barcelona Marathon. It was a fantastic race with a huge field, great support and a wonderful route."
-pubDate: "March 25 2024"
+pubDate: "September 25 2024"
 heroImage: "./barca.webp"
 ---
 Before running the Barcelona Marathon, I hadn’t run a marathon since 2021. That year, I ran the London Marathon, and it didn’t go well. I hobbled over the finish line with cramps in both calves and hamstrings. That race is a story for another day. London was so tough that it put me off running marathons for a few years.
