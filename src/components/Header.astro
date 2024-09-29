@@ -32,9 +32,9 @@ const { transparent } = Astro.props;
       <Sheet client:idle>
         <Icon slot="trigger" name="radix-icons:hamburger-menu" class="font-bold" />
         <div slot="description" class="flex flex-col gap-5 font-bold text-black text-lg mt-5 w-full justify-center items-center">
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[var(--accent)]" href="/">Home</HeaderLink>
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[var(--accent)]" href="/blog">Blog</HeaderLink>
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[var(--accent)]" href="/about">About</HeaderLink>
+			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/">Home</HeaderLink>
+			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/blog">Blog</HeaderLink>
+			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/about">About</HeaderLink>
         </div>
       </Sheet>
     </div>
@@ -67,6 +67,6 @@ const { transparent } = Astro.props;
   }
   nav a.active {
     text-decoration: none;
-    border-bottom-color: var(--accent);
+    border-bottom-color: hsl(var(--accent));
   }
 </style>

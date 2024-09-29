@@ -31,7 +31,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
         <Header transparent />
       </div>
       <span
-        class="absolute text-center inset-0 flex flex-col text-[var(--accent)] gap-0 font-extrabold justify-center items-center z-10"
+        class="absolute text-center inset-0 flex flex-col text-[hsl(var(--accent))] gap-0 font-extrabold justify-center items-center z-10"
       >
         <p
           class="m-0 !leading-[0.8] uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
@@ -122,7 +122,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       }
       ul li a:hover h4,
       ul li a:hover .date {
-        color: rgb(var(--accent));
+        color: hsl(var(--accent));
       }
 
       @media (max-width: 720px) {
