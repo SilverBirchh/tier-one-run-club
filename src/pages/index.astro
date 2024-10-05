@@ -74,7 +74,8 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
                       class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
                       src={post.data.heroImage}
                       alt=""
-                      widths={[700]}
+                      format="webp"
+                      quality={80}
                     />
                   </div>
 
