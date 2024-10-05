@@ -19,5 +19,5 @@ export default defineConfig({
     applyBaseStyles: false,
   }), icon(), react({
       experimentalReactChildren: true,
-    }), playformInline()],
+    }), playformInline({ Critters: true })],
 });
