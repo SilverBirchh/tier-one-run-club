@@ -10,18 +10,14 @@ import icon from "astro-icon";
 
 import react from "@astrojs/react";
 
+import playformInline from "@playform/inline";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://tieronerun.club",
-  integrations: [
-    mdx(),
-    sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    icon(),
-    react({
-        experimentalReactChildren: true,
-      }),
-  ],
+  integrations: [mdx(), sitemap(), tailwind({
+    applyBaseStyles: false,
+  }), icon(), react({
+      experimentalReactChildren: true,
+    }), playformInline()],
 });

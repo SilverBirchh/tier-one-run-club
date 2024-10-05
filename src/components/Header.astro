@@ -11,6 +11,7 @@ type Props = {
 
 const { transparent } = Astro.props;
 
+import logo from "../images/logo.png";
 ---
 
 <header class:list={[transparent ? "bg-transparent" : "bg-white"]}>
@@ -20,21 +21,39 @@ const { transparent } = Astro.props;
         <Image
           loading={"eager"}
           class="h-auto w-[70px]"
-          width={512}
-          height={512}
-          src="/logo.png"
+          src={logo}
+          format="webp"
           alt=""
         />
-        {SITE_TITLE}</a
-      >
+        {SITE_TITLE}
+      </a>
     </h2>
     <div>
       <Sheet client:idle>
-        <Icon slot="trigger" name="radix-icons:hamburger-menu" class="font-bold" />
-        <div slot="description" class="flex flex-col gap-5 font-bold text-black text-lg mt-5 w-full justify-center items-center">
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/">Home</HeaderLink>
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/blog">Blog</HeaderLink>
-			<HeaderLink class="text-black border-b-4 border-transparent !no-underline transition-all" activeClass="!border-[hsl(var(--accent))]" href="/about">About</HeaderLink>
+        <Icon
+          slot="trigger"
+          name="radix-icons:hamburger-menu"
+          class="font-bold"
+        />
+        <div
+          slot="description"
+          class="flex flex-col gap-5 font-bold text-black text-lg mt-5 w-full justify-center items-center"
+        >
+          <HeaderLink
+            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            activeClass="!border-[hsl(var(--accent))]"
+            href="/">Home</HeaderLink
+          >
+          <HeaderLink
+            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            activeClass="!border-[hsl(var(--accent))]"
+            href="/blog">Blog</HeaderLink
+          >
+          <HeaderLink
+            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            activeClass="!border-[hsl(var(--accent))]"
+            href="/about">About</HeaderLink
+          >
         </div>
       </Sheet>
     </div>

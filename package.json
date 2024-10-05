@@ -19,6 +19,7 @@
     "@astrolib/seo": "^1.0.0-beta.6",
     "@fontsource/poppins": "^5.1.0",
     "@hookform/resolvers": "^3.9.0",
+    "@playform/inline": "^0.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
