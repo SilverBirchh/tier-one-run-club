@@ -61,7 +61,9 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
 
     <main>
       <section>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+        <ul
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+        >
           {
             posts.map((post, index) => (
               <li>
@@ -72,6 +74,8 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
                       class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
                       src={post.data.heroImage}
                       alt=""
+                      quality={80}
+                      widths={[390, 500, 700]}
                     />
                   </div>
 
