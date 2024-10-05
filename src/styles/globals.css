@@ -58,7 +58,7 @@ h2 {
 h3 {
   font-size: 1.953em;
 }
-h4 {
+h4, p.title {
   font-size: 1.563em;
 }
 h5 {

@@ -16,7 +16,7 @@ import {
 export const Sheet = ({ trigger, description, title }: Props) => (
 
 <BaseSheet>
-  <SheetTrigger><slot />{trigger}</SheetTrigger>
+  <SheetTrigger id="menu" aria-label="Open Menu">{trigger}</SheetTrigger>
   <SheetContent>
     <SheetHeader>
       {title && <SheetTitle>{title}</SheetTitle>}
