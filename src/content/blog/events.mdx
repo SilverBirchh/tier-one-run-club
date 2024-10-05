@@ -18,4 +18,11 @@ In this challenge, runners race to visit as many real-life London locations from
 ### King of the Hill
 This challenge is all about conquering a tricky hill. Runners will be grouped by categories, such as male, female, and veterans. The event consists of multiple rounds where each group runs up the hill; in each round, the last person to reach the top is eliminated, until only one runner is left standing!
 
-If anyone is interested in organizing these events with me, please get in touch!
+If anyone is interested in organizing these events with me, enter your email below and lets connect!
+
+import Contact from '../../components/contact.astro';
+import {Input} from '../../components/ui/input.tsx';
+
+<Contact client:idle post="Why We Run" title="Submit Form" containerClass="flex gap-5" buttonText="Connect" >
+<Input placeholder="Email" type="email" name="email" required />
+</Contact>
