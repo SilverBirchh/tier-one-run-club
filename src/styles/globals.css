@@ -68,11 +68,14 @@ strong,
 b {
   font-weight: 700;
 }
+ol {
+  list-style: inside;
+}
 a {
   color: hsl(var(--accent));
 }
 a:hover {
-  color: hsl(var(--accent)));
+  color: hsl(var(--accent));
 }
 p {
   margin-bottom: 1em;

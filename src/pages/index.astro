@@ -22,7 +22,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="bg-background">
     <div
       class="h-[90vh] bg-cover bg-no-repeat relative"
       style={`background-image: url(${optimizedBackground.src}); background-position: bottom;`}
@@ -61,7 +61,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
 
     <main>
       <section>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {
             posts.map((post, index) => (
               <li>
@@ -95,7 +95,6 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       }
       ul {
         gap: 2rem;
-        list-style-type: none;
         margin: 0;
         padding: 0;
         justify-content: space-around;

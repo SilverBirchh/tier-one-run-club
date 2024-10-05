@@ -22,7 +22,6 @@ const posts = (await getCollection("blog")).sort(
       }
       ul {
         gap: 2rem;
-        list-style-type: none;
         margin: 0;
         padding: 0;
       }
@@ -109,7 +108,7 @@ const posts = (await getCollection("blog")).sort(
             ))
           }
         </ul>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
 
           {
             posts.slice(1, posts.length).map((post, index) => (
