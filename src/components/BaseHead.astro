@@ -7,6 +7,12 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/900.css";
 
+import home from "../images/home.jpg";
+import { getImage } from "astro:assets";
+
+const optimizedBackground = await getImage({ src: home, format: "webp" });
+
+
 interface Props {
   title: string;
   description: string;
@@ -47,6 +53,8 @@ const { title, description, image = "/logo-bg.png" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<link rel="preload" href={optimizedBackground.src} as="image" />
 
 <script is:inline>
   function attachEvent(selector, event, fn) {
