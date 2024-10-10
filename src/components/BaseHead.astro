@@ -12,7 +12,6 @@ import { getImage } from "astro:assets";
 
 const optimizedBackground = await getImage({ src: home, format: "webp" });
 
-
 interface Props {
   title: string;
   description: string;
@@ -57,6 +56,16 @@ const { title, description, image = "/logo-bg.png" } = Astro.props;
 <link rel="preload" href={optimizedBackground.src} as="image" />
 
 <script is:inline>
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
   function attachEvent(selector, event, fn) {
     const matches =
       typeof selector === "string"
@@ -119,6 +128,6 @@ const { title, description, image = "/logo-bg.png" } = Astro.props;
   :global(.scroll) {
     transition: all 0.3s ease-in-out;
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(var(--black),5%);
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
 </style>

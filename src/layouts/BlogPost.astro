@@ -34,7 +34,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-				color: rgb(var(--gray-dark));
+				color: hsl(var(--foreground));
 			}
 			.title {
 				margin-bottom: 1em;
@@ -55,12 +55,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		</style>
 	</head>
 
-	<body>
-		<div class="relative" id="header">
+	<body class="bg-background">
+		<div class="relative bg-background" id="header">
 		<div class="z-20 sticky top-0 transition-all" id="header">
 			<Header transparent />
 		</div>
-		<main class="!pt-0">
+		<main class="!pt-0 bg-background">
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image loading={"eager"} width={1020} height={510} src={heroImage} alt="" />}
@@ -77,7 +77,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 								)
 							}
 						</div>
-						<h1>{title}</h1>
+						<h1 class="text-foreground">{title}</h1>
 						<hr />
 					</div>
 					<slot />

@@ -12,12 +12,17 @@ type Props = {
 const { transparent } = Astro.props;
 
 import logo from "../images/logo.png";
+import { Button } from "./ui/button";
+import { Theme } from "./Theme";
 ---
 
 <header class:list={[transparent ? "bg-transparent" : "bg-white"]}>
   <nav>
     <h2 class="uppercase font-[900]">
-      <a href="/" class="flex items-center gap-2 text-lg md:text-2xl">
+      <a
+        href="/"
+        class="flex items-center gap-2 text-lg md:text-2xl !text-black dark:!text-white"
+      >
         <Image
           loading={"eager"}
           class="h-auto w-[70px]"
@@ -36,27 +41,28 @@ import logo from "../images/logo.png";
         <Icon
           slot="trigger"
           name="radix-icons:hamburger-menu"
-          class="font-bold"
+          class="font-bold text-foreground"
         />
         <div
           slot="description"
-          class="flex flex-col gap-5 font-bold text-black text-lg mt-5 w-full justify-center items-center"
+          class="flex flex-col gap-5 font-bold text-foreground text-lg mt-5 w-full justify-center items-center"
         >
           <HeaderLink
-            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
             activeClass="!border-[hsl(var(--accent))]"
             href="/">Home</HeaderLink
           >
           <HeaderLink
-            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
             activeClass="!border-[hsl(var(--accent))]"
             href="/blog">Blog</HeaderLink
           >
           <HeaderLink
-            class="text-black border-b-4 border-transparent !no-underline transition-all"
+            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
             activeClass="!border-[hsl(var(--accent))]"
             href="/about">About</HeaderLink
           >
+          <Theme client:idle />
         </div>
       </Sheet>
     </div>

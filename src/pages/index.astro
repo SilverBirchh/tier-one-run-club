@@ -24,7 +24,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
   </head>
   <body class="bg-background">
     <div
-      class="h-[90vh] bg-cover bg-no-repeat relative"
+      class="h-[90vh] bg-cover bg-no-repeat relative bg-background"
       style={`background-image: url(${optimizedBackground.src}); background-position: bottom;`}
     >
       <div class="z-20 fixed top-0 left-0 right-0 transition-all" id="header">
@@ -81,7 +81,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
                     />
                   </div>
 
-                  <p class="title">{post.data.title}</p>
+                  <p class="title text-foreground">{post.data.title}</p>
                   <p class="date">
                     {post.data.pubDate && (
                       <FormattedDate date={post.data.pubDate} />
@@ -118,7 +118,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       }
       .title {
         margin: 0;
-        color: rgb(var(--black));
+        
         line-height: 1;
       }
       .date {

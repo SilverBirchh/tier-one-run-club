@@ -50,7 +50,6 @@ const posts = (await getCollection("blog")).sort(
       }
       .title {
         margin: 0;
-        color: rgb(var(--black));
         line-height: 1;
       }
       .date {
@@ -79,12 +78,12 @@ const posts = (await getCollection("blog")).sort(
       }
     </style>
   </head>
-  <body>
-    <div class="relative" id="header">
+  <body class="bg-background">
+    <div class="relative bg-background" id="header">
       <div class="z-20 sticky top-0 transition-all" id="header">
         <Header transparent />
       </div>
-    <main class="!pt-0">
+    <main class="!pt-0 bg-background">
       <section>
         <ul class="hero">
           {
@@ -99,7 +98,7 @@ const posts = (await getCollection("blog")).sort(
                       alt=""
                     />
                   </div>
-                  <h4 class="title">{post.data.title}</h4>
+                  <h4 class="title text-foreground">{post.data.title}</h4>
                   <p class="date">
                     {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
                   </p>
@@ -122,7 +121,7 @@ const posts = (await getCollection("blog")).sort(
                       alt=""
                     />
                   </div>
-                  <h4 class="title">{post.data.title}</h4>
+                  <h4 class="title text-foreground">{post.data.title}</h4>
                   <p class="date">
                     {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
                   </p>
