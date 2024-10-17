@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/BlogPost.astro";
 import finish from "../images/barca-finish.jpeg";
+import { Input } from "@/components/ui/input";
+import Contact from "@/components/contact.astro";
+import { Textarea } from "@/components/ui/textarea";
 ---
 
 <Layout
@@ -44,4 +47,16 @@ import finish from "../images/barca-finish.jpeg";
   </p>
 
   <p class="font-bold">Lace up. Run Happy. Crush Goals.</p>
+  <p class="font-bold">
+    Get in Touch
+  </p>
+
+  <Contact
+    post="about"
+    containerClass="flex flex-col gap-5"
+    buttonText="Connect"
+  >
+    <Input placeholder="Email" type="email" name="email" required />
+    <Textarea name="message" required placeholder="Type your message here." />
+  </Contact>
 </Layout>

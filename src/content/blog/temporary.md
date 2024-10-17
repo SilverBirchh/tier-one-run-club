@@ -1,7 +1,7 @@
 ---
 title: "Temporary"
 description: "Everything in life is temporary, from the hard times to the good. Embrace the present and let each moment shape you."
-pubDate: "October 13, 2024"
+pubDate: "October 14 2024"
 heroImage: "./temporary.jpg"
 ---
 
