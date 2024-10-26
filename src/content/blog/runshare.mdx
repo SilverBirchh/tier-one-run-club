@@ -1,0 +1,22 @@
+---
+title: 'Fun Run'
+description: 'Create and share beautiful images of your runs'
+pubDate: 'October 26 2024'
+heroImage: './share.webp'
+---
+
+Create a beautiful, shareable card of you latest run! Just drop the .gpx file below, configure and share!
+
+import { RunShare } from '../../components/RunShare/RunShare.tsx';
+
+<RunShare client:load />
+
+import Contact from '../../components/contact.astro';
+import { Textarea } from '../../components/ui/textarea.tsx';
+
+<div class='mt-5'>
+<span class="mb-0! text-sm">Feedback</span>
+<Contact client:idle post="Run Share" title="Submit Form" containerClass="flex gap-5" buttonText="Submit" >
+  <Textarea name="message" required placeholder="Type your message here." />
+</Contact>
+</div>

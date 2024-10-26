@@ -15,9 +15,16 @@ import playformInline from "@playform/inline";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tieronerun.club",
-  integrations: [mdx(), sitemap(), tailwind({
-    applyBaseStyles: false,
-  }), icon(), react({
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    icon(),
+    react({
       experimentalReactChildren: true,
-    }), playformInline({ Critters: true })],
+    }),
+    playformInline({ Critters: true }),
+  ],
 });
