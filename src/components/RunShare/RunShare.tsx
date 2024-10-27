@@ -14,19 +14,18 @@ export const RunShare = () => {
   if (!gpx) return <DropZone setGpx={setGpx} />;
 
   return (
-    <div className="flex w-full justify-center items-center flex-col md:flex-row gap-5">
-      <div className="w-full flex-1">
+    <div className="flex w-full justify-center items-center flex-col md:flex-row gap-5 col-start-2 full-bleed max-w-[1200px]">
+      <div className="w-full md:w-1/2">
         <ColorPicker onColorSelect={setColour} />
         <Button
-          className="font-bold w-full"
+          className="font-bold"
           onClick={() => exportAsImage(ref.current)}
         >
           Export
         </Button>
       </div>
-      <div className="rounded-md overflow-hidden flex-2">
+      <div className="rounded-md overflow-hidden w-full md:w-1/2">
         <StatCard gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
-
       </div>
       <div className="w-[600px] h-[600px] absolute top-[-99999px]">
         <StatCard ref={ref} gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
