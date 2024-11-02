@@ -27,7 +27,7 @@ export const RunShare = () => {
       <div className="rounded-md overflow-hidden w-full md:w-1/2">
         <StatCard gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
       </div>
-      <div className="w-[600px] h-[600px] absolute top-[-99999px]">
+      <div className="w-[1080px] h-[1080px] absolute top-[-99999px]">
         <StatCard ref={ref} gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
       </div>
     </div>
