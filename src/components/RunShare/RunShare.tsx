@@ -5,6 +5,7 @@ import { exportAsImage } from "./utils";
 import { Button } from "../ui/button";
 import { StatCard } from "./StatCard";
 import ColorPicker, { type Colour } from "./ColourPicker";
+import { Tabs } from "../Tabs";
 
 export const RunShare = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -16,7 +17,17 @@ export const RunShare = () => {
   return (
     <div className="flex w-full justify-center items-center flex-col md:flex-row gap-5 col-start-2 full-bleed max-w-[1200px]">
       <div className="w-full md:w-1/2">
-        <ColorPicker onColorSelect={setColour} />
+        <Tabs
+          data={[
+            {
+              title: "Background",
+              value: "background",
+              content: <ColorPicker onColorSelect={setColour} />,
+            },
+          ]}
+          defaultValue="background"
+          className="pb-6 space-y-8 w-full"
+        />
         <Button
           className="font-bold"
           onClick={() => exportAsImage(ref.current)}
@@ -25,10 +36,19 @@ export const RunShare = () => {
         </Button>
       </div>
       <div className="rounded-md overflow-hidden w-full md:w-1/2">
-        <StatCard gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
+        <StatCard
+          gpx={gpx}
+          backgroundColor={colour?.className}
+          accentColor={colour?.accent}
+        />
       </div>
       <div className="w-[1080px] h-[1080px] absolute top-[-99999px]">
-        <StatCard ref={ref} gpx={gpx} backgroundColor={colour?.className} accentColor={colour?.accent} />
+        <StatCard
+          ref={ref}
+          gpx={gpx}
+          backgroundColor={colour?.className}
+          accentColor={colour?.accent}
+        />
       </div>
     </div>
   );

@@ -101,22 +101,20 @@ const ColorPicker = ({ onColorSelect }: ColorPicker) => {
   );
 
   return (
-    <div className="pb-6 space-y-8 w-full">
-      <h2 className="text-xl font-bold mb-4">Background</h2>
-      <div className="space-y-6">
-        <div>
-          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {gradients.map((gradient) => (
-              <ColorOption key={gradient.name} color={gradient} />
-            ))}
-            {solidColors.map((color) => (
-              <ColorOption key={color.name} color={color} />
-            ))}
-          </div>
-        </div>
+    <div className="space-y-6">
+    <div>
+      <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {gradients.map((gradient) => (
+          <ColorOption key={gradient.name} color={gradient} />
+        ))}
+        {solidColors.map((color) => (
+          <ColorOption key={color.name} color={color} />
+        ))}
       </div>
     </div>
-  );
+  </div>
+  )
+
 };
 
 export default ColorPicker;
