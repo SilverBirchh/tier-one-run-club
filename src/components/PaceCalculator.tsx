@@ -172,7 +172,7 @@ export const PaceCalculator = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 tight">
         <div>
           <h3>Time</h3>
           <div className="grid gap-5 grid-cols-1 sm:grid-cols-4 justify-center items-center">
