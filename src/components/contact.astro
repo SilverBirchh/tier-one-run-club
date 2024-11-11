@@ -5,9 +5,10 @@ interface Props {
   post: string;
   buttonText: string;
   containerClass?: string
+  doneText?: string
 }
 
-const { post, buttonText, containerClass } = Astro.props;
+const { post, buttonText, containerClass, doneText } = Astro.props;
 ---
 
 <form method="POST" id="form">
@@ -23,12 +24,12 @@ const { post, buttonText, containerClass } = Astro.props;
   />
   <div class={containerClass}>
     <slot />
-    <Button type="submit">{buttonText}</Button>
+    <Button className="w-fit" type="submit">{buttonText}</Button>
   </div>
   <small id="result" class="h-14 ml-3 text-xs"></small>
 </form>
 
-<script is:inline>
+<script is:inline define:vars={{ doneText: doneText }}>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
 
@@ -52,7 +53,7 @@ const { post, buttonText, containerClass } = Astro.props;
       .then(async (response) => {
         let json = await response.json();
         if (response.status == 200) {
-          result.innerHTML = json.message;
+          result.innerHTML = doneText || json.message;
         } else {
           console.log(response);
           result.innerHTML = json.message;

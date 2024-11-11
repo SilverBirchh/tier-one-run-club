@@ -18,7 +18,6 @@ export const RunShare = () => {
       <div className="w-full md:w-1/2">
         <ColorPicker onColorSelect={setColour} />
         <Button
-          className="font-bold"
           onClick={() => exportAsImage(ref.current)}
         >
           Export

@@ -57,7 +57,7 @@ export const DropZone = ({ setGpx }: DropZone) => {
           {...getRootProps()}
           className={clsx(
             isDragActive ? "border-primary" : "border-gray-500",
-            "w-full h-96 gap-2 flex justify-center flex-col items-center border-2 rounded-lg border-dashed bg-gray-100 col-start-2 full-bleed max-w-[1200px]"
+            "w-full h-96 gap-2 flex justify-center flex-col items-center border-2 rounded-lg border-dashed bg-gray-100 dark:bg-gray-800 col-start-2 full-bleed max-w-[1200px]"
           )}
         >
           <input {...getInputProps()} />

@@ -1,0 +1,64 @@
+---
+import Contact from "./contact.astro";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+
+type Props = {
+  post: string;
+  doneText?: string
+  comments?: {
+    name: string;
+    date: string;
+    comment: string;
+  }[];
+};
+
+const { post, comments = [], doneText } = Astro.props;
+const commentCount = comments.length
+---
+<div class="w-full max-w-3xl mx-auto space-y-6">
+  <div class="text-foreground shadow rounded-lg p-6">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xl font-semibold">Comments</h2>
+      <span
+        class="bg-gray-100 dark:bg-blue-500 text-gray-700 dark:text-primary px-3 py-1 rounded-full text-sm"
+      >
+        {commentCount}
+        {commentCount === 1 ? "comment" : "comments"}
+      </span>
+    </div>
+
+    <div
+      class="bg-blue-50 dark:bg-background border-l-4 border-blue-400 p-4 mb-6"
+    >
+      <p class="text-sm text-blue-700 dark:text-foreground !m-0">
+        All comments are pre-moderated and will appear once approved.
+      </p>
+    </div>
+
+    <Contact
+      post={post}
+      containerClass="flex flex-col gap-5"
+      buttonText="Submit Comment"
+      doneText={doneText}
+    >
+      <Input placeholder="Name" type="string" name="name" required />
+      <Textarea name="message" required placeholder="Comment" />
+    </Contact>
+
+    {
+      comments.map((c) => (
+        <div class="space-y-4">
+          <div class="border-b pb-4 pt-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-bold">{c.name}</span>
+              <span class="text-sm text-muted-foreground">{c.date}</span>
+            </div>
+            <p class="!m-0">{c.comment}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
