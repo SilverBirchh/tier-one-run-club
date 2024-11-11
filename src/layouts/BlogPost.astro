@@ -30,21 +30,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         box-shadow: var(--box-shadow);
       }
       .prose {
-
-        max-width: calc(100% - 2em);
         margin: auto;
         padding: 1em;
         color: hsl(var(--foreground));
+        display: grid;
+        grid-template-columns: 1fr min(60ch, calc(100% - 64px)) 1fr;
+        grid-column-gap: 32px;
 
-		display: grid;
-  grid-template-columns: 1fr min(60ch, calc(100% - 64px)) 1fr;
-  grid-column-gap: 32px;
-
+        @media (max-width: 640px) {
+          grid-template-columns: 1fr min(60ch, calc(100% - 0px)) 1fr;
+          grid-column-gap: 0px;
+        }
       }
 
-      .prose > :global(*), :global(.tight) {
+      .prose > :global(*),
+      :global(.tight) {
         grid-column: 2;
-		width: 100%;
+        width: 100%;
       }
 
       :global(.full-bleed) {
@@ -90,7 +92,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               )
             }
           </div>
-          <div class="prose !p-0 md:p-[1em] justify-items-center">
+          <div
+            class="prose !p-0 md:p-[1em] max-w-[calc(100%)] md:max-w-[calc(100%_-_2em)] justify-items-center"
+          >
             <div class="title">
               <div class="date">
                 {pubDate && <FormattedDate date={pubDate} />}
