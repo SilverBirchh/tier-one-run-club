@@ -30,7 +30,7 @@ const DISTANCES = [
 
 const customNumber = z
   .string()
-  .transform((val) => (val === "" ? undefined : parseInt(val, 10)))
+  .transform((val) => (val === "" ? undefined : parseFloat(val)))
   .pipe(z.number({ message: "Please enter a number" }).min(0).optional())
   .or(z.number({ message: "Please enter a number" }).min(0).optional())
   .optional();
