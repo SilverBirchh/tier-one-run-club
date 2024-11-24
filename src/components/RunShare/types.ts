@@ -29,3 +29,14 @@ export type TimeAndPace = {
     };
   };
 };
+export type Colour =
+  | {
+      name: string;
+      className: string;
+      accent: string;
+    }
+  | {
+      name: string;
+      style: string;
+      accent: string;
+    };

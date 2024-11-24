@@ -13,27 +13,34 @@ import { forwardRef } from "react";
 import type { ParsedGPX } from "@we-gold/gpxjs";
 import { StatBox } from "./StatBox";
 import { RouteVisualization } from "./RouteVisualization";
-
+import type { Colour } from "./types";
 type StatCard = {
   gpx: ParsedGPX;
-  backgroundColor?: string;
-  accentColor?: string;
+  colour?: Colour;
 };
 
-const BACKGROUND_COLOR = "bg-gradient-to-br from-blue-600 to-blue-800";
-const ACCENT_COLOR = "text-blue-200";
+const DEFAULT_COLOUR: Colour = {
+  name: "Default Blue",
+  className: "bg-gradient-to-br from-blue-600 to-blue-800",
+  accent: "text-blue-200",
+};
 
 export const StatCard = forwardRef<HTMLDivElement, StatCard>(
-  (
-    { gpx, backgroundColor = BACKGROUND_COLOR, accentColor = ACCENT_COLOR },
-    ref
-  ) => {
+  ({ gpx, colour = DEFAULT_COLOUR }, ref) => {
     const stats = getActivityStats(gpx);
     const date = gpx.metadata.time ? new Date(gpx.metadata.time) : new Date();
+
+    const backgroundStyle = 'style' in colour ? { background: colour.style } : undefined;
+    const backgroundClass = 'className' in colour ? colour.className : '';
+
+    const trophyStyle = 'style' in colour ? { color: colour.accent } : undefined;
+    const trophyClass = 'className' in colour ? colour.accent : '';
+
     return (
       <div
         ref={ref}
-        className={`max-w-[600px] max-h-[600px] ${backgroundColor} p-8 flex flex-col`}
+        className={`max-w-[600px] rounded-md  max-h-[600px] p-8 flex flex-col ${backgroundClass}`}
+        style={backgroundStyle}
       >
         <div className="flex items-start justify-between mb-8">
           <div>
@@ -54,40 +61,44 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
               {gpx.metadata.description || "Running Route"}
             </div>
           </div>
-          <Trophy className="w-12 h-12 text-yellow-300" />
+          <Trophy 
+            className={`w-12 h-12 ${trophyClass}`}
+            style={trophyStyle}
+          />
         </div>
         <RouteVisualization gpx={gpx} />
         <div className="grid grid-cols-2 gap-4 mb-6">
           <StatBox
             icon={Navigation}
             label="DISTANCE"
-            accentColor={accentColor}
+            accentColor={colour}
             value={`${stats.distance.km.toFixed(2)} km`}
           />
           <StatBox
             icon={Timer}
             label="MOVING TIME"
-            accentColor={accentColor}
-            value={`${stats.moving.hours ? `${stats.moving.hours}h ` : ""}${stats.moving.minutes}m`}
+            accentColor={colour}
+            value={`${stats.moving.hours ? `${stats.moving.hours}h ` : ""}${
+              stats.moving.minutes
+            }m`}
           />
         </div>
-
         <div className="grid grid-cols-3 gap-4">
           <StatBox
             icon={Wind}
             label="AVG PACE"
             value={formatPace(stats.movingPace.perKm)}
-            accentColor={accentColor}
+            accentColor={colour}
           />
           <StatBox
             icon={TrendingUp}
             label="ELEVATION GAIN"
             value={`${gpx.tracks[0].elevation.positive?.toFixed(0) || 0}m`}
-            accentColor={accentColor}
+            accentColor={colour}
           />
           <StatBox
             icon={Flame}
-            accentColor={accentColor}
+            accentColor={colour}
             label="CALORIES"
             value={stats.calories.toString() || "---"}
           />
@@ -96,3 +107,5 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
     );
   }
 );
+
+StatCard.displayName = "StatCard";
