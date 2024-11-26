@@ -1,4 +1,4 @@
-export type PaceUnit = 'km' | 'mile';
+export type PaceUnit = "km" | "mile";
 export type TimeAndPace = {
   distance: {
     km: number;
@@ -40,3 +40,9 @@ export type Colour =
       style: string;
       accent: string;
     };
+
+export type TextData = {
+  title: string
+  description?: string
+  date?: string
+}

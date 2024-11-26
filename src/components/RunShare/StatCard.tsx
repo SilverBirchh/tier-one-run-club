@@ -13,10 +13,11 @@ import { forwardRef } from "react";
 import type { ParsedGPX } from "@we-gold/gpxjs";
 import { StatBox } from "./StatBox";
 import { RouteVisualization } from "./RouteVisualization";
-import type { Colour } from "./types";
+import type { Colour, TextData } from "./types";
 type StatCard = {
   gpx: ParsedGPX;
   colour?: Colour;
+  text: TextData;
 };
 
 const DEFAULT_COLOUR: Colour = {
@@ -26,15 +27,16 @@ const DEFAULT_COLOUR: Colour = {
 };
 
 export const StatCard = forwardRef<HTMLDivElement, StatCard>(
-  ({ gpx, colour = DEFAULT_COLOUR }, ref) => {
+  ({ gpx, colour = DEFAULT_COLOUR, text }, ref) => {
     const stats = getActivityStats(gpx);
-    const date = gpx.metadata.time ? new Date(gpx.metadata.time) : new Date();
 
-    const backgroundStyle = 'style' in colour ? { background: colour.style } : undefined;
-    const backgroundClass = 'className' in colour ? colour.className : '';
+    const backgroundStyle =
+      "style" in colour ? { background: colour.style } : undefined;
+    const backgroundClass = "className" in colour ? colour.className : "";
 
-    const trophyStyle = 'style' in colour ? { color: colour.accent } : undefined;
-    const trophyClass = 'className' in colour ? colour.accent : '';
+    const trophyStyle =
+      "style" in colour ? { color: colour.accent } : undefined;
+    const trophyClass = "className" in colour ? colour.accent : "";
 
     return (
       <div
@@ -44,27 +46,25 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
       >
         <div className="flex items-start justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-white mb-2">
-              {gpx.metadata.name || "Morning Run"}
-            </h1>
-            <div className="flex items-center text-white/70 text-sm mb-1">
-              <Calendar className="w-4 h-4 mr-2" />
-              {date.toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </div>
-            <div className="flex items-center text-white/70 text-sm">
-              <MapPin className="w-4 h-4 mr-2" />
-              {gpx.metadata.description || "Running Route"}
-            </div>
+            {text.title && (
+              <h1 className="text-2xl font-bold text-white mb-2">
+                {text.title}
+              </h1>
+            )}
+            {text.date && (
+              <div className="flex items-center text-white/70 text-sm mb-1">
+                <Calendar className="w-4 h-4 mr-2" />
+                {text.date}
+              </div>
+            )}
+            {text.description && (
+              <div className="flex items-center text-white/70 text-sm">
+                <MapPin className="w-4 h-4 mr-2" />
+                {text.description}
+              </div>
+            )}
           </div>
-          <Trophy 
-            className={`w-12 h-12 ${trophyClass}`}
-            style={trophyStyle}
-          />
+          <Trophy className={`w-12 h-12 ${trophyClass}`} style={trophyStyle} />
         </div>
         <RouteVisualization gpx={gpx} />
         <div className="grid grid-cols-2 gap-4 mb-6">
