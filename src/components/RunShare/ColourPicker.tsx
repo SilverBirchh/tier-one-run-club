@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Check, Infinity, Palette } from "lucide-react";
-import { generateRandomGradient, generateSolidColorPair } from "./generateCOlours";
+import { generateRandomGradient, generateSolidColorPair } from "./generateColours";
 import type { Colour } from "./types";
 import { useColours } from "./ColourContext";
 

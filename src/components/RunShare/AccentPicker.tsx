@@ -1,7 +1,7 @@
 import { Check, Palette } from "lucide-react";
 import { useState } from "react";
 import type { Colour } from "./types";
-import { HSLToHex } from "./generateCOlours";
+import { HSLToHex } from "./generateColours";
 
 type AccentOption = {
   name: string;
