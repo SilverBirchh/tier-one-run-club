@@ -14,6 +14,10 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => (b.data.pubDate || 0).valueOf() - (a.data.pubDate || 0).valueOf()
 );
 
+const images = await Promise.all(posts.map(async p => {
+  return await getImage({ src: p.data.heroImage, height: 574, width: 1020  })
+}))
+
 const optimizedBackground = await getImage({ src: home, format: "webp" });
 ---
 
@@ -66,10 +70,11 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
         >
           {
             posts.map((post, index) => (
-              <li>
+              <li class="preload">
                 <a href={`/blog/${post.slug}/`}>
                   <div class="h-min overflow-hidden rounded-md mb-5">
                     <Image
+                      data-hero={images[index].src}
                       loading={index < 5 ? "eager" : "lazy"}
                       class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
                       src={post.data.heroImage}
@@ -96,6 +101,15 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       </section>
     </main>
     <Footer />
+    <script>
+      const images = document.querySelectorAll<HTMLImageElement>('.preload image')
+      images.forEach(i => {
+        i.addEventListener('mouseenter', () => {
+          const img = new Image();
+          if (i.dataset.hero) img.src = i.dataset.hero;
+        })
+      })
+    </script>
     <style>
       main {
         width: min(2000px, 100%);
@@ -119,7 +133,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
       }
       .title {
         margin: 0;
-        
+
         line-height: 1;
       }
       .date {

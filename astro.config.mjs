@@ -15,6 +15,7 @@ import playformInline from "@playform/inline";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tieronerun.club",
+  prefetch: true,
   integrations: [
     mdx(),
     sitemap(),
@@ -26,5 +27,6 @@ export default defineConfig({
       experimentalReactChildren: true,
     }),
     playformInline({ Critters: true }),
+    
   ],
 });
