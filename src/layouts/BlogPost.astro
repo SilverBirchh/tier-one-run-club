@@ -7,7 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import Comments from "@/components/Comments.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { slug?: string };
 
 const {
   title,
@@ -15,6 +15,7 @@ const {
   pubDate,
   updatedDate,
   heroImage,
+  slug,
   includeComments = true,
   comments,
 } = Astro.props;
@@ -97,6 +98,7 @@ const {
                   height={574}
                   src={heroImage}
                   alt=""
+                  transition:name={`hero-${slug}`}
                 />
               )
             }

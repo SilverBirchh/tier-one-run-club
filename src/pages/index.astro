@@ -78,6 +78,7 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
                       quality={80}
                       srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
                       sizes="(max-width: 768px) 600px, 1200px"
+                      transition:name={`hero-${post.slug}`}
                     />
                   </div>
 
