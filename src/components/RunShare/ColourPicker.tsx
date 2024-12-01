@@ -11,8 +11,8 @@ type ColourPicker = {
 
 export const defaultColour = {
   name: "Electric Blue",
-  className: "bg-blue-500",
-  accent: "text-yellow-300",
+  style: "#3b82f6",
+  accent: "#0a59da",
 };
 
 const CreateColorButton = ({
