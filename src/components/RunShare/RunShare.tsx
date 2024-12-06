@@ -63,6 +63,16 @@ export const RunShare = () => {
               //   content: <></>,
               // },
               // {
+              //   title: "Layout",
+              //   value: "layout",
+              //   content: <></>,
+              // },
+              // {
+              //   title: "Data",
+              //   value: "data",
+              //   content: <></>,
+              // },
+              // {
               //   title: "Photo",
               //   value: "photo",
               //   content: <></>,
