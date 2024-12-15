@@ -1,0 +1,75 @@
+---
+title: "Boston 2025"
+description: "In 2025 I will be doing the Boston Marathon, this is the plan that I will be following"
+pubDate: "December 15, 2024"
+heroImage: "./boston.webp"
+---
+
+2025 is going to be an exciting year! I'm going to be two marathons. This first is the Boston Marathon! This is the plan I will be using. It is a modified Pfitzinger 18/70 (miles) plan. Check it out!
+
+**Goal**: 2:25:00 (3:27/km pace)
+
+## Training Paces
+**Recovery**: 4:30-4:45/km  
+**General Aerobic (GA)**: 4:00-4:15/km  
+**Medium-Long Runs (MLR)**: 3:45-4:00/km  
+**Marathon Pace (MP)**: 3:27/km  
+**Lactate Threshold**: 3:20-3:25/km  
+**VO₂max**: 3:12/km  
+**Long Runs**: Start at 4:00-4:15/km, progress to 3:45-4:00/km    
+**Strides**: 2:45-3:00/km  
+
+## Strength Training Sessions
+
+**S1 (Monday) - Lower Body Focus**  
+Dynamic warm-up (5 mins)  
+Circuit (20 mins, 40 sec work/20 sec transition):  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Bulgarian split squats  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Single-leg deadlifts  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Walking lunges  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Calf raises  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Bridges  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Planks  
+Cool down/stretch (5 mins)  
+
+**S2 (Thursday) - Core/Upper Body Focus**  
+Dynamic warm-up (5 mins)  
+Circuit (20 mins, 40 sec work/20 sec transition):  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Push-ups  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Dumbbell curls  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Boat to low boat  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Side planks  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Mountain climbers  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Russian Twists  
+Cool down/stretch (5 mins)  
+
+## Weekly Schedule
+
+| Week | Monday AM | Monday PM | Tuesday | Wednesday | Thursday AM | Thursday PM | Friday | Saturday | Sunday | Total KM |
+|------|-----------|-----------|----------|------------|-------------|-------------|---------|-----------|---------|-----------|
+| 1 | Recovery 9km + S1 | - | LT 12km w/ 6.4km @ 15K-HM | MLR 16km | Recovery 10km + S2 | - | Rest | GA 13km | Long 27km | 87 |
+| 2 | Recovery 9.7km + S1 | - | GA+speed 12.9km w/ 10x100m | MLR 20.9km | Recovery 9.7km + S2 | - | Rest | MLR 17.7km | MP 27.4km w/ 12.9km @ MP | 98.3 |
+| 3 | Recovery 9.7km + S1 | - | LT 16.1km w/ 8km @ 15K-HM | MLR 22.5km | Recovery 9.7km + S2 | - | Rest | MLR 19.3km | MLR 25.7km | 103 |
+| 4 | Recovery 9.7km + S1 | - | GA+speed 16.1km w/ 10x100m | MLR 22.5km | Recovery 9.7km + S2 | - | Rest | MLR 19.3km | Long 32.2km | 109.5 |
+| 5 | Recovery 9.7km + S1 | 6.4km | LT 16.1km w/ 6.4km @ 15K-HM | MLR 24.1km | Recovery 9.7km + S2 | - | Rest | MLR 20.9km | MP 29km w/ 16.1km @ MP | 115.9 |
+| 6 | Recovery 11.3km + S1 | - | GA+speed 16.1km w/ 10x100m | MLR 20.9km | Recovery 9.7km + S2 | - | Rest | GA 16.1km | Long 25.7km | 99.8 |
+| 7 | Recovery 9.7km + S1 | 6.4km | LT 17.7km w/ 8km @ 15K-HM | MLR 24.1km | MLR 20.9km + S2 | - | Rest | GA+speed 12.9km w/ 10x100m | Long 32.2km | 123.9 |
+| 8 | Recovery 9.7km + S1 | 6.4km | GA 14.5km | MLR 24.1km | Recovery 9.7km + S2 | 6.4km | Rest | Recovery 11.3km | Long 35.4km | 120.7 |
+| 9 | Recovery 9.7km + S1 | 6.4km | GA 14.5km | MLR 24.1km | Recovery 9.7km + S2 | 6.4km | Rest | Recovery+speed 11.3km w/ 6x100m | MP 29km w/ 19.3km @ MP | 115.9 |
+| 10 | Recovery 9.7km + S1 | 6.4km | MLR 17.7km + Recovery 6.4km | VO₂max 14.5km w/ 6x800m @ 5K | GA 14.5km + S2 | - | Rest | GA+speed 12.9km w/ 10x100m | Long 25.7km | 107.8 |
+| 11 | Recovery 9.7km + S1 | 6.4km | LT 19.3km w/ 11.3km @ 15K-HM | MLR 24.1km | Recovery 9.7km + S2 | 6.4km | Rest | GA 12.9km | Long 38.6km | 127.1 |
+| 12 | Recovery 9.7km + S1 | 6.4km | VO₂max 14.5km w/ 5x600m @ 5K | MLR 24.1km | Recovery+speed 11.3km w/ 6x100m + S2 | - | Rest | Race 15km | Long 29km | 110 |
+| 13 | Recovery 9.7km + S1 | 6.4km | VO₂max 19.3km w/ 6x1000m @ 5K | MLR 24.1km | Recovery 9.7km + S2 | 6.4km | Rest | MLR 19.3km | MP 32.2km w/ 22.5km @ MP | 127.1 |
+| 14 | Recovery 9.7km + S1 | 6.4km | VO₂max 14.5km w/ 5x600m @ 5K | MLR 22.5km | Recovery+speed 11.3km w/ 6x100m + S2 | - | Rest | Race 15km | Long 29km | 108.4 |
+| 15 | Recovery 9.7km + S1 | 6.4km | GA 12.9km | VO₂max 19.3km w/ 6x1200m @ 5K | MLR 24.1km + S2 | 6.4km | Rest | GA+speed 12.9km w/ 8x100m | Long 35.4km | 127.1 |
+| 16 | Recovery 9.7km + S1 | - | VO₂max 14.5km w/ 5x600m @ 5K | MLR 22.5km | Recovery+speed 11.3km w/ 6x100m + S2 | - | Rest | Race 10km | Long 27.4km | 95.4 |
+| 17 | Recovery 9.7km + S1 | - | GA+speed 12.9km w/ 8x100m | Recovery 9.7km | VO₂max 14.5km w/ 3x1600m @ 5K + S2 | - | Rest | GA+speed 11.3km w/ 8x100m | MLR 20.9km | 79 |
+| 18 | Recovery 9.7km + S1 | - | GA 11.3km | Dress rehearsal 12.9km w/ 3.2km @ MP | Recovery 9.7km + S2 | - | Rest | Recovery 6.4km | MARATHON | 50 |
+
+
+## Key Notes  
+&bull;&nbsp;All strength sessions should be done post-run  
+&bull;&nbsp;During race weeks, reduce circuit timing to 30/30 sec work/rest  
+&bull;&nbsp;Skip strength sessions during the final taper week (Week 18)  
+&bull;&nbsp;Friday is always a complete rest day  
+&bull;&nbsp;Include hills early on
