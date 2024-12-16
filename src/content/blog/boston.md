@@ -11,12 +11,11 @@ heroImage: "./boston.webp"
 
 ## Training Paces
 **Recovery**: 4:30-4:45/km  
-**General Aerobic (GA)**: 4:00-4:15/km  
-**Medium-Long Runs (MLR)**: 3:45-4:00/km  
+**General Aerobic & MLR**: 4:00-4:20/km 
 **Marathon Pace (MP)**: 3:27/km  
-**Lactate Threshold (MP)**: 3:20-3:25/km  
-**VO₂max**: 3:12/km  
-**Long Runs**: Start at 4:00-4:15/km, progress to 3:45-4:00/km    
+**Lactate Threshold (MP)**: 3:15-3:20/km  
+**VO₂max**: 3:05-3:12/km  
+**Long Runs**: Start at 4:15-4:30/km, progress to 4:00-4:15/km    
 **Strides**: 2:45-3:00/km  
 
 ## Strength Training Sessions
