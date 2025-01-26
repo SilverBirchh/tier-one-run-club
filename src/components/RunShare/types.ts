@@ -46,3 +46,14 @@ export type TextData = {
   description?: string
   date?: string
 }
+
+export interface Sticker {
+  id: string;
+  icon: React.ReactNode;
+  position: {
+    x: number;
+    y: number;
+  };
+  rotation: number;
+  scale: number;
+}

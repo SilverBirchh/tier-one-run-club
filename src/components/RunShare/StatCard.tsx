@@ -1,5 +1,5 @@
 import {
-  MapPin,
+  MessageCircle,
   Calendar,
   Trophy,
   Navigation,
@@ -14,10 +14,12 @@ import type { ParsedGPX } from "@we-gold/gpxjs";
 import { StatBox } from "./StatBox";
 import { RouteVisualization } from "./RouteVisualization";
 import type { Colour, TextData } from "./types";
+import { stickers } from "./StickerPicker";
 type StatCard = {
   gpx: ParsedGPX;
   colour?: Colour;
   text: TextData;
+  sticker?: string;
 };
 
 const DEFAULT_COLOUR: Colour = {
@@ -27,16 +29,18 @@ const DEFAULT_COLOUR: Colour = {
 };
 
 export const StatCard = forwardRef<HTMLDivElement, StatCard>(
-  ({ gpx, colour = DEFAULT_COLOUR, text }, ref) => {
+  ({ gpx, colour = DEFAULT_COLOUR, text, sticker }, ref) => {
     const stats = getActivityStats(gpx);
 
     const backgroundStyle =
       "style" in colour ? { background: colour.style } : undefined;
     const backgroundClass = "className" in colour ? colour.className : "";
 
-    const trophyStyle =
+    const stickerStyle =
       "style" in colour ? { color: colour.accent } : undefined;
-    const trophyClass = "className" in colour ? colour.accent : "";
+    const stickerClass = "className" in colour ? colour.accent : "";
+
+    const Sticker = stickers.find((s) => s.id === sticker)?.icon;
 
     return (
       <div
@@ -59,12 +63,17 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
             )}
             {text.description && (
               <div className="flex items-center text-white/70 text-sm">
-                <MapPin className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-4 h-4 mr-2" />
                 {text.description}
               </div>
             )}
           </div>
-          <Trophy className={`w-12 h-12 ${trophyClass}`} style={trophyStyle} />
+          {Sticker && (
+            <Sticker
+              className={`w-12 h-12 ${stickerClass}`}
+              style={stickerStyle}
+            />
+          )}
         </div>
         <RouteVisualization gpx={gpx} />
         <div className="grid grid-cols-2 gap-4 mb-6">

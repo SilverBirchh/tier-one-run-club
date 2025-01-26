@@ -5,16 +5,18 @@ import { exportAsImage } from "./utils";
 import { Button } from "../ui/button";
 import { StatCard } from "./StatCard";
 import { defaultColour, ColourPicker } from "./ColourPicker";
-import type { Colour, TextData } from "./types";
+import type { Colour, Sticker, TextData } from "./types";
 import { Tabs } from "../Tabs";
 import { ColourProvider } from "./ColourContext";
 import { AccentPicker } from "./AccentPicker";
 import { defaultText, Info } from "./Info";
+import { StickerPicker } from "./StickerPicker";
 
 export const RunShare = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [gpx, setGpx] = useState<ParsedGPX | null>(null);
   const [selectedColour, setColour] = useState<Colour>(defaultColour);
+  const [selectedStickerId, setSelectedStickerId] = useState<string | undefined>("trophy");
   const [text, setText] = useState<TextData>(defaultText);
 
   const handleAccentChange = (newAccent: string) => {
@@ -57,11 +59,16 @@ export const RunShare = () => {
                   />
                 ),
               },
-              // {
-              //   title: "Stickers",
-              //   value: "stickers",
-              //   content: <></>,
-              // },
+              {
+                title: "Stickers",
+                value: "stickers",
+                content: (
+                  <StickerPicker
+                    selectedStickerId={selectedStickerId}
+                    onStickerSelect={setSelectedStickerId}
+                  />
+                ),
+              },
               // {
               //   title: "Layout",
               //   value: "layout",
@@ -82,9 +89,9 @@ export const RunShare = () => {
             className="space-y-8 w-full"
           />
         </div>
-        <div className="w-full md:w-1/2 h-full flex items-center justify-center flex-col">
+        <div className="w-full md:w-1/2 h-full flex items-center justify-start flex-col">
           <div>
-            <StatCard gpx={gpx} colour={selectedColour} text={text} />
+            <StatCard gpx={gpx} colour={selectedColour} text={text} sticker={selectedStickerId} />
             <div className="col-start-2 full-bleed mt-5 text-left">
               <Button
                 className="w-fit"
@@ -97,7 +104,7 @@ export const RunShare = () => {
         </div>
         {/* Hidden card for export */}
         <div className="w-[1080px] h-[1080px] fixed top-[-99999px]">
-          <StatCard ref={ref} gpx={gpx} colour={selectedColour} text={text} />
+          <StatCard ref={ref} gpx={gpx} colour={selectedColour} text={text} sticker={selectedStickerId} />
         </div>
       </div>
     </ColourProvider>
