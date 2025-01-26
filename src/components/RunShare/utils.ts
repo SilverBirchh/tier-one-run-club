@@ -239,7 +239,7 @@ export const formatTime = ({
 export const exportAsImage = async (elem?: HTMLElement | null) => {
   if (elem) {
     // Dynamically import html2canvas only on client side
-    const html2canvas = (await import('html2canvas')).default;
+    const html2canvas = (await import('html2canvas-pro')).default;
     
     if (elem) {
       const canvas = await html2canvas(elem);
