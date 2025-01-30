@@ -20,6 +20,7 @@ type StatCard = {
   colour?: Colour;
   text: TextData;
   sticker?: string;
+  layout: string;
 };
 
 const DEFAULT_COLOUR: Colour = {
@@ -29,7 +30,7 @@ const DEFAULT_COLOUR: Colour = {
 };
 
 export const StatCard = forwardRef<HTMLDivElement, StatCard>(
-  ({ gpx, colour = DEFAULT_COLOUR, text, sticker }, ref) => {
+  ({ gpx, colour = DEFAULT_COLOUR, text, sticker, layout }, ref) => {
     const stats = getActivityStats(gpx);
 
     const backgroundStyle =
@@ -45,7 +46,7 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
     return (
       <div
         ref={ref}
-        className={`max-w-[600px] rounded-md  max-h-[600px] p-8 flex flex-col ${backgroundClass}`}
+        className={`max-w-[600px] w-full rounded-md  max-h-[600px] p-8 flex flex-col ${backgroundClass}`}
         style={backgroundStyle}
       >
         <div className="flex items-start justify-between mb-8">
@@ -76,45 +77,76 @@ export const StatCard = forwardRef<HTMLDivElement, StatCard>(
           )}
         </div>
         <RouteVisualization gpx={gpx} />
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <StatBox
-            icon={Navigation}
-            label="DISTANCE"
-            accentColor={colour}
-            value={`${stats.distance.km.toFixed(2)} km`}
-          />
-          <StatBox
-            icon={Timer}
-            label="MOVING TIME"
-            accentColor={colour}
-            value={`${stats.moving.hours ? `${stats.moving.hours}h ` : ""}${
-              stats.moving.minutes
-            }m`}
-          />
-        </div>
-        <div className="grid grid-cols-3 gap-4">
-          <StatBox
-            icon={Wind}
-            label="AVG PACE"
-            value={formatPace(stats.movingPace.perKm)}
-            accentColor={colour}
-          />
-          <StatBox
-            icon={TrendingUp}
-            label="ELEVATION GAIN"
-            value={`${gpx.tracks[0].elevation.positive?.toFixed(0) || 0}m`}
-            accentColor={colour}
-          />
-          <StatBox
-            icon={Flame}
-            accentColor={colour}
-            label="CALORIES"
-            value={stats.calories.toString() || "---"}
-          />
-        </div>
+        {layout === "data-focused" ? (
+          <DataLayout colour={colour} stats={stats} gpx={gpx} />
+        ) : (
+          <Instructions instructions={text.instructions} />
+        )}
       </div>
     );
   }
 );
 
 StatCard.displayName = "StatCard";
+
+const Instructions = ({ instructions }: { instructions?: string }) => {
+  return (
+    <div className="w-full text-center">
+      <div className="flex flex-col items-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
+        <div className="text-xs text-white/70 mb-1">INSTRUCTIONS</div>
+        <div className="text-lg font-bold text-white whitespace-pre-wrap">
+          {instructions}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DataLayout = ({
+  colour,
+  stats,
+  gpx,
+}: {
+  colour?: Colour;
+  gpx: ParsedGPX;
+  stats: ReturnType<typeof getActivityStats>;
+}) => {
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <StatBox
+          icon={Navigation}
+          label="DISTANCE"
+          accentColor={colour}
+          value={`${stats.distance.km.toFixed(2)} km`}
+        />
+        <StatBox
+          icon={Timer}
+          label="MOVING TIME"
+          accentColor={colour}
+          value={`${stats.moving.hours ? `${stats.moving.hours}h ` : ""}${stats.moving.minutes}m`}
+        />
+      </div>
+      <div className="grid grid-cols-3 gap-4">
+        <StatBox
+          icon={Wind}
+          label="AVG PACE"
+          value={formatPace(stats.movingPace.perKm)}
+          accentColor={colour}
+        />
+        <StatBox
+          icon={TrendingUp}
+          label="ELEVATION GAIN"
+          value={`${gpx.tracks[0].elevation.positive?.toFixed(0) || 0}m`}
+          accentColor={colour}
+        />
+        <StatBox
+          icon={Flame}
+          accentColor={colour}
+          label="CALORIES"
+          value={stats.calories.toString() || "---"}
+        />
+      </div>
+    </>
+  );
+};

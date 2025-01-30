@@ -45,6 +45,7 @@ export type TextData = {
   title: string
   description?: string
   date?: string
+  instructions?: string
 }
 
 export interface Sticker {

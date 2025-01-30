@@ -23,9 +23,10 @@ export type TextProps = {
   setText: React.Dispatch<React.SetStateAction<TextData>>;
   text: TextData;
   gpx: ParsedGPX;
+  layout: string
 };
 
-export const Info = ({ setText, text, gpx }: TextProps) => {
+export const Info = ({ setText, text, gpx, layout }: TextProps) => {
   useLayoutEffect(() => {
     const date = gpx.metadata.time ? new Date(gpx.metadata.time) : new Date();
 
@@ -79,6 +80,17 @@ export const Info = ({ setText, text, gpx }: TextProps) => {
           onChange={(e) => handleChange("description", e.target.value)}
         />
       </div>
+
+      {layout === "instruction-focused" && <div className="space-y-2">
+        <Label htmlFor="description">Instructions</Label>
+        <Textarea
+          id="description"
+          placeholder="Enter instructions..."
+          className="min-h-[100px]"
+          value={text.instructions}
+          onChange={(e) => handleChange("instructions", e.target.value)}
+        />
+      </div>}
     </div>
   );
 };

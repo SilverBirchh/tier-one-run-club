@@ -11,14 +11,17 @@ import { ColourProvider } from "./ColourContext";
 import { AccentPicker } from "./AccentPicker";
 import { defaultText, Info } from "./Info";
 import { StickerPicker } from "./StickerPicker";
+import { LayoutPicker } from "./LayoutPicker";
 
 export const RunShare = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [gpx, setGpx] = useState<ParsedGPX | null>(null);
   const [selectedColour, setColour] = useState<Colour>(defaultColour);
-  const [selectedStickerId, setSelectedStickerId] = useState<string | undefined>("trophy");
+  const [selectedStickerId, setSelectedStickerId] = useState<
+    string | undefined
+  >("trophy");
   const [text, setText] = useState<TextData>(defaultText);
-
+  const [selectedLayout, setSelectedLayout] = useState<string>('data-focused');
   const handleAccentChange = (newAccent: string) => {
     setColour((prev) => ({
       ...prev,
@@ -35,9 +38,19 @@ export const RunShare = () => {
           <Tabs
             data={[
               {
+                title: "Layout",
+                value: "layout",
+                content: (
+                  <LayoutPicker
+                    selectedLayoutId={selectedLayout}
+                    onLayoutSelect={setSelectedLayout}
+                  />
+                ),
+              },
+              {
                 title: "Text",
                 value: "text",
-                content: <Info text={text} setText={setText} gpx={gpx} />,
+                content: <Info text={text} setText={setText} gpx={gpx} layout={selectedLayout} />,
               },
               {
                 title: "Background",
@@ -70,11 +83,6 @@ export const RunShare = () => {
                 ),
               },
               // {
-              //   title: "Layout",
-              //   value: "layout",
-              //   content: <></>,
-              // },
-              // {
               //   title: "Data",
               //   value: "data",
               //   content: <></>,
@@ -85,13 +93,19 @@ export const RunShare = () => {
               //   content: <></>,
               // },
             ]}
-            defaultValue="text"
+            defaultValue="layout"
             className="space-y-8 w-full"
           />
         </div>
         <div className="w-full md:w-1/2 h-full flex items-center justify-start flex-col">
-          <div>
-            <StatCard gpx={gpx} colour={selectedColour} text={text} sticker={selectedStickerId} />
+          <div className="sticky top-28 w-full flex items-center flex-col">
+            <StatCard
+              gpx={gpx}
+              colour={selectedColour}
+              text={text}
+              sticker={selectedStickerId}
+              layout={selectedLayout}
+            />
             <div className="col-start-2 full-bleed mt-5 text-left">
               <Button
                 className="w-fit"
@@ -104,7 +118,14 @@ export const RunShare = () => {
         </div>
         {/* Hidden card for export */}
         <div className="w-[1080px] h-[1080px] fixed top-[-99999px]">
-          <StatCard ref={ref} gpx={gpx} colour={selectedColour} text={text} sticker={selectedStickerId} />
+          <StatCard
+            ref={ref}
+            gpx={gpx}
+            colour={selectedColour}
+            text={text}
+            layout={selectedLayout}
+            sticker={selectedStickerId}
+          />
         </div>
       </div>
     </ColourProvider>

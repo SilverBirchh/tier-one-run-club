@@ -74,13 +74,8 @@ export const StickerPicker = ({
   selectedStickerId,
   onStickerSelect,
 }: StickerPickerProps) => {
-  const handleStickerSelect = (stickerId: string) => {
-    onStickerSelect(stickerId === selectedStickerId ? undefined : stickerId);
-  };
-
   return (
     <div className="w-full space-y-4">
-      <h3 className="text-sm font-medium">Choose a sticker</h3>
       <div className="grid grid-cols-4 gap-3">
         {stickers.map((sticker) => (
           <div key={sticker.id} className="relative">
