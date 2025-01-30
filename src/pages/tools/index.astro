@@ -87,7 +87,7 @@ const posts = await getCollection("tools");
           <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
             {posts.map((post, index) => (
               <li>
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/tools/${post.slug}/`}>
                   <div class="h-min overflow-hidden rounded-md mb-5">
                     <Image
                       loading={index < 5 ? "eager" : "lazy"}
