@@ -1,7 +1,6 @@
 import {
   MessageCircle,
   Calendar,
-  Trophy,
   Navigation,
   Timer,
   TrendingUp,

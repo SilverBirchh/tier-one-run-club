@@ -1,6 +1,5 @@
-import React from 'react';
 import { Button } from '@/components/ui/button';
-import { LayoutGrid, FileText, X } from 'lucide-react';
+import { LayoutGrid, FileText } from 'lucide-react';
 
 const layouts = [
   {

@@ -3,6 +3,7 @@ title: "Short and Sweet"
 description: "This workout is a total blast, first doing a set of 400m followed by some 200m reps!"
 pubDate: "October 31, 2024"
 heroImage: "./short.webp"
+tags: ['workout']
 ---
 
 This is a great speed session to really get your legs turning over and get your body used to going fast and giving that little extra. It's an ideal session to work on race pace, speed development and pushing hard when it gets tough.

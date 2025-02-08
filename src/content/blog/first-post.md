@@ -3,6 +3,7 @@ title: 'My First Track Session'
 description: 'Today I run my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!'
 pubDate: 'July 12 2024'
 heroImage: './first-session.jpg'
+tags: ['workout']
 ---
 
 Today I ran my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!

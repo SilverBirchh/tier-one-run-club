@@ -3,6 +3,7 @@ title: "1km Repeats"
 description: "This week's workout was the classic 1km reps workout. This is a great workout to gauge fitness and ability to smash your 5km goal time."
 pubDate: "January 30, 2025"
 heroImage: "./circle.webp"
+tags: ['workout']
 ---
 
 The track is a great place to really put your fitness to the test. If you have a time goal in mind for any race distance, a well-designed interval session can illuminate how close you are to the goal.

@@ -5,7 +5,7 @@ import { exportAsImage } from "./utils";
 import { Button } from "../ui/button";
 import { StatCard } from "./StatCard";
 import { defaultColour, ColourPicker } from "./ColourPicker";
-import type { Colour, Sticker, TextData } from "./types";
+import type { Colour, TextData } from "./types";
 import { Tabs } from "../Tabs";
 import { ColourProvider } from "./ColourContext";
 import { AccentPicker } from "./AccentPicker";

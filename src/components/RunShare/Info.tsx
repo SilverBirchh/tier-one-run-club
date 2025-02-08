@@ -1,12 +1,4 @@
 import { Label } from "@radix-ui/react-label";
-import { Button } from "../ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "../ui/card";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import type { TextData } from "./types";

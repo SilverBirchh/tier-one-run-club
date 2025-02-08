@@ -3,6 +3,7 @@ title: "600m Sandwich"
 description: "Want to try out something different on the track? Try this set of 600m, a tempo run and a final set of 600m!"
 pubDate: "November 30, 2024"
 heroImage: "./600m-sandwich.webp"
+tags: ['workout']
 ---
 
 This week at the club, our main goal was to let runners experiment with a faster pace group than usual. We designed a session with multiple transition points, allowing runners to drop back to their regular group if the pace proved too challenging. We chose a sandwich-style workout that had two clear opportunities to adjust groups.

@@ -76,7 +76,7 @@ export const useColours = () => {
 };
 
 export const ColourProvider = ({ children }: { children: ReactNode }) => {
-  const [colours, setColours] = useState<Colour[]>(DEFAULT_COLOURS);
+  const [colours] = useState<Colour[]>(DEFAULT_COLOURS);
 
   return (
     <ColourContext.Provider value={useMemo(() => ({ colours }), [colours])}>

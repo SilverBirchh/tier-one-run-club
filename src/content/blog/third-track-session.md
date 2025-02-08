@@ -3,6 +3,7 @@ title: 'An Intense Track Session'
 description: 'For my third track session ever tje group was running 400m chunks. This is an intense session that gives you just enough recovery in between each chunk to get get going again.' 
 pubDate: 'August 02 2024'
 heroImage: './session-three.webp'
+tags: ['workout']
 ---
 
 For my third track session ever the group was running 400m chunks. This is an intense session that gives you just enough recovery in between each chunk to get get going again. The session is as follows:

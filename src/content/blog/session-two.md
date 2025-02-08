@@ -1,8 +1,9 @@
 ---
 title: 'Getting in to the Grove'
-description: 'Today I run my first session on the track! This also marks the first real step on my journey to become a running coach. I was quite nervous before the session going over my intro many many times. But in the end I had nothing to worry about!'
+description: 'For my second track session I took a session from The Running Channel. It is a session that Olympian Andy Baddley used to do when he was training. It’s a session that quickly builds up lactic acid in the legs and forces the athlete to be mentally strong.'
 pubDate: 'July 24 2024'
 heroImage: './session-two.jpg'
+tags: ['workout']
 ---
 
 For my second track session I took a session from The Running Channel. It is a session that Olympian Andy Baddley used to do when he was training. It's a session that quickly builds up lactic acid in the legs and forces the athlete to be mentally strong. The session is 1km @ your 5km pace. Then 90 seconds (200m) rest. Then a hard 400m @ mile pace. Then 400m jog recovery.

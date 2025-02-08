@@ -5,100 +5,93 @@ import { SITE_TITLE } from "../consts";
 import { Sheet } from "./Sheet";
 import { Image } from "astro:assets";
 
-type Props = {
-  transparent?: boolean;
-};
-
-const { transparent } = Astro.props;
-
 import logo from "../images/logo.png";
 import { Theme } from "./Theme";
 ---
 
-<header class:list={[transparent ? "bg-transparent" : "bg-white"]}>
-  <nav>
-    <h2 class="uppercase font-[900]">
-      <a
-        href="/"
-        class="flex items-center gap-2 text-lg md:text-2xl !text-black dark:!text-white"
-      >
-        <Image
-          loading={"eager"}
-          class="h-auto w-[70px]"
-          src={logo}
-          format="webp"
-          alt=""
-          quality={80}
-          widths={[390]}
-          sizes="390px"
-        />
-        {SITE_TITLE}
-      </a>
-    </h2>
-    <div>
-      <Sheet client:idle>
-        <Icon
-          slot="trigger"
-          name="radix-icons:hamburger-menu"
-          class="font-bold text-foreground"
-        />
-        <div
-          slot="description"
-          class="flex flex-col gap-5 font-bold text-foreground text-lg mt-5 w-full justify-center items-center"
-        >
-          <HeaderLink
-            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
-            activeClass="!border-[hsl(var(--accent))]"
-            href="/">Home</HeaderLink
+<header>
+  <div
+    class="flex flex-col gap-4 py-4 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto"
+  >
+    <div
+      class="text-[hsl(var(--accent))] w-full flex justify-center items-center"
+    >
+      <div class="flex justify-between items-center w-full mx-5">
+        <h2 class="uppercase font-[900]">
+          <a
+            href="/"
+            class="flex items-center gap-2 text-lg md:text-2xl !text-black dark:!text-white"
           >
-          <HeaderLink
-            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
-            activeClass="!border-[hsl(var(--accent))]"
-            href="/blog">Blog</HeaderLink
-          >
-          <HeaderLink
-            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
-            activeClass="!border-[hsl(var(--accent))]"
-            href="/tools">Tools</HeaderLink
-          >
-          <HeaderLink
-            class="text-foreground border-b-4 border-transparent !no-underline transition-all"
-            activeClass="!border-[hsl(var(--accent))]"
-            href="/about">About</HeaderLink
-          >
-          <Theme client:idle />
-        </div>
-      </Sheet>
-    </div>
-  </nav>
-</header>
-<style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-  }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
+            <Image
+              loading={"eager"}
+              class="h-auto w-[70px]"
+              src={logo}
+              format="webp"
+              alt=""
+              quality={80}
+              widths={[390]}
+              sizes="390px"
+            />
+            {SITE_TITLE}
+          </a>
+        </h2>
 
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: hsl(var(--accent));
-  }
-</style>
+        <div class="block sm:hidden">
+          <Sheet client:idle>
+            <Icon
+              slot="trigger"
+              name="radix-icons:hamburger-menu"
+              class="font-bold text-foreground"
+            />
+            <div
+              slot="description"
+              class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
+            >
+              <HeaderLink
+                class="border-b-4 border-transparent !no-underline transition-all"
+                href="/">Home</HeaderLink
+              >
+              <HeaderLink
+                class="border-b-4 border-transparent !no-underline transition-all"
+                href="/blog">Blog</HeaderLink
+              >
+              <HeaderLink
+                class="border-b-4 border-transparent !no-underline transition-all"
+                href="/tools">Tools</HeaderLink
+              >
+              <HeaderLink
+                class="border-b-4 border-transparent !no-underline transition-all"
+                href="/about">About</HeaderLink
+              >
+              <Theme client:idle />
+            </div>
+          </Sheet>
+        </div>
+        <div class="font-medium text-foreground gap-10 hidden sm:flex">
+          <div class="flex flex-col gap-1">
+            <HeaderLink href="/" class="m-0 leading-[1] text-sm"
+              >HOME</HeaderLink
+            >
+            <HeaderLink href="/blog" class="m-0 leading-[1] text-sm"
+              >BLOG</HeaderLink
+            >
+            <HeaderLink href="/workouts" class="m-0 leading-[1] text-sm"
+              >WORKOUTS</HeaderLink
+            >
+          </div>
+          <div class="flex flex-col gap-1">
+            <HeaderLink href="/tools" class="m-0 leading-[1] text-sm"
+              >TOOLS</HeaderLink
+            >
+            <HeaderLink href="/about" class="m-0 leading-[1] text-sm"
+              >ABOUT</HeaderLink
+            >
+            <HeaderLink href="/contact" class="m-0 leading-[1] text-sm"
+              >CONTACT</HeaderLink
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -3,6 +3,7 @@ title: "Alternating Sprints"
 description: "An exhilarating workout combining pure speed and endurance to make a competitive track session."
 pubDate: "January 18, 2025"
 heroImage: "./sprints.webp"
+tags: ['workout']
 ---
 
 One thing that I've yet to do in these track sessions is change up the the pace during a rep. I don't think I've ever done it myself either in the 10 years I've been running. So for the first session of 2025 I thought we might give it a go!

@@ -3,6 +3,7 @@ title: "800m Repeats"
 description: "A classic intervals session that is easy to remember and anyone can give it a go, 800m repeats."
 pubDate: "December 6, 2024"
 heroImage: "./800.webp"
+tags: ['workout']
 ---
 
 We tackled a true classic at the club this week - 800m repeats! It's easy to remember, accessible for runners of all levels, and delivers an incredible workout. Whether you're new to intervals or a seasoned champ, 800m repeats will help build both speed and endurance.

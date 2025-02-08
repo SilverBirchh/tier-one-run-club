@@ -3,6 +3,7 @@ title: 'Twin Peaks'
 description: 'Challenge your pacing skills and mental toughness with this fast-paced, varied "Twin Peaks" running session. Featuring 9 reps of short, medium, and long distances with brief recoveries, this workout will test your ability to maintain consistent efforts and push through fatigue. Get ready to blast those final reps and conquer the peaks!'
 pubDate: 'October 25 2024'
 heroImage: './twinpeaks.webp'
+tags: ['workout']
 ---
 
 I try to keep my sessions as simple as possible! But sometimes you have to go a little bit out there to find an exciting session. That's exactly what I did with this "Twin Peaks" session. It consists of 9 reps of fast bursts with a 200m recovery between each, following an "SMLMSMLMS" pattern - i.e., short-medium-long-medium-short-medium-long-medium-short. The shorter reps are run slightly quicker than the longer reps, and the 200m recoveries are taken a bit slower after the long reps than after the shorts.

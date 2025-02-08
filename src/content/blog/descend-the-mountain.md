@@ -3,6 +3,7 @@ title: "Descend the Mountain"
 description: "With the weather getting colder and the track getting icy, try out this high-volume running session - Descend the Mountain"
 pubDate: "November 24, 2024"
 heroImage: "./descend-the-mountain.webp"
+tags: ['workout']
 ---
 
 Winter training can be tough, particularly when the track gets icy and temperatures drop. This is where the "Descend the Mountain" session is the best! Unlike traditional sprint workouts where cold muscles could lead to injury, this session's structure provides a natural, progressive warm-up that keeps you safe and performing at your best.

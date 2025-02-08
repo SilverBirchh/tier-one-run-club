@@ -6,7 +6,6 @@ import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/900.css";
-import { ViewTransitions } from 'astro:transitions';
 import home from "../images/home.jpg";
 import { getImage } from "astro:assets";
 
@@ -84,6 +83,7 @@ const { title, description, image = "/logo-bg.png" } = Astro.props;
 
     function appyHeaderStylesOnScroll() {
       const header = document.querySelector("#header header");
+      if (!header) return;
       if (
         lastKnownScrollPosition > 30 &&
         !header.classList.contains("scroll")
@@ -139,5 +139,3 @@ const { title, description, image = "/logo-bg.png" } = Astro.props;
     animation-duration: 0.5s;
   }
 </style>
-
-<ViewTransitions fallback="none" />

@@ -3,6 +3,7 @@ title: 'Floats'
 description: 'Today at the track we ran a float session. Here we break down what floats are and why they are important'
 pubDate: 'October 17 2024'
 heroImage: './float.webp'
+tags: ['workout']
 ---
 
 This week at the track, we tried a slightly experimental session: running two different distances with floats in between, instead of the classic jog recoveries. In this session, the floats were only about 30 seconds slower than the fast reps, making for a demanding workout that required a lot of focus to get the pacing right. If you went too fast at any point, you’d burn out quickly.

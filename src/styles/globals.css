@@ -25,7 +25,6 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -36,7 +35,7 @@ body {
 main {
   width: 720px;
   max-width: calc(100% - 2em);
-  margin: auto;
+  /* margin: auto; */
   padding: 3em 1em;
 }
 h1,
@@ -46,7 +45,7 @@ h4,
 h5,
 h6 {
   margin: 0 0 0.5rem 0;
-  color: rgb(var(--text-foreground));
+  color: hsl(var(--foreground));
   line-height: 1.2;
 }
 h1 {
@@ -96,7 +95,6 @@ table {
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
 }
 code {
   padding: 2px 5px;
@@ -177,8 +175,8 @@ hr {
   }
 
   .dark {
-    --background: 211 58% 16%;
-    --foreground: 0 0% 98%;
+    --background: 240, 10%, 4%;
+    --foreground: 0, 0%, 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;

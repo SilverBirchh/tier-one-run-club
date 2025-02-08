@@ -1,24 +1,22 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import home from "../images/home.jpg";
+import dog from "../images/dog.svg";
+import barca from "../images/torc.webp";
+import timer from "../images/timer.webp";
+import friends from "../images/friends.webp";
 import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
-import { getImage } from "astro:assets";
+import { Sheet } from "@/components/Sheet";
+import HeaderLink from "@/components/HeaderLink.astro";
+import { Theme } from "@/components/Theme";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => (b.data.pubDate || 0).valueOf() - (a.data.pubDate || 0).valueOf()
 );
-
-const images = await Promise.all(posts.map(async p => {
-  return await getImage({ src: p.data.heroImage, height: 574, width: 1020  })
-}))
-
-const optimizedBackground = await getImage({ src: home, format: "webp" });
 ---
 
 <!doctype html>
@@ -26,134 +24,255 @@ const optimizedBackground = await getImage({ src: home, format: "webp" });
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-background">
-    <div
-      class="h-[90vh] bg-cover bg-no-repeat relative bg-background"
-      style={`background-image: url(${optimizedBackground.src}); background-position: bottom;`}
+  <body class="bg-background min-h-screen flex flex-col">
+    <header
+      class="flex flex-col gap-4 py-4 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto"
     >
-      <div class="z-20 fixed top-0 left-0 right-0 transition-all" id="header">
-        <Header transparent />
-      </div>
-      <span
-        class="absolute text-center inset-0 flex flex-col text-[hsl(var(--accent))] gap-0 font-extrabold justify-center items-center z-10"
+      <div
+        class="text-[hsl(var(--accent))] w-full flex justify-center items-center"
       >
-        <p
-          class="m-0 !leading-[0.8] uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
-        >
-          Lace Up.
-        </p>
-        <p
-          class="m-0 !leading-[0.8] uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
-        >
-          Run Happy.
-        </p>
-        <p
-          class="m-0 !leading-[0.8] uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl"
-        >
-          Crush Goals.
-        </p>
-        <a href="/blog" class="!text-white">
-          <p class="text-white text-md flex font-medium m-0 items-center group">
-            Explore the blog <Icon
-              class="hover:text-red-500 group-hover:translate-x-2 transition-transform"
-              name="radix-icons:arrow-right"
-            />
-          </p>
-        </a>
+        <div class="flex justify-between items-center w-full mx-5">
+          <div>
+            <p class="m-0 uppercase font-extrabold !leading-[1]">Lace Up.</p>
+            <p class="m-0 uppercase font-extrabold !leading-[1]">Run Happy.</p>
+            <p class="m-0 uppercase font-extrabold !leading-[1]">
+              Crush Goals.
+            </p>
+          </div>
+
+          <div class="block sm:hidden">
+            <Sheet client:idle>
+              <Icon
+                slot="trigger"
+                name="radix-icons:hamburger-menu"
+                class="font-bold text-foreground"
+              />
+              <div
+                slot="description"
+                class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
+              >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/">Home</HeaderLink
+                >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/blog">Blog</HeaderLink
+                >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/tools">Tools</HeaderLink
+                >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/about">About</HeaderLink
+                >
+                <Theme client:idle />
+              </div>
+            </Sheet>
+          </div>
+          <div class="font-medium text-foreground gap-10 hidden sm:flex">
+            <div class="flex flex-col gap-1">
+              <HeaderLink href="/" class="m-0 leading-[1] text-sm"
+                >HOME</HeaderLink
+              >
+              <HeaderLink href="/blog" class="m-0 leading-[1] text-sm"
+                >BLOG</HeaderLink
+              >
+              <HeaderLink href="/workouts" class="m-0 leading-[1] text-sm"
+                >WORKOUTS</HeaderLink
+              >
+            </div>
+            <div class="flex flex-col gap-1">
+              <HeaderLink href="/tools" class="m-0 leading-[1] text-sm"
+                >TOOLS</HeaderLink
+              >
+              <HeaderLink href="/about" class="m-0 leading-[1] text-sm"
+                >ABOUT</HeaderLink
+              >
+              <HeaderLink href="/contact" class="m-0 leading-[1] text-sm"
+                >CONTACT</HeaderLink
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <h1
+      class="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-center mx-2"
+    >
+      <span>TIER</span>
+      <span class="relative">
+        ONE
+        <Image
+          src={dog}
+          loading={"eager"}
+          alt=""
+          class="absolute hidden sm:block top-[-40px] md:top-[-55px] lg:top-[-45px] right-[25px] md:right-[85px] lg:right-0 w-[75px] md:w-[100px]"
+        />
       </span>
-    </div>
-
-    <main>
-      <section>
-        <ul
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+      <span>RUN</span>
+      <span>CLUB</span>
+    </h1>
+    <main
+      class="flex-1 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto py-6 px-4"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+        <a
+          href="/about"
+          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
         >
-          {
-            posts.map((post, index) => (
-              <li class="preload">
-                <a href={`/blog/${post.slug}/`}>
-                  <div class="h-min overflow-hidden rounded-md mb-5">
-                    <Image
-                      data-hero={images[index].src}
-                      loading={index < 5 ? "eager" : "lazy"}
-                      class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
-                      src={post.data.heroImage}
-                      alt=""
-                      format="webp"
-                      quality={80}
-                      srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
-                      sizes="(max-width: 768px) 600px, 1200px"
-                      transition:name={`hero-${post.slug}`}
-                    />
-                  </div>
+          <Image
+            src={barca}
+            alt=""
+            format="webp"
+            loading={"eager"}
+            quality={80}
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
+          />
+          <div
+            class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
+          >
+            <div class="p-4 sm:p-6">
+              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
+                Learn about Tier One Run Club
+              </h3>
+            </div>
+          </div>
+        </a>
+        <a
+          href="/tools/pace-calculator"
+          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
+        >
+          <Image
+            src={timer}
+            alt=""
+            format="webp"
+            loading={"eager"}
+            quality={80}
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
+          />
+          <div
+            class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
+          >
+            <div class="p-4 sm:p-6">
+              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
+                Pace<br />Calculator
+              </h3>
+            </div>
+          </div>
+        </a>
+        <a
+          href="/tools/runshare/"
+          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
+        >
+          <Image
+            src={friends}
+            alt=""
+            format="webp"
+            loading={"eager"}
+            quality={80}
+            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
+          />
+          <div
+            class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
+          >
+            <div class="p-4 sm:p-6">
+              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
+                Social<br />Card Builder
+              </h3>
+            </div>
+          </div>
+        </a>
+        <article
+          class="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 relative"
+        >
+          <div class="rounded-[10px] bg-card p-4 sm:p-6 h-full">
+            <p
+              class="uppercase text-sm text-[hsl(var(--accent))] font-bold text-center"
+            >
+              POPULAR ARTICLES
+            </p>
+            <a
+              class="text-center text-foreground transition-colors hover:cursor-pointer"
+              href="/blog/boston"
+            >
+              <p class="text-xl font-bold mb-2">
+                Boston Marathon Training Plan
+              </p>
+              <p class="text-gray-600 text-sm">Dec 15, 2024</p>
+            </a>
 
-                  <p class="title text-foreground">{post.data.title}</p>
-                  <p class="date">
-                    {post.data.pubDate && (
+            <a
+              class="text-center text-foreground transition-colors hover:cursor-pointer"
+              href="/blog/temporary"
+            >
+              <p class="text-xl font-bold mb-2">Temporary</p>
+              <p class="text-gray-600 text-sm">Oct 14, 2024</p>
+            </a>
+
+            <a
+              class="text-center text-foreground transition-colors hover:cursor-pointer"
+              href="/blog/barca-race-review"
+            >
+              <p class="text-xl font-bold mb-2">Barcelona Marathon</p>
+              <p class="text-gray-600 text-sm">Sep 25, 2024</p>
+            </a>
+          </div>
+        </article>
+      </div>
+      <div class="h-px bg-gray-200 my-10"></div>
+      <p class="uppercase text-sm text-[hsl(var(--accent))] font-bold">
+        THE BLOG
+      </p>
+      <ul
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+      >
+        {
+          posts.map((post, index) => (
+            <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
+              <a href={`/blog/${post.slug}/`}>
+                <div class="overflow-hidden">
+                  <Image
+                    src={post.data.heroImage}
+                    alt=""
+                    width={1200}
+                    height={224}
+                    class="h-56 w-full object-cover group-hover:scale-125 transition-all duration-500"
+                    srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
+                    sizes="(max-width: 768px) 600px, 1200px"
+                    format="webp"
+                    quality={80}
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                </div>
+                <div class="bg-card p-4 sm:p-6">
+                  {post.data.pubDate && (
+                    <time
+                      datetime={post.data.pubDate.toString()}
+                      class="block text-xs text-gray-500"
+                    >
                       <FormattedDate date={post.data.pubDate} />
-                    )}
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+                    </time>
+                  )}
+
+                  <h3 class="mt-0.5 text-lg text-foreground">
+                    {post.data.title}
+                  </h3>
+
+                  {post.data.description && (
+                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-secondary-foreground">
+                      {post.data.description}
+                    </p>
+                  )}
+                </div>
+              </a>
+            </article>
+          ))
+        }
+      </ul>
     </main>
+
     <Footer />
-    <script>
-      const images = document.querySelectorAll<HTMLImageElement>('.preload image')
-      images.forEach(i => {
-        i.addEventListener('mouseenter', () => {
-          const img = new Image();
-          if (i.dataset.hero) img.src = i.dataset.hero;
-        })
-      })
-    </script>
-    <style>
-      main {
-        width: min(2000px, 100%);
-      }
-      ul {
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-        justify-content: space-around;
-      }
-      ul li {
-        width: 100%;
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-      }
-      ul li a:hover p.title,
-      ul li a:hover .date {
-        color: hsl(var(--accent));
-      }
-
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
   </body>
 </html>

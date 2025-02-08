@@ -3,6 +3,7 @@ title: "Up & Down Long Reps"
 description: "A challenging session combining longer reps to build endurance and speed"
 pubDate: "November 10, 2024"
 heroImage: "./600800.webp"
+tags: ['workout']
 ---
 
 Recently at the running club, we've been focusing on shorter distances, so this week we stepped it up and tackled some longer intervals. To keep it interesting, we varied the hard rep distances. This is a great session to build the strength you need for racing. The workout incorporates shorter recoveries after the first hard rep to maintain intensity, with longer recoveries between sets to ensure quality remains high throughout.

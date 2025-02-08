@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-const today = new Date();
+import { Theme } from "./Theme";
 ---
 
 <footer class="flex items-center justify-center flex-col">
@@ -10,30 +9,33 @@ const today = new Date();
     Discover the joy of running, connect with others, and embark on your own
     journey of growth and discovery.
   </p>
-  <div class="flex gap-5">
-  <a
-    class="text-white cursor-pointer"
-    href="https://www.instagram.com/tieronerunclub/"
-  >
-    <Icon class="text-white" name="radix-icons:instagram-logo" />
-  </a>
-  <a
-    class="text-white cursor-pointer"
-    href="https://www.strava.com/athletes/20848105"
-  >
-    <svg
-      fill="#fff"
-      width="20px"
-      height="20px"
-      viewBox="0 0 24 24"
-      role="img"
-      xmlns="http://www.w3.org/2000/svg"
-      ><title>Strava icon</title><path
-        d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"
-      ></path></svg
+  <div class="flex gap-5 justify-center items-center">
+    <a
+      class="text-white cursor-pointer"
+      href="https://www.instagram.com/tieronerunclub/"
+      aria-label="Visit Tier One Run Club on Instagram"
     >
-  </a>
-</div>
+      <Icon class="text-white" name="radix-icons:instagram-logo" />
+    </a>
+    <a
+      class="text-white cursor-pointer"
+      href="https://www.strava.com/athletes/20848105"
+      aria-label="Visit Tier One Run Club on Strava"
+    >
+      <svg
+        fill="#fff"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        ><title>Strava icon</title><path
+          d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"
+        ></path></svg
+      >
+    </a>
+    <Theme client:visible />
+  </div>
 </footer>
 <style>
   footer {

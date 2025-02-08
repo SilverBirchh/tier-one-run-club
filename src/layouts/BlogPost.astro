@@ -7,134 +7,93 @@ import FormattedDate from "../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import Comments from "@/components/Comments.astro";
 
-type Props = CollectionEntry<"blog">["data"] & { slug?: string };
+type Props = CollectionEntry<"blog">["data"] & {
+  slug?: string;
+  imageCenter?: boolean;
+};
 
 const {
   title,
   description,
   pubDate,
-  updatedDate,
   heroImage,
   slug,
   includeComments = true,
   comments,
+  imageCenter = true,
 } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
     <style>
-      main {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        margin: auto;
-        padding: 1em;
-        color: hsl(var(--foreground));
-        display: grid;
-        grid-template-columns: 1fr min(60ch, calc(100% - 64px)) 1fr;
-        grid-column-gap: 32px;
-
-        @media (max-width: 640px) {
-          grid-template-columns: 1fr min(60ch, calc(100% - 0px)) 1fr;
-          grid-column-gap: 0px;
-        }
-      }
-
-      .prose > :global(*),
-      :global(.tight) {
-        grid-column: 2;
-        width: 100%;
-      }
-
+      /* Add these styles to your CSS */
       :global(.full-bleed) {
-        width: 100%;
-        grid-column: 1 / 4;
+        width: 100vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        position: relative;
       }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
+
+      :global(.full-bleed) > * {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1000px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
+
+      @media (min-width: 1024px) {
+        :global(.full-bleed) > * {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
       }
     </style>
   </head>
-
-  <body class="bg-background">
-    <div class="relative bg-background" id="header">
+  <body class="bg-background min-h-screen flex flex-col">
+    <div class="relative bg-background min-h-screen flex flex-col" id="header">
       <div class="z-20 sticky top-0 transition-all" id="header">
         <Header transparent />
       </div>
-      <main class="!pt-0 bg-background">
-        <article>
-          <div class="hero-image">
-            {
-              heroImage && (
-                <Image
-                  loading={"eager"}
-                  width={1020}
-                  height={574}
-                  src={heroImage}
-                  alt=""
-                  transition:name={`hero-${slug}`}
-                />
-              )
-            }
-          </div>
-          <div
-            class="prose !p-0 md:p-[1em] max-w-[calc(100%)] md:max-w-[calc(100%_-_2em)] justify-items-center"
-          >
-            <div class="title">
-              <div class="date">
-                {pubDate && <FormattedDate date={pubDate} />}
-                {
-                  updatedDate && (
-                    <div class="last-updated-on">
-                      Last updated on <FormattedDate date={updatedDate} />
-                    </div>
-                  )
-                }
-              </div>
-              <h1 class="text-foreground">{title}</h1>
-              <hr />
-            </div>
-            <slot />
-          
-          </div>
-          </article>
-          {
-            includeComments && (
-              <hr class="mb-10 max-w-[60ch] m-auto" />
-              <Comments
-              post={title}
-              comments={comments}
-              doneText="Comment sent!"
-              />
-            )
-          }
-      </main>
+      <div class="relative h-96">
+        <Image
+          loading={"eager"}
+          src={heroImage}
+          alt=""
+          transition:name={`hero-${slug}`}
+          class={`w-full h-full object-cover ${imageCenter ? "object-center" : "object-bottom"}`}
+        />
+      </div>
+
+      <div
+        class="flex-1 max-w-4xl mx-auto bg-background py-12 px-12 lg:px-24 -mt-32 relative z-10"
+      >
+        <h2 class="mt-4 uppercase tracking-widest text-xs text-accent">
+          {pubDate && <FormattedDate date={pubDate} />}
+        </h2>
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-left uppercase"
+        >
+          {title}
+        </h1>
+        <div class="prose prose-sm sm:prose lg:prose-lg mt-6">
+          <slot />
+        </div>
+        {
+          includeComments && (
+            <hr class="mb-10 max-w-[60ch] m-auto" />
+            <Comments
+            post={title}
+            comments={comments}
+            doneText="Comment sent!"
+            />
+          )
+        }
+      </div>
+
       <Footer />
     </div>
   </body>

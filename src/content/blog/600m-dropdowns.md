@@ -3,6 +3,7 @@ title: "600m Dropdowns"
 description: "600m Dropdowns is a track running workout where the reps get progressively shorter and the pace gets faster with equal 200m recovery after each rep."
 pubDate: "January 25, 2025"
 heroImage: "./600m-dropdowns.webp"
+tags: ['workout']
 ---
 
 This week's workout was "600m dropdowns." This session consists of sets of 600m, 400m, and 200m intervals, all with 200m recoveries after each rep, repeated 3-6 times depending on your fitness level. You should start at 5km pace and get progressively quicker for the 400m and 200m.

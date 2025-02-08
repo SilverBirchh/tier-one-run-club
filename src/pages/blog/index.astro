@@ -16,123 +16,71 @@ const posts = (await getCollection("blog")).sort(
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: min(2000px, 100%);
-      }
-      ul {
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: 100%;
-        max-width: 960px;
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      ul.hero li:first-child {
-        justify-content: center;
-        margin: auto;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      ul.hero li:first-child img {
-        width: 100%;
-      }
-      ul.hero li:first-child .title {
-        font-size: 2.369rem;
-      }
-      ul li a {
-        display: block;
-      }
-      .title {
-        margin: 0;
-        line-height: 1;
-      }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
-      }
-      ul li a:hover h4,
-      ul li a:hover .date {
-        color: hsl(var(--accent));
-      }
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-        ul li:first-child {
-          width: 100%;
-          margin-bottom: 0;
-        }
-        ul li:first-child .title {
-          font-size: 1.563em;
-        }
-      }
-    </style>
   </head>
-  <body class="bg-background">
+  <body class="bg-background min-h-screen flex flex-col">
     <div class="relative bg-background" id="header">
       <div class="z-20 sticky top-0 transition-all" id="header">
         <Header transparent />
       </div>
-    <main class="!pt-0 bg-background">
-      <section>
-        <ul class="hero">
-          {
-            posts.slice(0, 1).map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <div class="h-min overflow-hidden rounded-md mb-5">
-                    <Image
-                      loading={"eager"}
-                      class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
-                      src={post.data.heroImage}
-                      alt=""
-                    />
-                  </div>
-                  <h4 class="title text-foreground">{post.data.title}</h4>
-                  <p class="date">
-                    {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+      <h1
+        class="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-center mx-2"
+      >
+        <span>THE</span>
+        <span> BLOG </span>
+      </h1>
+      <main
+        class="flex-1 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto py-6 px-4"
+      >
+        <section>
+          <ul
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+          >
+            {
+              posts.map((post, index) => (
+              <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
+              <a href={`/blog/${post.slug}/`}>
+                <div class="overflow-hidden">
+                  <Image
+                    src={post.data.heroImage}
+                    alt=""
+                    width={1200}
+                    height={224}
+                    class="h-56 w-full object-cover group-hover:scale-125 transition-all duration-500"
+                    srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
+                    sizes="(max-width: 768px) 600px, 1200px"
+                    format="webp"
+                    quality={80}
+                    loading={index < 5 ? "eager" : "lazy"}
+                  />
+                </div>
+                <div class="bg-card p-4 sm:p-6">
+                  {post.data.pubDate && (
+                    <time
+                      datetime={post.data.pubDate.toString()}
+                      class="block text-xs text-gray-500"
+                    >
+                      <FormattedDate date={post.data.pubDate} />
+                    </time>
+                  )}
 
-          {
-            posts.slice(1, posts.length).map((post, index) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <div class="h-min overflow-hidden rounded-md mb-5">
-                    <Image
-                      loading={index < 5 ? "eager" : "lazy"}
-                      class="aspect-video rounded-md hover:scale-125 transition-all duration-500 cursor-pointer"
-                      src={post.data.heroImage}
-                      alt=""
-                    />
-                  </div>
-                  <h4 class="title text-foreground">{post.data.title}</h4>
-                  <p class="date">
-                    {post.data.pubDate && <FormattedDate date={post.data.pubDate} />}
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
+                  <h3 class="mt-0.5 text-lg text-foreground">
+                    {post.data.title}
+                  </h3>
+
+                  {post.data.description && (
+                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-secondary-foreground">
+                      {post.data.description}
+                    </p>
+                  )}
+                </div>
+              </a>
+            </article>
+              ))
+            }
+          </ul>
+        </section>
+      </main>
+      <Footer />
     </div>
   </body>
 </html>

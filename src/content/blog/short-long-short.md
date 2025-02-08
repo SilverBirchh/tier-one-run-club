@@ -3,6 +3,7 @@ title: "Short Long Short(er)"
 description: "A super fun speed session to play around with a few different paces makes this interval workout a blast."
 pubDate: "December 21, 2024"
 heroImage: "./shortlongshort.webp"
+tags: ['workout']
 ---
 For the final interval session of 2024 at the club, we did a super fun session where we were running at multiple different paces. It was a short/long/shorter session targeting 400m, 800m, and finally 200m distances. I love the chance to really test out how fast my legs can go, so this was a great session for me.
 

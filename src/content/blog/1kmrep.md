@@ -3,6 +3,7 @@ title: "Twisted 1km Reps"
 description: "This weeks workout was a unique twist on the classic 1km reps workout. By varying the recovery distances, I aimed to keep things challenging and fun while helping runners push their limits."
 pubDate: "October 12, 2024"
 heroImage: "./1km.webp"
+tags: ['workout']
 ---
 
 1km reps around a track can be a bit monotonous—it's a lot of laps going in circles! It's not like 400m reps, where you're running at a much faster pace, making the shorter distances more enjoyable. So, I decided to put a twist on the 1km rep workout to make it a bit more engaging.

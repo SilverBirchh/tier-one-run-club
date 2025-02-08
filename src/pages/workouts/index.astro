@@ -7,11 +7,10 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { Image } from "astro:assets";
 
-const posts = (await getCollection("tools")).sort(
+const posts = (await getCollection("blog")).filter(b => b.data.tags?.includes('workout')).sort(
   (a, b) => (b.data.pubDate || 0).valueOf() - (a.data.pubDate || 0).valueOf()
 );
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,8 +24,9 @@ const posts = (await getCollection("tools")).sort(
       <h1
         class="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-center mx-2"
       >
-        <span>USEFUL</span>
-        <span>TOOLS</span>
+        <span>JUST</span>
+        <span>THE</span>
+        <span>WORKOUTS</span>
       </h1>
       <main
         class="flex-1 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto py-10 px-4"
@@ -38,7 +38,7 @@ const posts = (await getCollection("tools")).sort(
             {
               posts.map((post, index) => (
               <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
-              <a href={`/tools/${post.slug}/`}>
+              <a href={`/workouts/${post.slug}/`}>
                 <div class="overflow-hidden">
                   <Image
                     src={post.data.heroImage}
