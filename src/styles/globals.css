@@ -52,13 +52,13 @@ h1 {
   font-size: 3.052em;
 }
 h2 {
-  font-size: 2.441em;
+  font-size: 2em;
 }
 h3 {
-  font-size: 1.953em;
+  font-size: 1.7em;
 }
 h4, p.title {
-  font-size: 1.563em;
+  font-size: 1.4em;
 }
 h5 {
   font-size: 1.25em;
@@ -212,16 +212,32 @@ hr {
 }
 
 
-table {
-  overflow-x: auto;
-  display: block;
-  border-collapse: collapse;
-  background: var(--background);
-  margin: 1.5rem 0;
-  width: 100% !important;
-  grid-column: 1 / 4 !important;
+.table-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
 }
 
+.table-scroll {
+  max-width: 1000px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .table-scroll {
+    padding: 0 2rem;
+  }
+}
 th {
   background: var(--background);
   padding: 12px 16px;

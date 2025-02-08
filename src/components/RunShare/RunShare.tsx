@@ -33,7 +33,8 @@ export const RunShare = () => {
 
   return (
     <ColourProvider>
-      <div className="flex-col md:flex-row gap-5 max-w-[1200px] h-full col-start-2 full-bleed relative flex w-full justify-center items-center">
+      <div className="flex-col items-start md:flex-row gap-5 max-w-[1200px] h-full col-start-2 full-bleed px-5 flex w-full justify-center relative">
+  
         <div className="w-full md:w-1/2 h-full">
           <Tabs
             data={[
