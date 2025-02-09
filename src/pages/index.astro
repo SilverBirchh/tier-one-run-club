@@ -61,7 +61,15 @@ const posts = (await getCollection("blog")).sort(
                 >
                 <HeaderLink
                   class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/workouts">Workouts</HeaderLink
+                >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
                   href="/tools">Tools</HeaderLink
+                >
+                <HeaderLink
+                  class="border-b-4 border-transparent !no-underline transition-all"
+                  href="/contact">Contact</HeaderLink
                 >
                 <HeaderLink
                   class="border-b-4 border-transparent !no-underline transition-all"
@@ -117,6 +125,57 @@ const posts = (await getCollection("blog")).sort(
     <main
       class="flex-1 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto py-6 px-4"
     >
+      <p class="uppercase text-sm text-[hsl(var(--accent))] font-bold">
+        LATEST ARTICLES
+      </p>
+      <ul
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+      >
+        {
+          posts.slice(0, 3).map((post, index) => (
+            <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
+              <a href={`/blog/${post.slug}/`}>
+                <div class="overflow-hidden">
+                  <Image
+                    src={post.data.heroImage}
+                    alt=""
+                    width={1200}
+                    height={224}
+                    class="h-56 w-full object-cover group-hover:scale-125 transition-all duration-500"
+                    srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
+                    sizes="(max-width: 768px) 600px, 1200px"
+                    format="webp"
+                    quality={80}
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                </div>
+                <div class="bg-card p-4 sm:p-6">
+                  {post.data.pubDate && (
+                    <time
+                      datetime={post.data.pubDate.toString()}
+                      class="block text-xs text-gray-500"
+                    >
+                      <FormattedDate date={post.data.pubDate} />
+                    </time>
+                  )}
+
+                  <h3 class="mt-0.5 text-lg text-foreground">
+                    {post.data.title}
+                  </h3>
+
+                  {post.data.description && (
+                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-secondary-foreground">
+                      {post.data.description}
+                    </p>
+                  )}
+                </div>
+              </a>
+            </article>
+          ))
+        }
+      </ul>
+      <div class="h-px bg-gray-200 my-10"></div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
         <a
           href="/about"
@@ -229,7 +288,7 @@ const posts = (await getCollection("blog")).sort(
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
       >
         {
-          posts.map((post, index) => (
+          posts.slice(3).map((post, index) => (
             <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
               <a href={`/blog/${post.slug}/`}>
                 <div class="overflow-hidden">
