@@ -107,7 +107,7 @@ export const RunShare = () => {
               sticker={selectedStickerId}
               layout={selectedLayout}
             />
-            <div className="col-start-2 full-bleed mt-5 text-left">
+            <div className="mt-5 self-start">
               <Button
                 className="w-fit"
                 onClick={() => exportAsImage(ref.current)}

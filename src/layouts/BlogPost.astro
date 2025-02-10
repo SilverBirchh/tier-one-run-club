@@ -30,26 +30,27 @@ const {
     <BaseHead title={title} description={description} />
     <style>
       :global(.full-bleed) {
-        width: 100vw;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        position: relative;
-      }
+  width: calc(100vw - 3rem);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
 
-      :global(.full-bleed) > *{
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1000px;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
+:global(.full-bleed) > * {
+  margin-left: auto;
+  margin-right: auto;
+  width: min(100% - 3rem, 1500px);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 
-      @media (min-width: 1024px) {
-        :global(.full-bleed) > * {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
-      }
+@media (min-width: 1024px) {
+  :global(.full-bleed) > * {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: min(100% - 4rem, 1500px); /* Updated padding calculation */
+  }
+}
     </style>
   </head>
   <body class="bg-background min-h-screen flex flex-col">
@@ -68,7 +69,7 @@ const {
       </div>
 
       <div
-        class="flex-1 max-w-4xl mx-auto bg-background py-12 px-12 lg:px-24 -mt-32 relative z-10"
+        class="flex-1 max-w-4xl mx-auto bg-background py-12 px-6 lg:px-24 -mt-32 relative z-10"
       >
         <h2 class="mt-4 uppercase tracking-widest text-xs text-accent">
           {pubDate && <FormattedDate date={pubDate} />}
