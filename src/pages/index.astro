@@ -132,10 +132,10 @@ const posts = (await getCollection("blog")).sort(
         LATEST ARTICLES
       </p>
       <ul
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
       >
         {
-          posts.slice(0, 3).map((post, index) => (
+          posts.slice(0, 4).map((post, index) => (
             <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
               <a href={`/blog/${post.slug}/`}>
                 <div class="overflow-hidden">
@@ -329,7 +329,7 @@ const posts = (await getCollection("blog")).sort(
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
       >
         {
-          posts.slice(3).map((post, index) => (
+          posts.slice(4).map((post, index) => (
             <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
               <a href={`/blog/${post.slug}/`}>
                 <div class="overflow-hidden">
