@@ -1,7 +1,7 @@
 ---
 title: "Sliding Speed"
 description: "A high volume session with reps that get faster and faster and then reset. Can you keep consistent times as the reps go by?"
-pubDate: "March 29, 2025"
+pubDate: "March 28, 2025"
 heroImage: "./100km.webp"
 tags: ['workout']
 ---
