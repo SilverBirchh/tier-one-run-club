@@ -1,6 +1,6 @@
 ---
 title: "Split 800s"
-description: "A twist on an old classic, with variable recovery and pace. Practicing variable levels of fatigue and that final race kick!"
+description: "A twist on an old classic, with variable recovery and pace. Practising variable levels of fatigue and that final race kick!"
 pubDate: "March 12, 2025"
 heroImage: "./split800.webp"
 tags: ['workout']
