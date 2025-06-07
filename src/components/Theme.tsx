@@ -28,7 +28,7 @@ export const Theme = () => {
   return (
     <button
       onClick={click}
-      className="text-foreground border-b-4 border-transparent !no-underline transition-all text-md"
+      className="text-foreground border-b-4 border-transparent no-underline! transition-all text-md"
     >
       {lightTheme ? "🌙" : "☀️"}
     </button>

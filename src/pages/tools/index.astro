@@ -37,7 +37,7 @@ const posts = (await getCollection("tools")).sort(
           >
             {
               posts.map((post, index) => (
-              <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-1 border-muted duration-500 group cursor-pointer">
+              <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border border-muted duration-500 group cursor-pointer">
               <a href={`/tools/${post.slug}/`}>
                 <div class="overflow-hidden">
                   <Image
@@ -53,7 +53,7 @@ const posts = (await getCollection("tools")).sort(
                     loading={index < 5 ? "eager" : "lazy"}
                   />
                 </div>
-                <div class="bg-card p-4 sm:p-6">
+                <div class="bg-card p-4 sm:p-6 h-full">
                   {post.data.pubDate && (
                     <time
                       datetime={post.data.pubDate.toString()}
