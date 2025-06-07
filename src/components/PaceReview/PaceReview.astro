@@ -1,0 +1,171 @@
+---
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+---
+
+<div class="space-y-4">
+  This tool uses your Garmin Connect data to generate an AI prompt that
+  evaluates your readiness for a target race. It analyzes lifetime stats,
+  personal bests, recent training, and your race goal to offer tailored coaching
+  insights.
+
+  <p class="text-sm text-muted-foreground mt-4">
+    <strong>Where to find your Garmin User ID:</strong> Log in to <a
+      href="https://connect.garmin.com/modern/"
+      class="text-blue-600 underline"
+      target="_blank">Garmin Connect</a
+    >, go to your profile page, and copy the alphanumeric ID from the URL. It
+    usually looks like: <code
+      >https://connect.garmin.com/modern/profile/5b8d3368-e7bf-409b-9685-9974b4e74520</code
+    >
+  </p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <Label htmlFor="userId">Garmin User ID</Label>
+      <Input
+        id="userId"
+        placeholder="e.g. 5b8d3368-e7bf-409b-9685-9974b4e74520"
+      />
+    </div>
+
+    <div>
+      <Label htmlFor="raceName">Race Name</Label>
+      <Input id="raceName" placeholder="e.g. Berlin Marathon" />
+    </div>
+
+    <div>
+      <Label htmlFor="distance">Distance (km)</Label>
+      <Input id="distance" type="number" placeholder="e.g. 42.195" />
+    </div>
+
+    <div>
+      <Label htmlFor="goalTime">Goal Time (hh:mm:ss)</Label>
+      <Input id="goalTime" placeholder="e.g. 03:24:45" />
+    </div>
+
+    <div class="md:col-span-2">
+      <Label htmlFor="raceDate">Race Date</Label>
+      <Input id="raceDate" type="date" placeholder="e.g. 2025-09-21" />
+    </div>
+
+    <div class="md:col-span-2">
+      <Label htmlFor="trainingPlan">Training Plan (Optional)</Label>
+      <Textarea
+        id="trainingPlan"
+        placeholder="e.g. Pfitzinger-Douglas 18/85 with added hill reps"
+      />
+    </div>
+
+    <div class="md:col-span-2">
+      <Label htmlFor="context">Additional Context (Optional)</Label>
+      <Textarea
+        id="context"
+        placeholder="e.g. I’ve recently increased mileage and want to know if I’m adapting well"
+      />
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <Button id="getGarminData" type="button">Generate Prompt</Button>
+    <div
+      id="loader"
+      class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin hidden"
+    >
+    </div>
+  </div>
+
+  <Textarea
+    id="resultBox"
+    className="h-80 font-mono text-sm resize-vertical"
+    placeholder="AI prompt will appear here..."
+  />
+
+  <Button id="copyBtn" variant="secondary" type="button">
+    Copy to Clipboard
+  </Button>
+  <div class="text-sm text-muted-foreground">
+    Try this prompt in:
+    <a
+      href="https://chat.openai.com/"
+      target="_blank"
+      rel="noopener"
+      class="text-blue-600 underline">ChatGPT</a
+    >
+    |
+    <a
+      href="https://claude.ai/"
+      target="_blank"
+      rel="noopener"
+      class="text-blue-600 underline">Claude</a
+    >
+    |
+    <a
+      href="https://gemini.google.com/"
+      target="_blank"
+      rel="noopener"
+      class="text-blue-600 underline">Gemini</a
+    >
+    |
+    <a
+      href="https://copilot.microsoft.com/"
+      target="_blank"
+      rel="noopener"
+      class="text-blue-600 underline">Copilot</a
+    >
+    |
+    <a
+      href="https://perplexity.ai/"
+      target="_blank"
+      rel="noopener"
+      class="text-blue-600 underline">Perplexity</a
+    >
+  </div>
+</div>
+<script>
+  import { actions } from "astro:actions";
+
+  const getBtn = document.querySelector("#getGarminData");
+
+  const loader = document.querySelector("#loader");
+  const resultBox = document.querySelector("#resultBox");
+  const copyBtn = document.querySelector("#copyBtn");
+
+  getBtn?.addEventListener("click", async () => {
+    const id = document.querySelector("#userId").value.trim();
+    const raceName = document.querySelector("#raceName").value.trim();
+    const distance = parseFloat(document.querySelector("#distance").value);
+    const goalTime = document.querySelector("#goalTime").value.trim();
+    const raceDate = document.querySelector("#raceDate").value;
+    const trainingPlan = document.querySelector("#trainingPlan").value;
+    const context = document.querySelector("#context").value;
+
+    resultBox.value = "";
+    loader.classList.remove("hidden");
+    getBtn.disabled = true;
+
+    const { data, error } = await actions.garmin({
+      id,
+      raceName,
+      distance,
+      goalTime,
+      raceDate,
+      trainingPlan,
+      context,
+    });
+
+    loader.classList.add("hidden");
+    getBtn.disabled = false;
+
+    resultBox.value = error ? `❌ Error: ${error}` : data;
+  });
+
+  copyBtn?.addEventListener("click", () => {
+    resultBox.select();
+    document.execCommand("copy");
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => (copyBtn.textContent = "Copy to Clipboard"), 1000);
+  });
+</script>

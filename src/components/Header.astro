@@ -14,13 +14,13 @@ import { Theme } from "./Theme";
     class="flex flex-col gap-4 py-4 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto"
   >
     <div
-      class="text-[hsl(var(--accent))] w-full flex justify-center items-center"
+      class="text-[var(--accent)] w-full flex justify-center items-center"
     >
       <div class="flex justify-between items-center w-full mx-5">
-        <h2 class="uppercase font-[900]">
+        <h2 class="uppercase font-black">
           <a
             href="/"
-            class="flex items-center gap-2 text-lg md:text-2xl !text-black dark:!text-white"
+            class="flex items-center gap-2 text-lg md:text-2xl text-black! dark:text-white!"
           >
             <Image
               loading={"eager"}
@@ -48,19 +48,19 @@ import { Theme } from "./Theme";
               class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
             >
               <HeaderLink
-                class="border-b-4 border-transparent !no-underline transition-all"
+                class="border-b-4 border-transparent no-underline! transition-all"
                 href="/">Home</HeaderLink
               >
               <HeaderLink
-                class="border-b-4 border-transparent !no-underline transition-all"
+                class="border-b-4 border-transparent no-underline! transition-all"
                 href="/blog">Blog</HeaderLink
               >
               <HeaderLink
-                class="border-b-4 border-transparent !no-underline transition-all"
+                class="border-b-4 border-transparent no-underline! transition-all"
                 href="/tools">Tools</HeaderLink
               >
               <HeaderLink
-                class="border-b-4 border-transparent !no-underline transition-all"
+                class="border-b-4 border-transparent no-underline! transition-all"
                 href="/about">About</HeaderLink
               >
               <Theme client:idle />
@@ -69,24 +69,24 @@ import { Theme } from "./Theme";
         </div>
         <div class="font-medium text-foreground gap-10 hidden sm:flex">
           <div class="flex flex-col gap-1">
-            <HeaderLink href="/" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/" class="m-0 leading-none text-sm"
               >HOME</HeaderLink
             >
-            <HeaderLink href="/blog" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/blog" class="m-0 leading-none text-sm"
               >BLOG</HeaderLink
             >
-            <HeaderLink href="/workouts" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/workouts" class="m-0 leading-none text-sm"
               >WORKOUTS</HeaderLink
             >
           </div>
           <div class="flex flex-col gap-1">
-            <HeaderLink href="/tools" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/tools" class="m-0 leading-none text-sm"
               >TOOLS</HeaderLink
             >
-            <HeaderLink href="/about" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/about" class="m-0 leading-none text-sm"
               >ABOUT</HeaderLink
             >
-            <HeaderLink href="/contact" class="m-0 leading-[1] text-sm"
+            <HeaderLink href="/contact" class="m-0 leading-none text-sm"
               >CONTACT</HeaderLink
             >
           </div>

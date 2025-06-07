@@ -20,7 +20,7 @@ const commentCount = comments.length;
 
 <div class="w-full max-w-3xl mx-auto space-y-8">
   <div
-    class="bg-gradient-to-br from-blue-50 to-violet-50 dark:from-blue-950/50 dark:to-violet-950/50 rounded-xl p-8 shadow-sm"
+    class="bg-linear-to-br from-blue-50 to-violet-50 dark:from-blue-950/50 dark:to-violet-950/50 rounded-xl p-8 shadow-sm"
   >
     <div class="flex flex-col md:flex-row md:items-center gap-6">
       <div class="flex-1 space-y-2">
@@ -90,7 +90,7 @@ const commentCount = comments.length;
           <div class="space-y-6">
             {comments.map((c) => (
               <div class="flex gap-4 group">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-100 to-violet-100 dark:from-blue-900 dark:to-violet-900 flex items-center justify-center text-lg font-semibold text-blue-700 dark:text-blue-300">
+                <div class="w-10 h-10 rounded-full bg-linear-to-br from-blue-100 to-violet-100 dark:from-blue-900 dark:to-violet-900 flex items-center justify-center text-lg font-semibold text-blue-700 dark:text-blue-300">
                   {c.name[0].toUpperCase()}
                 </div>
                 <div class="flex-1">

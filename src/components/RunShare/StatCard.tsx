@@ -24,7 +24,7 @@ type StatCard = {
 
 const DEFAULT_COLOUR: Colour = {
   name: "Default Blue",
-  className: "bg-gradient-to-br from-blue-600 to-blue-800",
+  className: "bg-linear-to-br from-blue-600 to-blue-800",
   accent: "text-blue-200",
 };
 
