@@ -1,0 +1,113 @@
+---
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+---
+
+<div class="space-y-4">
+  <p>
+    This tool analyses your Garmin Connect training history and generates a prompt for an AI coach to assess your overall performance — no race goal required. It helps identify your strengths, weaknesses, and areas for improvement based on your data.
+  </p>
+
+  <p class="text-sm text-muted-foreground mt-4">
+    <strong>Where to find your Garmin User ID:</strong> Log in to <a
+      href="https://connect.garmin.com/modern/"
+      class="text-blue-600 underline"
+      target="_blank">Garmin Connect</a
+    >, go to your profile page, and copy the alphanumeric ID from the URL. Example:
+    <code>https://connect.garmin.com/modern/profile/5b8d3368-e7bf-409b-9685-9974b4e74520</code>. Your profile must be public.
+  </p>
+
+  <div class="grid grid-cols-1 gap-4">
+    <div>
+      <Label htmlFor="userId">Garmin User ID</Label>
+      <Input id="userId" placeholder="e.g. 5b8d3368-e7bf-409b-9685-9974b4e74520" />
+    </div>
+
+    <div>
+      <Label htmlFor="trainingPlan">Training Plan (Optional)</Label>
+      <Textarea
+        id="trainingPlan"
+        placeholder="e.g. Polarized base phase, shifting into threshold work"
+      />
+    </div>
+
+    <div>
+      <Label htmlFor="context">Additional Context (Optional)</Label>
+      <Textarea
+        id="context"
+        placeholder="e.g. Recently returned from injury, trying to rebuild base"
+      />
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <Button id="getGarminData" type="button">Generate Insight Prompt</Button>
+    <div
+      id="loader"
+      class="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin hidden"
+    ></div>
+  </div>
+
+  <Textarea
+    id="resultBox"
+    className="h-80 font-mono text-sm resize-vertical"
+    placeholder="AI prompt will appear here..."
+  />
+
+  <Button id="copyBtn" variant="secondary" type="button">
+    Copy to Clipboard
+  </Button>
+
+  <div class="text-sm text-muted-foreground">
+    Try this prompt in:
+    <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="text-blue-600 underline">ChatGPT</a> |
+    <a href="https://claude.ai/" target="_blank" rel="noopener" class="text-blue-600 underline">Claude</a> |
+    <a href="https://gemini.google.com/" target="_blank" rel="noopener" class="text-blue-600 underline">Gemini</a> |
+    <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener" class="text-blue-600 underline">Copilot</a> |
+    <a href="https://perplexity.ai/" target="_blank" rel="noopener" class="text-blue-600 underline">Perplexity</a>
+  </div>
+</div>
+
+<script>
+import { actions } from "astro:actions";
+
+const getBtn = document.querySelector("#getGarminData") as HTMLButtonElement;
+const loader = document.querySelector("#loader") as HTMLDivElement;
+const resultBox = document.querySelector("#resultBox") as HTMLTextAreaElement;
+const copyBtn = document.querySelector("#copyBtn") as HTMLButtonElement;
+
+getBtn?.addEventListener("click", async () => {
+  const id = (document.querySelector("#userId") as HTMLInputElement)?.value.trim();
+  const trainingPlan = (document.querySelector("#trainingPlan") as HTMLInputElement)?.value.trim();
+  const context = (document.querySelector("#context") as HTMLInputElement)?.value.trim();
+
+  if (!id) {
+    alert("Please enter your Garmin User ID.");
+    return;
+  }
+
+  resultBox.value = "";
+  loader.classList.remove("hidden");
+  getBtn.disabled = true;
+
+  const { data, error } = await actions.garmin.insights({
+    id,
+    context,
+  });
+
+  loader.classList.add("hidden");
+  getBtn.disabled = false;
+
+  resultBox.value = error ? `❌ Error: ${error}` : data as string;
+});
+
+copyBtn?.addEventListener("click", () => {
+  resultBox?.select();
+  document.execCommand("copy");
+  copyBtn.textContent = "Copied!";
+  setTimeout(() => (copyBtn.textContent = "Copy to Clipboard"), 1000);
+});
+
+</script>

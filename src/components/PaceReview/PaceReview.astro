@@ -146,7 +146,7 @@ import { Label } from "@/components/ui/label";
     loader?.classList.remove("hidden");
     if (getBtn) (getBtn  as HTMLButtonElement).disabled = true;
 
-    const { data, error } = await actions.garmin({
+    const { data, error } = await actions.garmin.reviewRaceGoal({
       id,
       raceName,
       distance,
