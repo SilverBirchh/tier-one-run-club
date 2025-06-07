@@ -20,8 +20,25 @@ export const formatTime = (seconds: number) => {
 
 export function formatLap(lap: any, index: number): string {
   const pace = lap.averageSpeed > 0 ? 1000 / lap.averageSpeed : 0;
+  const gas = lap.avgGradeAdjustedSpeed
+    ? `${(1000 / lap.avgGradeAdjustedSpeed).toFixed(1)}/km`
+    : "—";
+  const strideLength = lap.strideLength
+    ? `${Math.round(lap.strideLength)}cm`
+    : "—";
+  const verticalOscillation = lap.verticalOscillation
+    ? `${lap.verticalOscillation.toFixed(1)}cm`
+    : "—";
+  const verticalRatio = lap.verticalRatio
+    ? `${lap.verticalRatio.toFixed(1)}%`
+    : "—";
 
-  return `${index + 1}. ${Math.round(lap.distance)}m — ${formatDuration(lap.duration)} — ${formatPace(pace)} — ${lap.averageHR ?? "—"}bpm — ${lap.averagePower ?? "—"}W — ${Math.round(lap.averageRunCadence ?? 0)} — ${Math.round(lap.groundContactTime ?? 0)}ms — +${lap.elevationGain ?? 0}m`;
+  return [
+    `Lap ${index + 1}: ${Math.round(lap.distance)}m — ${formatDuration(lap.duration)} — ${formatPace(pace)} (GAS: ${gas})`,
+    `  HR: ${lap.averageHR ?? "—"} avg / ${lap.maxHR ?? "—"} max — Power: ${lap.averagePower ?? "—"}W avg / ${lap.maxPower ?? "—"} max / ${lap.normalizedPower ?? "—"} NP`,
+    `  Cadence: ${Math.round(lap.averageRunCadence ?? 0)} avg / ${lap.maxRunCadence ?? "—"} max — GCT: ${Math.round(lap.groundContactTime ?? 0)}ms`,
+    `  Elevation: +${lap.elevationGain ?? 0}m / -${lap.elevationLoss ?? 0}m — Stride: ${strideLength} — VO: ${verticalOscillation} (${verticalRatio})`,
+  ].join("\n");
 }
 
 export function formatEnrichedActivity(activity: any): string {
@@ -41,7 +58,9 @@ export function formatEnrichedActivity(activity: any): string {
     .filter((z: any) => z.zoneNumber >= 4)
     .reduce((acc, z) => acc + z.secsInZone, 0);
 
-  const formattedLaps = laps.map(formatLap).join("\n");
+  const splitsHeader =
+    "(Each lap shows: pace, G.A.S., HR, power, cadence, ground time, stride, vertical motion)";
+  const formattedLaps = [splitsHeader, ...laps.map(formatLap)].join("\n\n");
 
   return `
 🏃 ${activityName} — ${startTimeLocal}
