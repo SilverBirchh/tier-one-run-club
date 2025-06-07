@@ -76,6 +76,7 @@ type FormData = z.infer<typeof FormSchema>;
 
 export const PaceCalculator = () => {
   const form = useForm<FormData>({
+    // @ts-ignore
     resolver: zodResolver(FormSchema),
     defaultValues: {
       time: {

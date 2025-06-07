@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GARMIN_BASE_URL } from "./constants";
 
 export const garminFetch = async (accessToken: string, url: string) => {

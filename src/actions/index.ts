@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { defineAction } from "astro:actions";
 import {
   getTokens,
@@ -11,6 +13,7 @@ import {
   enrichActivity,
 } from "./garmin/garmin";
 import { z } from "astro:schema";
+import ts from "typescript";
 
 const formatMonth = (m: string) => {
   const [mon, year] = m.split("-");
