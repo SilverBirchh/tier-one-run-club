@@ -19,7 +19,7 @@ import { Label } from "@/components/ui/label";
     >, go to your profile page, and copy the alphanumeric ID from the URL. It
     usually looks like: <code
       >https://connect.garmin.com/modern/profile/5b8d3368-e7bf-409b-9685-9974b4e74520</code
-    >
+    >. You profile must be public for the tool to access your data.
   </p>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -127,24 +127,24 @@ import { Label } from "@/components/ui/label";
 <script>
   import { actions } from "astro:actions";
 
-  const getBtn = document.querySelector("#getGarminData");
+  const getBtn = document.querySelector("#getGarminData") as HTMLButtonElement;
 
-  const loader = document.querySelector("#loader");
-  const resultBox = document.querySelector("#resultBox");
-  const copyBtn = document.querySelector("#copyBtn");
+  const loader = document.querySelector("#loader") as HTMLDivElement;
+  const resultBox = document.querySelector("#resultBox") as HTMLTextAreaElement;
+  const copyBtn = document.querySelector("#copyBtn") as HTMLButtonElement;
 
   getBtn?.addEventListener("click", async () => {
-    const id = document.querySelector("#userId").value.trim();
-    const raceName = document.querySelector("#raceName").value.trim();
-    const distance = parseFloat(document.querySelector("#distance").value);
-    const goalTime = document.querySelector("#goalTime").value.trim();
-    const raceDate = document.querySelector("#raceDate").value;
-    const trainingPlan = document.querySelector("#trainingPlan").value;
-    const context = document.querySelector("#context").value;
+    const id = (document.querySelector("#userId") as HTMLInputElement)?.value.trim();
+    const raceName = (document.querySelector("#raceName")  as HTMLInputElement)?.value.trim();
+    const distance = parseFloat((document.querySelector("#distance")  as HTMLInputElement)?.value);
+    const goalTime = (document.querySelector("#goalTime")  as HTMLInputElement)?.value.trim();
+    const raceDate = (document.querySelector("#raceDate")  as HTMLInputElement)?.value;
+    const trainingPlan = (document.querySelector("#trainingPlan")  as HTMLInputElement)?.value;
+    const context = (document.querySelector("#context")  as HTMLInputElement)?.value;
 
-    resultBox.value = "";
-    loader.classList.remove("hidden");
-    getBtn.disabled = true;
+    if (resultBox) resultBox.value = "";
+    loader?.classList.remove("hidden");
+    if (getBtn) (getBtn  as HTMLButtonElement).disabled = true;
 
     const { data, error } = await actions.garmin({
       id,
@@ -156,14 +156,14 @@ import { Label } from "@/components/ui/label";
       context,
     });
 
-    loader.classList.add("hidden");
+    loader?.classList.add("hidden");
     getBtn.disabled = false;
 
-    resultBox.value = error ? `❌ Error: ${error}` : data;
+    resultBox.value = error ? `❌ Error: ${error}` : data as string;
   });
 
   copyBtn?.addEventListener("click", () => {
-    resultBox.select();
+    (resultBox)?.select();
     document.execCommand("copy");
     copyBtn.textContent = "Copied!";
     setTimeout(() => (copyBtn.textContent = "Copy to Clipboard"), 1000);
