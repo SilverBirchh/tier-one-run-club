@@ -19,10 +19,6 @@ export const formatTime = (seconds: number) => {
 };
 
 export function formatLap(lap: any, index: number): string {
-  const pace = lap.averageSpeed > 0 ? 1000 / lap.averageSpeed : 0;
-  const gas = lap.avgGradeAdjustedSpeed
-    ? `${(1000 / lap.avgGradeAdjustedSpeed).toFixed(1)}/km`
-    : "—";
   const strideLength = lap.strideLength
     ? `${Math.round(lap.strideLength)}cm`
     : "—";
@@ -34,7 +30,7 @@ export function formatLap(lap: any, index: number): string {
     : "—";
 
   return [
-    `Lap ${index + 1}: ${Math.round(lap.distance)}m — ${formatDuration(lap.duration)} — ${formatPace(pace)} (GAS: ${gas})`,
+    `Lap ${index + 1}: ${Math.round(lap.distance)}m — ${formatDuration(lap.duration)}`,
     `  HR: ${lap.averageHR ?? "—"} avg / ${lap.maxHR ?? "—"} max — Power: ${lap.averagePower ?? "—"}W avg / ${lap.maxPower ?? "—"} max / ${lap.normalizedPower ?? "—"} NP`,
     `  Cadence: ${Math.round(lap.averageRunCadence ?? 0)} avg / ${lap.maxRunCadence ?? "—"} max — GCT: ${Math.round(lap.groundContactTime ?? 0)}ms`,
     `  Elevation: +${lap.elevationGain ?? 0}m / -${lap.elevationLoss ?? 0}m — Stride: ${strideLength} — VO: ${verticalOscillation} (${verticalRatio})`,
@@ -59,7 +55,7 @@ export function formatEnrichedActivity(activity: any): string {
     .reduce((acc, z) => acc + z.secsInZone, 0);
 
   const splitsHeader =
-    "(Each lap shows: pace, G.A.S., HR, power, cadence, ground time, stride, vertical motion)";
+    "(Each lap shows: time, HR, power, cadence, ground time, stride, vertical motion)";
   const formattedLaps = [splitsHeader, ...laps.map(formatLap)].join("\n\n");
 
   return `
