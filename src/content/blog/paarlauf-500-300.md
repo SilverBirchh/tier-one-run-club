@@ -6,7 +6,7 @@ heroImage: "./paarlauf.webp"
 tags: ['workout']
 ---
 
-Forget the 500m chasers — I have a new favourite track session!  
+Forget the 500m chasers, I have a new favourite track session!  
 The 500/300 Split Paarlauf is the most fun I’ve ever had on a running track.  
 
 **Paarlauf** is a continuous relay involving two people per team of similar ability. One runner sets off while the other waits. As soon as the first runner finishes their rep, the second runner starts. You can run equal distances (e.g. 200m each, 500m each) or mix it up — my favourite is splitting the work into 500m and 300m reps. One runner tackles the 500s, the other the 300s, and then you swap roles halfway through the session.
@@ -15,7 +15,7 @@ Because you’re relying on each other, there’s pressure to run consistently s
 
 The 500/300 split varies the training focus — you can attack the 300s at a faster pace because you’ll get a longer recovery while your partner runs 500m. This works your anaerobic system, teaching your body to tolerate and buffer high levels of lactate while maintaining form at faster-than-race paces. Over time, this improves your ability to change gears mid-race and sustain surges.
 
-Then during the 500s you have to dig deep because recovery is compromised — your partner’s 300m isn’t long enough for full lactate clearance. This forces your aerobic system and lactate threshold to adapt, improving your ability to recycle lactate as fuel while still working hard — exactly what you need to stay strong in the final stages of a race.
+Then during the 500s you have to dig deep because recovery is compromised, your partner’s 300m isn’t long enough for full lactate clearance. This forces your aerobic system and lactate threshold to adapt, improving your ability to recycle lactate as fuel while still working hard. Exactly what you need to stay strong in the final stages of a race.
 
 It’s a long session, but with around 80% of it at high effort, it’s brilliant training for races from 5k all the way to the marathon.
 
