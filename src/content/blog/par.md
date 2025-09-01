@@ -10,10 +10,10 @@ Sometimes track is boring! Running around in circles over and over again. This s
 
 The rules are simple:
 
-**Set Your Par:** Run your first 600m rep at a challenging but sustainable pace. This time becomes your "par."
-**Chase Perfection:** Every subsequent rep, try to hit that exact same time
-**Count the Cost:** Every second over OR under par adds one point to your score
-**Lowest Score Wins:** Consistency is king
+**Set Your Par:** Run your first 600m rep at a challenging but sustainable pace. This time becomes your "par."  
+**Chase Perfection:** Every subsequent rep, try to hit that exact same time  
+**Count the Cost:** Every second over OR under par adds one point to your score  
+**Lowest Score Wins:** Consistency is king  
 
 **Example scoring:**  
 If your first 600m is 2:10 (130 seconds):  
@@ -23,7 +23,7 @@ Rep 4: 2:11 = 1 point
 Rep 5: 2:10 = 0 points (nailed it!)  
 Total: 7 points  
 
-Regular intervals are all about just running as fast as possible. Par for the Course rewards precision over pure speed. You have to hone you internal pacing clock. Your mental focus has to be on point, you can't ease off and risk gaining points. It's important to hit a challenging time for the first rep. But that's the beauty of the game, if you can hit that consistently you'll be well on course to a PB!
+Regular intervals are all about just running as fast as possible. Par for the Course rewards precision over speed. You have to hone you pacing. Mentally you have to stay focused, you can't ease off and risk gaining points. It's important to hit a challenging time for the first rep. But that's the beauty of the game, if you can hit that consistently you'll be well on course to a PB!
 
 ### Session Details
 
