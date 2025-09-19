@@ -1,0 +1,347 @@
+---
+title: "Boston Marathon"
+description: "On April 21st 2025 I ran the Boston Marathon. The race itself didn't quite go to plan but I had an amazing time. This is the recap!"
+pubDate: "September 7 2025"
+heroImage: "./bos.webp"
+---
+
+It's taken me quite a long time to write up this race recap! The Boston Marathon was a painful race, so painful I even threw away my race bib. Which I really regret now! But 6 months down the line I can look back on it and think about what an amazing holiday and event it actually was. I want to dive into the training, the goal I set and what actually happened in the race. Let's get into it.
+
+### Training
+
+For this training block I picked the "70 to 85 Miles per Week, 18-week schedule" from "Advanced Marathoning" (fourth edition) by Pete Pfitzinger and Scott Douglas. For this build I wanted to focus on building my endurance and aerobic capacity. Building in much more mileage than I had done before. Previously I had focused on intensity and speed, but I wanted to see how much of a difference the extra mileage would make. By working on my aerobic base I hoped to be able to run a more consistent pace for longer. With that in mind and my confidence coming off the Barcelona Marathon I set myself a goal of 2:25 for Boston. I really thought that was achievable with the right training.
+
+The plan is pretty long, it's 18 weeks and you're meant to hit 100km per week and peak at 140km a few times through the plan.
+
+
+import { LineChart } from "@/components/charts/LineChart";
+
+export const weeklyDistance = [
+  { week: 1, distance: 88.76 },
+  { week: 2, distance: 82.2 },
+  { week: 3, distance: 93.91 },
+  { week: 4, distance: 107.44 },
+  { week: 5, distance: 113.32 },
+  { week: 6, distance: 100.37 },
+  { week: 7, distance: 126.19 },
+  { week: 8, distance: 129.49 },
+  { week: 9, distance: 129.14 },
+  { week: 10, distance: 79.29 },
+  { week: 11, distance: 137.5 },
+  { week: 12, distance: 114.68 },
+  { week: 13, distance: 140.17 },
+  { week: 14, distance: 117.7 },
+  { week: 15, distance: 143.98 },
+  { week: 16, distance: 45.87 },
+  { week: 17, distance: 34.37 },
+  { week: 18, distance: 48.92 },
+  { week: 19, distance: 42.195 },
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={weeklyDistance}
+    xKey="week"
+    xType="category"
+    xInterval={0}
+    series={[{ key: "distance", label: "Weekly distance (km)", color: "var(--chart-1)" }]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yTickFormatter={(v) => `${v} km`}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">Weekly distance during the Boston build. I twisted my ankle after week 15.</p>
+  </div>
+
+Unfortunately, I twisted my ankle in week 15 and that put me out of action for a few weeks. I was able to run through the pain but it meant I couldn't hit the high mileage weeks I wanted to. But we'll come to that in a bit. Overall I was pretty happy with the training. And my VO2 was on a steady increase right up until the injury.
+
+
+export const vo2Max = [
+  { week: 1, vo2: 66 },
+  { week: 2, vo2: 68 },
+  { week: 3, vo2: 68 },
+  { week: 4, vo2: 69 },
+  { week: 5, vo2: 69 },
+  { week: 6, vo2: 69 },
+  { week: 7, vo2: 69 },
+  { week: 8, vo2: 70 },
+  { week: 9, vo2: 70 },
+  { week: 10, vo2: 70 },
+  { week: 11, vo2: 70 },
+  { week: 12, vo2: 70 },
+  { week: 13, vo2: 70 },
+  { week: 14, vo2: 70 },
+  { week: 15, vo2: 70 },
+  { week: 16, vo2: 70 },
+  { week: 17, vo2: 70 },
+  { week: 18, vo2: 69 },
+  { week: 19, vo2: 68 },
+  { week: 20, vo2: 68 },
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={vo2Max}
+    xKey="week"
+    xType="category"
+    xInterval={0}
+    series={[{ key: "vo2", label: "VO₂ max (ml/kg/min)", color: "var(--chart-1)" }]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yDomain={[60, "auto"]}
+    yTickFormatter={(v) => Number(v).toFixed(0)}
+    tooltipValueFormatter={(v) => `${v.toFixed(0)} ml/kg/min`}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">VO₂ max across the build.</p>
+</div>
+
+A big difference in this build compared to previous ones was the long runs. The plan has you doing a lot of long runs but they are aerobic long runs. There isn't a lot of marathon paced work. I read somewhere that there are three parts to running: intensity, volume and frequency. In previous builds I had focused on intensity and frequency, but this time I wanted to focus on volume. And honestly I think it worked. My endurance felt great and I was able to run for a long time without feeling like I was going to die. The longest marathon pace run I did was 25km at marathon pace. But you could see I could handle it! Or at least I thought I could.
+
+export const splits = [
+  { km: 1, paceSec: 197, hr: 123, paceDisplay: "3:17" },
+  { km: 2, paceSec: 203, hr: 141, paceDisplay: "3:23" },
+  { km: 3, paceSec: 205, hr: 145, paceDisplay: "3:25" },
+  { km: 4, paceSec: 204, hr: 157, paceDisplay: "3:24" },
+  { km: 5, paceSec: 203, hr: 146, paceDisplay: "3:23" },
+  { km: 6, paceSec: 206, hr: 143, paceDisplay: "3:26" },
+  { km: 7, paceSec: 203, hr: 136, paceDisplay: "3:23" },
+  { km: 8, paceSec: 204, hr: 137, paceDisplay: "3:24" },
+  { km: 9, paceSec: 204, hr: 136, paceDisplay: "3:24" },
+  { km: 10, paceSec: 204, hr: 134, paceDisplay: "3:24" },
+  { km: 11, paceSec: 205, hr: 131, paceDisplay: "3:25" },
+  { km: 12, paceSec: 205, hr: 131, paceDisplay: "3:25" },
+  { km: 13, paceSec: 204, hr: 133, paceDisplay: "3:24" },
+  { km: 14, paceSec: 204, hr: 131, paceDisplay: "3:24" },
+  { km: 15, paceSec: 205, hr: 137, paceDisplay: "3:25" },
+  { km: 16, paceSec: 204, hr: 150, paceDisplay: "3:24" },
+  { km: 17, paceSec: 204, hr: 145, paceDisplay: "3:24" },
+  { km: 18, paceSec: 203, hr: 138, paceDisplay: "3:23" },
+  { km: 19, paceSec: 206, hr: 143, paceDisplay: "3:26" },
+  { km: 20, paceSec: 206, hr: 147, paceDisplay: "3:26" },
+  { km: 21, paceSec: 202, hr: 146, paceDisplay: "3:22" },
+  { km: 22, paceSec: 201, hr: 147, paceDisplay: "3:21" },
+  { km: 23, paceSec: 203, hr: 148, paceDisplay: "3:23" },
+  { km: 24, paceSec: 204, hr: 148, paceDisplay: "3:24" },
+  { km: 25, paceSec: 205, hr: 145, paceDisplay: "3:25" },
+];
+
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={splits}
+    xKey="km"
+    xType="category"
+    xInterval={0}
+    series={[
+      { 
+        key: "paceSec", 
+        label: "Pace", 
+        color: "var(--chart-1)",
+        yAxisId: "pace"
+      },
+      { 
+        key: "hr", 
+        label: "Heart Rate", 
+        color: "var(--chart-2)",
+        yAxisId: "hr"
+      }
+    ]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "pace",
+        orientation: "left",
+        domain: [195, 210],
+        tickFormatter: "pace",
+      },
+      {
+        id: "hr",
+        orientation: "right",
+        domain: [120, 160],
+        tickFormatter: "heartRate",
+      }
+    ]}
+    tooltipFormatters={{
+      paceSec: "pace",
+      hr: "heartRate"
+    }}
+  />
+</div>
+
+You can see that after an initial spike in heart rate, perhaps going off a bit too quick, that my heart rate calms down. And even towards the end I'm not tired with a HR of 145. This is all to say that I felt really good at these paces.
+
+However, the week after this run I twisted my ankle. I didn't feel it initially but a few hours afterwards it started to swell up. That week I made it worse by ploughing through a track session. I should have known better but I was feeling so fit and I had to get a strong training stimulus in before I knew I would have to stop.
+
+So the mileage dropped off massively and I had to go on the exercise bike. But my heart wasn't in it. I just wanted to run. I was able to do some light running but I couldn't get the mileage up. I was meant to be doing 100km weeks and I was struggling to get to 50km. And you can see this reflected in my VO2 max. It plateaued and then dropped off a bit. Not ideal going into a marathon.
+
+### The Race
+
+But the marathon came around! In terms of the trip, it was amazing. Seeing Boston, chatting to people, going to New York as well after the race was so good. We had a great time. 
+
+import { Image } from 'astro:assets';
+import bos2 from "./bos2.webp"
+
+ <figure className='my-5 flex justify-center flex-col items-center'>
+ <Image src={bos2} height={400} alt="Halfway through the race." />
+  <figcaption class="text-xs grey text-center">At the end of the race.</figcaption>
+</figure> 
+
+
+The weather was hot. I wasn't prepared for this! As I was lining up I was putting on suncream. But I wasn't worried yet. We sang the national anthem, saw the air force fly over and then we were off!
+
+I started but I was immediately uncomfortable. Thinking this is way too hard. A smart move would have been to ease off then but I kept going. And I paid for it. It was so hot that I couldn't take my salt tablets, I physically didn't have enough moisture to dissolve them! And so by half way I was cramping. I had to stop and stretch out my calves. I also dived into the toilet! I was in so much pain. But I kept going. I was determined to finish. I walked a bit, stretched a bit and then ran again. It was a long 42km. But I finished in 2:49. A long way off my goal but I was just happy to finish. I saw my wife at 32km and that was a real boost.
+
+
+
+export const splitsBos = [
+  { km: 1, paceSec: 191, hr: 114, paceDisplay: "3:11" },
+  { km: 2, paceSec: 202, hr: 151, paceDisplay: "3:22" },
+  { km: 3, paceSec: 200, hr: 153, paceDisplay: "3:20" },
+  { km: 4, paceSec: 200, hr: 153, paceDisplay: "3:20" },
+  { km: 5, paceSec: 196, hr: 159, paceDisplay: "3:16" },
+  { km: 6, paceSec: 195, hr: 168, paceDisplay: "3:15" },
+  { km: 7, paceSec: 203, hr: 180, paceDisplay: "3:23" },
+  { km: 8, paceSec: 200, hr: 184, paceDisplay: "3:20" },
+  { km: 9, paceSec: 202, hr: 182, paceDisplay: "3:22" },
+  { km: 10, paceSec: 200, hr: 183, paceDisplay: "3:20" },
+  { km: 11, paceSec: 203, hr: 183, paceDisplay: "3:23" },
+  { km: 12, paceSec: 204, hr: 183, paceDisplay: "3:24" },
+  { km: 13, paceSec: 204, hr: 179, paceDisplay: "3:24" },
+  { km: 14, paceSec: 202, hr: 183, paceDisplay: "3:22" },
+  { km: 15, paceSec: 206, hr: 181, paceDisplay: "3:26" },
+  { km: 16, paceSec: 208, hr: 182, paceDisplay: "3:28" },
+  { km: 17, paceSec: 209, hr: 182, paceDisplay: "3:29" },
+  { km: 18, paceSec: 215, hr: 178, paceDisplay: "3:35" },
+  { km: 19, paceSec: 206, hr: 178, paceDisplay: "3:26" },
+  { km: 20, paceSec: 212, hr: 179, paceDisplay: "3:32" },
+  { km: 21, paceSec: 211, hr: 178, paceDisplay: "3:31" },
+  { km: 22, paceSec: 254, hr: 171, paceDisplay: "4:14" },
+  { km: 23, paceSec: 260, hr: 166, paceDisplay: "4:20" },
+  { km: 24, paceSec: 400, hr: 155, paceDisplay: "6:40" },
+  { km: 25, paceSec: 443, hr: 151, paceDisplay: "7:23" },
+  { km: 26, paceSec: 242, hr: 159, paceDisplay: "4:02" },
+  { km: 27, paceSec: 275, hr: 166, paceDisplay: "4:35" },
+  { km: 28, paceSec: 259, hr: 166, paceDisplay: "4:19" },
+  { km: 29, paceSec: 279, hr: 170, paceDisplay: "4:39" },
+  { km: 30, paceSec: 254, hr: 169, paceDisplay: "4:14" },
+  { km: 31, paceSec: 246, hr: 171, paceDisplay: "4:06" },
+  { km: 32, paceSec: 267, hr: 170, paceDisplay: "4:27" },
+  { km: 33, paceSec: 257, hr: 169, paceDisplay: "4:17" },
+  { km: 34, paceSec: 267, hr: 173, paceDisplay: "4:27" },
+  { km: 35, paceSec: 241, hr: 171, paceDisplay: "4:01" },
+  { km: 36, paceSec: 301, hr: 164, paceDisplay: "5:01" },
+  { km: 37, paceSec: 275, hr: 162, paceDisplay: "4:35" },
+  { km: 38, paceSec: 297, hr: 161, paceDisplay: "4:57" },
+  { km: 39, paceSec: 268, hr: 163, paceDisplay: "4:28" },
+  { km: 40, paceSec: 265, hr: 168, paceDisplay: "4:25" },
+  { km: 41, paceSec: 259, hr: 172, paceDisplay: "4:19" },
+  { km: 42, paceSec: 249, hr: 174, paceDisplay: "4:09" },
+];
+
+<div className="my-6">
+  {/* First Half */}
+  <LineChart
+    client:visible
+    data={splitsBos.filter(s => s.km <= 21)}
+    xKey="km"
+    xType="category"
+    xInterval={0}
+    series={[
+      { 
+        key: "paceSec", 
+        label: "Pace", 
+        color: "var(--chart-1)",
+        yAxisId: "pace"
+      },
+      { 
+        key: "hr", 
+        label: "Heart Rate", 
+        color: "var(--chart-2)",
+        yAxisId: "hr"
+      }
+    ]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "pace",
+        orientation: "left",
+        domain: [180, 240], // ~3:00–4:00/km for first half
+        tickFormatter: "pace",
+      },
+      {
+        id: "hr",
+        orientation: "right",
+        domain: [110, 200],
+        tickFormatter: "heartRate",
+      }
+    ]}
+    tooltipFormatters={{
+      paceSec: "pace",
+      hr: "heartRate"
+    }}
+  />
+    <p className="mt-2 text-center text-xs text-muted-foreground">First half of the race.</p>
+
+
+  {/* Second Half */}
+  <LineChart
+    client:visible
+    data={splitsBos.filter(s => s.km > 21)}
+    xKey="km"
+    xType="category"
+    xInterval={0}
+    series={[
+      { 
+        key: "paceSec", 
+        label: "Pace", 
+        color: "var(--chart-1)",
+        yAxisId: "pace"
+      },
+      { 
+        key: "hr", 
+        label: "Heart Rate", 
+        color: "var(--chart-2)",
+        yAxisId: "hr"
+      }
+    ]}
+    className="aspect-[3/1] mt-10"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "pace",
+        orientation: "left",
+        domain: [180, 450], // ~3:00–7:30/km covers fade
+        tickFormatter: "pace",
+      },
+      {
+        id: "hr",
+        orientation: "right",
+        domain: [150, 190],
+        tickFormatter: "heartRate",
+      }
+    ]}
+    tooltipFormatters={{
+      paceSec: "pace",
+      hr: "heartRate"
+    }}
+  />
+
+  <p className="mt-2 text-center text-xs text-muted-foreground">Second half of the race.</p>
+</div>
+
+That first km was pretty wild! You can see my heart rate rocket to over 180. And the pace is way too fast. I think I came through the first half in 71 minutes. And then at km 23, I stop. And I can't get the pace back.
+
+I had a good cry at the end but everyone was so nice. The volunteers were amazing, the crowd support was brilliant. I got my medal and went to a nearby park. 
+
+### Final Thoughts
+
+Looking back at it the race was amazing. The support was brilliant, the organisation was great and the course is beautiful. I just wasn't prepared for the heat and I paid for it. But I finished. And that's what matters.
