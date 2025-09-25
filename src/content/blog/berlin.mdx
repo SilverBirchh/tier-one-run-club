@@ -1,0 +1,290 @@
+---
+title: "Berlin Marathon"
+description: "On September 21st, 2025, I ran the Berlin Marathon. Let's dive into the data and see what it tells us!"
+pubDate: "September 25, 2025"
+heroImage: "./berlin.webp"
+---
+
+The Berlin Marathon has just been and gone. It was another hot day, the hottest Berlin on record! I crossed the line in 2:37:22. A bit off the time I wanted, but in those conditions, I was very happy. I know I don't perform well in the heat, and it showed. I'm looking forward to taking a few weeks off running and just recharging. But let's take a look at the data and see how this build and race went!
+
+Coming into the race, my fitness was not as high as I thought it would be. During the block, I never felt fresh. It felt like I was always battling. In my Boston build, it felt much easier and faster paces came naturally to me. Throughout the build, my fitness was stuck.
+
+import { LineChart } from "@/components/charts/LineChart";
+
+export const vo2Max = [
+  { month: "Jun", vo2: 67.8 },
+  { month: "Jul", vo2: 68.2 },
+  { month: "Aug", vo2: 68.4 },
+  { month: "Sep", vo2: 67.8 }
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={vo2Max}
+    xKey="month"
+    xType="category"
+    xInterval={0}
+    series={[{ key: "vo2", label: "VO₂ max (ml/kg/min)", color: "var(--chart-1)" }]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yDomain={[62, "auto"]}
+    yTickFormatter={(v) => Number(v).toFixed(0)}
+    tooltipValueFormatter={(v) => `${v.toFixed(0)} ml/kg/min`}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">VO₂ max from June to September 2025.</p>
+</div>
+
+Throughout the entire build, I was stuck at ~68 VO₂ max. In the Boston build, I was able to reach 70 quite quickly. I was running pretty solidly throughout, maintaining high mileage for myself with a nice steady increase and built-in recovery weeks. It's possible that I tapered too early. Starting in week 12, the mileage started to come down. But I'm pretty sure the intensity was still high. Maybe next time I'll look at keeping higher mileage for a couple more weeks.
+
+export const weeklyDistance = [
+  { week: 1, distance: 110 },
+  { week: 2, distance: 116 },
+  { week: 3, distance: 108 },
+  { week: 4, distance: 124 },
+  { week: 5, distance: 124 },
+  { week: 6, distance: 130 },
+  { week: 7, distance: 115 },
+  { week: 8, distance: 131 },
+  { week: 9, distance: 133 },
+  { week: 10, distance: 120 },
+  { week: 11, distance: 116 },
+  { week: 12, distance: 152 },
+  { week: 13, distance: 132 },
+  { week: 14, distance: 101 },
+  { week: 15, distance: 88 },
+  { week: 16, distance: 71 }
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={weeklyDistance}
+    xKey="week"
+    xType="category"
+    xInterval={0}
+    series={[{ key: "distance", label: "Weekly Distance (km)", color: "var(--chart-2)" }]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yDomain={[60, "auto"]}
+    yTickFormatter={(v) => Number(v).toFixed(0)}
+    tooltipValueFormatter={(v) => `${v.toFixed(0)} km`}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">Weekly distance across the training period.</p>
+</div>
+
+Looking at the data, I'm not sure this build was all that great! Looking at my lactate threshold (LT) across the year, the data doesn't make for great reading!
+
+> Lactate threshold is a valuable measurement for determining your endurance capabilities. It identifies the exercise intensity level at which lactate starts to accumulate in the bloodstream faster than the body can remove it. This can result in rapid fatigue, feelings of nausea, fast breathing, burning muscles, and stomach pain.
+
+The way I read this is that once you go past your LT, you're in trouble.
+
+export const lactateThresholdData = [
+  { month: "Dec", heartRate: 178, pace: 208 }, // 3:28 = 208 seconds
+  { month: "Jan", heartRate: 175, pace: 201 }, // 3:21 = 201 seconds
+  { month: "Feb", heartRate: 175, pace: 195 }, // 3:15 = 195 seconds
+  { month: "Mar", heartRate: 176, pace: 190 }, // 3:10 = 190 seconds
+  { month: "Apr", heartRate: 180, pace: 195 }, // 3:15 = 195 seconds
+  { month: "May", heartRate: 178, pace: 201 }, // 3:21 = 201 seconds
+  { month: "Jun", heartRate: 179, pace: 201 }, // 3:21 = 201 seconds
+  { month: "Jul", heartRate: 175, pace: 202 }, // 3:22 = 202 seconds
+  { month: "Aug", heartRate: 177, pace: 203 }, // 3:23 = 203 seconds
+  { month: "Sep", heartRate: 177, pace: 205 }  // 3:25 = 205 seconds
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={lactateThresholdData}
+    xKey="month"
+    xType="category"
+    xInterval={0}
+    series={[
+      { key: "heartRate", label: "Heart Rate (bpm)", color: "var(--chart-3)", yAxisId: "left" },
+      { key: "pace", label: "Pace (min/km)", color: "var(--chart-4)", yAxisId: "right" }
+    ]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "left",
+        orientation: "left",
+        domain: [170, 185],
+        tickFormatter: "heartRate",
+      },
+      {
+        id: "right",
+        orientation: "right",
+        domain: [210, 185],
+        tickFormatter: "pace"
+      }
+    ]}
+    tooltipValueFormatter={(v, name) => {
+      if (name === "heartRate") {
+        return `${v.toFixed(0)} bpm`;
+      } else {
+        const minutes = Math.floor(v / 60);
+        const seconds = Math.floor(v % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}/km`;
+      }
+    }}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">Lactate threshold heart rate and pace from December 2024 to September 2025. Pace: Lower is better.</p>
+</div>
+
+You can see that during the Boston build, my fitness was insane! But for Berlin, I seem to be getting less fit! With my LT declining, I'll be less able to maintain faster speeds for longer and thus have a slower marathon time. It would be interesting to compare this to my Barcelona build, but unfortunately, I don't have the data for that. What would be interesting to see is the heart rate spread across the builds. Would doing more aerobic work improve fitness versus a more intense build like Berlin was?
+
+Going into the week of the race, I tried everything to set myself up for a good race. I arrived in Berlin on Thursday and had 3 restful days. I was able to see some sights: the Brandenburg Gate, Reichstag Building, and the Holocaust Memorial.
+
+import { Image } from 'astro:assets';
+import bos2 from "./gate.webp"
+
+ <figure className='my-5 flex justify-center flex-col items-center'>
+ <Image src={bos2} height={400} alt="Halfway through the race." />
+  <figcaption class="text-xs grey text-center">
+Brandenburg Gate
+</figcaption>
+</figure>
+
+Waking up fresh on race day, it was hot! By the time the race began, it was 22°C, I think it ended at 25°C. With that in mind, I knew I was never going to go under 2:28. I really don't perform well in the heat. So I started what I thought was conservative. I took salt tablets and 40g gels every 6km, and water pretty often. Potentially, I should have taken on more water.
+
+export const firstHalfData = [
+  { km: 1, heartRate: 126, pace: 213 }, // 3:33
+  { km: 2, heartRate: 145, pace: 212 }, // 3:32
+  { km: 3, heartRate: 145, pace: 215 }, // 3:35
+  { km: 4, heartRate: 152, pace: 212 }, // 3:32
+  { km: 5, heartRate: 164, pace: 214 }, // 3:34
+  { km: 6, heartRate: 176, pace: 211 }, // 3:31
+  { km: 7, heartRate: 178, pace: 211 }, // 3:31
+  { km: 8, heartRate: 178, pace: 212 }, // 3:32
+  { km: 9, heartRate: 176, pace: 219 }, // 3:39
+  { km: 10, heartRate: 176, pace: 219 }, // 3:39
+  { km: 11, heartRate: 177, pace: 213 }, // 3:33
+  { km: 12, heartRate: 179, pace: 215 }, // 3:35
+  { km: 13, heartRate: 180, pace: 215 }, // 3:35
+  { km: 14, heartRate: 178, pace: 215 }, // 3:35
+  { km: 15, heartRate: 177, pace: 219 }, // 3:39
+  { km: 16, heartRate: 178, pace: 213 }, // 3:33
+  { km: 17, heartRate: 175, pace: 216 }, // 3:36
+  { km: 18, heartRate: 177, pace: 216 }, // 3:36
+  { km: 19, heartRate: 177, pace: 217 }, // 3:37
+  { km: 20, heartRate: 177, pace: 216 }, // 3:36
+  { km: 21, heartRate: 179, pace: 212 }  // 3:32
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={firstHalfData}
+    xKey="km"
+    xType="category"
+    xInterval={0}
+    series={[
+      { key: "heartRate", label: "Heart Rate (bpm)", color: "var(--chart-3)", yAxisId: "left" },
+      { key: "pace", label: "Pace (min/km)", color: "var(--chart-4)", yAxisId: "right" }
+    ]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "left",
+        orientation: "left",
+        domain: [120, 185],
+        tickFormatter: 'heartRate'
+      },
+      {
+        id: "right",
+        orientation: "right",
+        domain: [300, 150],
+        tickFormatter: 'pace'
+      }
+    ]}
+    tooltipValueFormatter={(v, name) => {
+      if (name === "heartRate") {
+        return `${v.toFixed(0)} bpm`;
+      } else {
+        const minutes = Math.floor(v / 60);
+        const seconds = Math.floor(v % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}/km`;
+      }
+    }}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">Pace and heart rate for the first 21km of the race.</p>
+</div>
+
+Looking at the first half, my heart rate jumps immediately to around 180. That can't be good. The pace isn't even that quick! I notice it rises pretty quickly, and I try to calm down, dropping the pace from 3:30/km to 3:39/km. Should I have dropped it more? I think so, but honestly, in the moment, a 3:34/km average half actually felt fine. But as you can see, in the second half, things go a bit crazy.
+
+export const secondHalfData = [
+  { km: 22, heartRate: 182, pace: 214 }, // 3:34
+  { km: 23, heartRate: 179, pace: 224 }, // 3:44
+  { km: 24, heartRate: 180, pace: 218 }, // 3:38
+  { km: 25, heartRate: 176, pace: 240 }, // 4:00
+  { km: 26, heartRate: 175, pace: 233 }, // 3:53
+  { km: 27, heartRate: 166, pace: 288 }, // 4:48
+  { km: 28, heartRate: 167, pace: 256 }, // 4:16
+  { km: 29, heartRate: 170, pace: 236 }, // 3:56
+  { km: 30, heartRate: 171, pace: 238 }, // 3:58
+  { km: 31, heartRate: 168, pace: 242 }, // 4:02
+  { km: 32, heartRate: 172, pace: 229 }, // 3:49
+  { km: 33, heartRate: 176, pace: 226 }, // 3:46
+  { km: 34, heartRate: 176, pace: 218 }, // 3:38
+  { km: 35, heartRate: 180, pace: 227 }, // 3:47
+  { km: 36, heartRate: 179, pace: 228 }, // 3:48
+  { km: 37, heartRate: 180, pace: 231 }, // 3:51
+  { km: 38, heartRate: 182, pace: 227 }, // 3:47
+  { km: 39, heartRate: 181, pace: 218 }, // 3:38
+  { km: 40, heartRate: 184, pace: 221 }, // 3:41
+  { km: 41, heartRate: 185, pace: 216 }, // 3:36
+  { km: 42, heartRate: 185, pace: 212 }, // 3:32
+];
+
+<div className="my-6">
+  <LineChart
+    client:visible
+    data={secondHalfData}
+    xKey="km"
+    xType="category"
+    xInterval={0}
+    series={[
+      { key: "heartRate", label: "Heart Rate (bpm)", color: "var(--chart-3)", yAxisId: "left" },
+      { key: "pace", label: "Pace (min/km)", color: "var(--chart-4)", yAxisId: "right" }
+    ]}
+    className="aspect-[3/1]"
+    showGrid
+    showLegend
+    yAxes={[
+      {
+        id: "left",
+        orientation: "left",
+        domain: [160, 190],
+        tickFormatter: 'heartRate'
+      },
+      {
+        id: "right",
+        orientation: "right",
+        domain: [295, 200],
+        tickFormatter: 'pace'
+      }
+    ]}
+    tooltipValueFormatter={(v, name) => {
+      if (name === "heartRate") {
+        return `${v.toFixed(0)} bpm`;
+      } else {
+        const minutes = Math.floor(v / 60);
+        const seconds = Math.floor(v % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}/km`;
+      }
+    }}
+  />
+  <p className="mt-2 text-center text-xs text-muted-foreground">Pace and heart rate for the second half of the race (km 22-42.5).</p>
+</div>
+
+It's a very different story in the second half! Between kilometres 25-31, I hit the wall. I have a dramatic pace drop from 4:00 at km 25 to a brutal 4:48 at km 27. Cramp got me here. I wasn't tired, but I knew the cramp would get worse if I didn't stop. The question is: if I had slowed more in the first half, would I have still needed to stop like I did? Or would I have been able to carry on and not lose as much time? We'll never know. I think I would still have had to stop.
+
+However, after stopping, the cramp subsided, which I've never experienced before. I think this was because I had a shot of adrenaline. My best mate Benj came running behind me, and we were able to run together for a couple of kilometres! This was exactly what I needed. It helped fuel my recovery from km 32 onwards, getting back to sub-3:50 pacing. Again, my heart rate climbed, but I kept the pace in check, drank lots more water, and avoided cramp. Coming home strong!
+
+So that was Berlin! I'm now going to take a well-earned break from running and focus on something else before having another go in Chicago next year.
