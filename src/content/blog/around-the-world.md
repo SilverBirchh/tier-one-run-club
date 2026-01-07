@@ -24,15 +24,15 @@ It's always tough training after the Christmas break. You're trying to get back 
 With the early reps you need patience and control. As the distances shorten and the recovery grows the pace should pick up with it.
 
 **Group 1**  
-Skip: 800 / 200, 700 / 300, 600 / 400  
+Skip: 400 / 600, 300 / 700, 200 / 800  
 Start at the **300m line**
 
 **Group 2**  
-Skip: 800 / 200 and 700 / 300  
+Skip: 200 / 800 and 300 / 700  
 Start at the **100m line**
 
 **Group 3**  
-Skip: 800 / 200  
+Skip: 200 / 800  
 Start at the **300m line**
 
 **Group 4**  
