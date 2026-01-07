@@ -28,7 +28,7 @@ Skip: 400 / 600, 300 / 700, 200 / 800
 Start at the **300m line**
 
 **Group 2**  
-Skip: 200 / 800 and 300 / 700  
+Skip: 300 / 700 and 200 / 800  
 Start at the **100m line**
 
 **Group 3**  
