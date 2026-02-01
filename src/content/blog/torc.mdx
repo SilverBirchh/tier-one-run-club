@@ -1,0 +1,70 @@
+---
+title: "Tier One Analysis"
+description: "Introducing a brand new app from Tier One Run Club: TORC Analysis. AI-powered coaching and insights that turn your running data into faster times and smarter training."
+pubDate: "February 1, 2026"
+heroImage: "./logo-bg.webp"
+---
+
+People run for all sorts of reasons — fitness, racing, the social side of it. Personally, I run to chase times. I don't race all that often but when I do I'm almost always looking to break a PB. As each training block goes on I find myself wondering: is what I'm doing actually working? What kind of times does my data suggest I could hit? Is my goal too ambitious or too conservative?
+
+I've found I'm not alone in this. Plenty of runners want to poke at their data and pull out real insights. You can get some of this from Garmin or Strava, but I find the mess of charts overwhelming. I want simple, readable explanations about my running.
+
+That is why I'm proud to announce an app I have been working on... [Tier One Analysis](https://app.tieronerun.club/). Tier One Analysis takes your running data and gives you AI-powered coaching and insights. Upload your runs and talk to the AI about the session. How was my heart rate? Why did I tail off towards the end? Could I go faster?
+
+Yes, the charts are there, but if you're like me and just want straight-up answers, this tool is for you.
+
+### What Can Tier One Analysis Do?
+
+At its core, Tier One Analysis helps you make sense of your runs. Each run you upload gets an activity analysis where the AI uses the data to identify what the activity was, why it was important and what happened during the session. It picks out the key metrics so you don't have to. Those on a Pro subscription can then discuss with the AI about the activity and delve deeper into understanding the run.
+
+import { Image } from 'astro:assets';
+import analysis from "./torc-6.webp"
+
+import block from "./TORC-4.webp"
+import filters from "./TORC-2.webp"
+import report from "./TORC-3.webp"
+import coach from "./TORC-5.webp"
+
+ <figure className='my-5'>
+ <Image src={analysis} alt="An AI analysis of my recent run." />
+  <figcaption class="text-xs grey text-center">An AI analysis of my recent run.</figcaption>
+</figure>
+
+Building on top of this, Tier One allows you to analyse "Blocks". Blocks are your training periods. Whether that's for a specific race or a full season. Blocks allow you to set goals, and the AI will use your recent runs to tell you how confident it is you'll hit them. It can highlight what's going well, where you can improve, and dive into all the stats for you.
+
+ <figure className='my-5'>
+ <Image src={block} alt="An AI analysis of my Block so far." />
+  <figcaption class="text-xs grey text-center">An AI analysis of my Block so far.</figcaption>
+</figure>
+
+What makes Tier One Analysis so powerful is that it has access to all your activity data and uses this to build a tailored profile about you. This gives the AI's insights real personalisation. It knows you're training for a marathon, it understands your fitness level, and it can use all of this to help you out. Tier One gives you access to all sorts of features:
+
+- A coach at your fingertips that knows all your activities and gives you answers 24/7.
+- The ability to compare runs and pinpoint exactly how one was better or why one was faster.
+- Weekly and monthly reports detailing what happened and how it affects your goals.
+- Browse, find and filter all of your activities to a granular level.
+
+ <figure className='my-5'>
+ <Image src={filters} alt="Filter and find any run." />
+  <figcaption class="text-xs grey text-center">Filter and find any run.</figcaption>
+</figure>
+
+ <figure className='my-5'>
+ <Image src={report} alt="Get weekly and monthly reports." />
+  <figcaption class="text-xs grey text-center">Get weekly and monthly reports.</figcaption>
+</figure>
+
+ <figure className='my-5'>
+ <Image src={coach} alt="Chat to your coach." />
+  <figcaption class="text-xs grey text-center">Chat to your coach.</figcaption>
+</figure>
+
+### How Does It Work?
+
+Tier One Analysis connects with Gemini to generate your running insights. In order to import your running data, Tier One Analysis uses Intervals.icu to pull in your activities. You can use Intervals.icu to import runs from all sorts of data sources such as Garmin, COROS, Suunto and many more.
+
+### How Can I Try It?
+
+Sign up at [Tier One Analysis](https://app.tieronerun.club/) and use the code **TORC** for a free month of Pro. After that it's just £6/month, a great way to truly understand your running.
+
+I look forward to hearing any feedback you have on the app!
