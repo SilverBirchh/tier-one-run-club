@@ -1,7 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { Icon } from "astro-icon/components";
-import { SITE_TITLE } from "../consts";
+import { TORC_APP_URL } from "../consts";
 import { Sheet } from "./Sheet";
 import { Image } from "astro:assets";
 
@@ -9,89 +9,60 @@ import logo from "../images/logo.png";
 import { Theme } from "./Theme";
 ---
 
-<header>
-  <div
-    class="flex flex-col gap-4 py-4 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto"
-  >
-    <div
-      class="text-[var(--accent)] w-full flex justify-center items-center"
-    >
-      <div class="flex justify-between items-center w-full mx-5">
-        <h2 class="uppercase font-black">
-          <a
-            href="/"
-            class="flex items-center gap-2 text-lg md:text-2xl text-black! dark:text-white!"
-          >
-            <Image
-              loading={"eager"}
-              class="h-auto w-[70px]"
-              src={logo}
-              format="webp"
-              alt=""
-              quality={80}
-              widths={[390]}
-              sizes="390px"
-            />
-            {SITE_TITLE}
-          </a>
-        </h2>
+<header class="sticky top-0 z-50 border-b border-primary/5 bg-background/80 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+    <a href="/" class="flex items-center gap-2">
+      <Image
+        loading="eager"
+        class="h-auto w-[40px]"
+        src={logo}
+        format="webp"
+        alt=""
+        quality={80}
+        widths={[80]}
+        sizes="40px"
+      />
+      <span class="text-sm font-semibold text-primary">Tier One Run Club</span>
+    </a>
 
-        <div class="block sm:hidden">
-          <Sheet client:idle>
-            <Icon
-              slot="trigger"
-              name="radix-icons:hamburger-menu"
-              class="font-bold text-foreground"
-            />
-            <div
-              slot="description"
-              class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
-            >
-              <HeaderLink
-                class="border-b-4 border-transparent no-underline! transition-all"
-                href="/">Home</HeaderLink
-              >
-              <HeaderLink
-                class="border-b-4 border-transparent no-underline! transition-all"
-                href="/blog">Blog</HeaderLink
-              >
-              <HeaderLink
-                class="border-b-4 border-transparent no-underline! transition-all"
-                href="/tools">Tools</HeaderLink
-              >
-              <HeaderLink
-                class="border-b-4 border-transparent no-underline! transition-all"
-                href="/about">About</HeaderLink
-              >
-              <Theme client:idle />
-            </div>
-          </Sheet>
+    <!-- Mobile nav -->
+    <div class="block sm:hidden">
+      <Sheet client:idle>
+        <Icon
+          slot="trigger"
+          name="radix-icons:hamburger-menu"
+          class="font-bold text-foreground"
+        />
+        <div
+          slot="description"
+          class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
+        >
+          <HeaderLink class="no-underline!" href="/blog">Blog</HeaderLink>
+          <HeaderLink class="no-underline!" href="/tools">Tools</HeaderLink>
+          <HeaderLink class="no-underline!" href="/about">About</HeaderLink>
+          <HeaderLink class="no-underline!" href="/contact">Contact</HeaderLink>
+          <a
+            href={`${TORC_APP_URL}/login`}
+            class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground no-underline"
+          >
+            Get Started
+          </a>
+          <Theme client:idle />
         </div>
-        <div class="font-medium text-foreground gap-10 hidden sm:flex">
-          <div class="flex flex-col gap-1">
-            <HeaderLink href="/" class="m-0 leading-none text-sm"
-              >HOME</HeaderLink
-            >
-            <HeaderLink href="/blog" class="m-0 leading-none text-sm"
-              >BLOG</HeaderLink
-            >
-            <HeaderLink href="/workouts" class="m-0 leading-none text-sm"
-              >WORKOUTS</HeaderLink
-            >
-          </div>
-          <div class="flex flex-col gap-1">
-            <HeaderLink href="/tools" class="m-0 leading-none text-sm"
-              >TOOLS</HeaderLink
-            >
-            <HeaderLink href="/about" class="m-0 leading-none text-sm"
-              >ABOUT</HeaderLink
-            >
-            <HeaderLink href="/contact" class="m-0 leading-none text-sm"
-              >CONTACT</HeaderLink
-            >
-          </div>
-        </div>
-      </div>
+      </Sheet>
     </div>
+
+    <!-- Desktop nav -->
+    <nav class="hidden sm:flex items-center gap-6">
+      <a href="/blog" class="text-sm text-primary/70 transition-colors hover:text-primary">Blog</a>
+      <a href="/tools" class="text-sm text-primary/70 transition-colors hover:text-primary">Tools</a>
+      <a href="/about" class="text-sm text-primary/70 transition-colors hover:text-primary">About</a>
+      <a
+        href={`${TORC_APP_URL}/login`}
+        class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+      >
+        Get Started
+      </a>
+    </nav>
   </div>
 </header>

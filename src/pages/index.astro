@@ -1,20 +1,20 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, TORC_APP_URL } from "../consts";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import dog from "../images/dog.svg";
+import { getCollection } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
 import barca from "../images/torc.webp";
 import timer from "../images/timer.webp";
 import friends from "../images/friends.webp";
-import { getCollection } from "astro:content";
-import FormattedDate from "@/components/FormattedDate.astro";
-import { Sheet } from "@/components/Sheet";
-import HeaderLink from "@/components/HeaderLink.astro";
-import { Theme } from "@/components/Theme";
-import { Input } from "@/components/ui/input";
-import Contact from "@/components/contact.astro";
+
+import { HeroDashboard } from "@/components/landing/HeroDashboard";
+import { ActivitiesDemo } from "@/components/landing/ActivitiesDemo";
+import { BlocksDemo } from "@/components/landing/BlocksDemo";
+import { CompareDemo } from "@/components/landing/CompareDemo";
+import { CoachDemo } from "@/components/landing/CoachDemo";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => (b.data.pubDate || 0).valueOf() - (a.data.pubDate || 0).valueOf()
@@ -27,349 +27,226 @@ const posts = (await getCollection("blog")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-background min-h-screen flex flex-col">
-    <header
-      class="flex flex-col gap-4 py-4 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto"
-    >
-      <div
-        class="text-[var(--accent)] w-full flex justify-center items-center"
-      >
-        <div class="flex justify-between items-center w-full mx-5">
-          <div>
-            <p class="m-0 uppercase font-extrabold leading-none!">Lace Up.</p>
-            <p class="m-0 uppercase font-extrabold leading-none!">Run Happy.</p>
-            <p class="m-0 uppercase font-extrabold leading-none!">
-              Crush Goals.
-            </p>
-          </div>
+    <Header />
 
-          <div class="block sm:hidden">
-            <Sheet client:idle>
-              <Icon
-                slot="trigger"
-                name="radix-icons:hamburger-menu"
-                class="font-bold text-foreground"
-              />
-              <div
-                slot="description"
-                class="flex flex-col gap-5 text-foreground text-lg mt-5 w-full justify-center items-center font-extrabold"
-              >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/">Home</HeaderLink
-                >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/blog">Blog</HeaderLink
-                >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/workouts">Workouts</HeaderLink
-                >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/tools">Tools</HeaderLink
-                >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/contact">Contact</HeaderLink
-                >
-                <HeaderLink
-                  class="border-b-4 border-transparent no-underline! transition-all"
-                  href="/about">About</HeaderLink
-                >
-                <Theme client:idle />
-              </div>
-            </Sheet>
-          </div>
-          <div class="font-medium text-foreground gap-10 hidden sm:flex">
-            <div class="flex flex-col gap-1">
-              <HeaderLink href="/" class="m-0 leading-none text-sm"
-                >HOME</HeaderLink
-              >
-              <HeaderLink href="/blog" class="m-0 leading-none text-sm"
-                >BLOG</HeaderLink
-              >
-              <HeaderLink href="/workouts" class="m-0 leading-none text-sm"
-                >WORKOUTS</HeaderLink
-              >
-            </div>
-            <div class="flex flex-col gap-1">
-              <HeaderLink href="/tools" class="m-0 leading-none text-sm"
-                >TOOLS</HeaderLink
-              >
-              <HeaderLink href="/about" class="m-0 leading-none text-sm"
-                >ABOUT</HeaderLink
-              >
-              <HeaderLink href="/contact" class="m-0 leading-none text-sm"
-                >CONTACT</HeaderLink
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <h1
-      class="text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-center mx-2"
-    >
-      <span>TIER</span>
-      <span class="relative">
-        ONE
-        <Image
-          src={dog}
-          loading={"eager"}
-          alt=""
-          class="absolute hidden sm:block top-[-40px] md:top-[-55px] lg:top-[-45px] right-[25px] md:right-[85px] lg:right-0 w-[75px] md:w-[100px]"
-        />
-      </span>
-      <span>RUN</span>
-      <span>CLUB</span>
-    </h1>
-    <main
-      class="flex-1 w-[min(2000px,100%)] max-w-[calc(100%-2em)] mx-auto py-6 px-4"
-    >
-      <p class="uppercase text-sm text-[var(--accent)] font-bold">
-        LATEST ARTICLES
-      </p>
-      <ul
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
-      >
-        {
-          posts.slice(0, 4).map((post, index) => (
-            <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border border-muted duration-500 group cursor-pointer">
-              <a href={`/blog/${post.slug}/`}>
-                <div class="overflow-hidden">
-                  <Image
-                    src={post.data.heroImage}
-                    alt=""
-                    width={1200}
-                    height={224}
-                    class="h-56 w-full object-cover group-hover:scale-125 transition-all duration-500"
-                    srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
-                    sizes="(max-width: 768px) 600px, 1200px"
-                    format="webp"
-                    quality={80}
-                    loading={index < 3 ? "eager" : "lazy"}
-                  />
-                </div>
-                <div class="bg-card p-4 sm:p-6 h-full">
-                  {post.data.pubDate && (
-                    <time
-                      datetime={post.data.pubDate.toString()}
-                      class="block text-xs text-gray-500"
-                    >
-                      <FormattedDate date={post.data.pubDate} />
-                    </time>
-                  )}
-
-                  <h3 class="mt-0.5 text-lg text-foreground">
-                    {post.data.title}
-                  </h3>
-
-                  {post.data.description && (
-                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-secondary-foreground">
-                      {post.data.description}
-                    </p>
-                  )}
-                </div>
-              </a>
-            </article>
-          ))
-        }
-      </ul>
-      <div class="h-px bg-gray-200 my-10"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-        <a
-          href="/tools/pace-review/"
-          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-        >
-          <Image
-            src={barca}
-            alt=""
-            format="webp"
-            loading={"eager"}
-            quality={80}
-            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
-          />
-          <div
-            class="relative bg-linear-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
-          >
-            <div class="p-4 sm:p-6">
-              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
-                Are you Race Day Ready?
-              </h3>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/tools/pace-calculator"
-          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-        >
-          <Image
-            src={timer}
-            alt=""
-            format="webp"
-            loading={"eager"}
-            quality={80}
-            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
-          />
-          <div
-            class="relative bg-linear-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
-          >
-            <div class="p-4 sm:p-6">
-              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
-                Pace<br />Calculator
-              </h3>
-            </div>
-          </div>
-        </a>
-        <a
-          href="/tools/runshare/"
-          class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-        >
-          <Image
-            src={friends}
-            alt=""
-            format="webp"
-            loading={"eager"}
-            quality={80}
-            class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500"
-          />
-          <div
-            class="relative bg-linear-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64 h-full"
-          >
-            <div class="p-4 sm:p-6">
-              <h3 class="mt-0.5 text-white font-extrabold text-2xl max-w-72">
-                Social<br />Card Builder
-              </h3>
-            </div>
-          </div>
-        </a>
-        <div
-          class="rounded-xl bg-linear-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 relative"
-        >
-          <div class="rounded-[10px] bg-card p-4 sm:p-6 h-full h-full">
-            <p
-              class="uppercase text-sm text-[var(--accent)] font-bold text-center"
-            >
-              POPULAR ARTICLES
-            </p>
-            <a
-              class="text-center text-foreground transition-colors hover:cursor-pointer"
-              href="/blog/boston"
-            >
-              <p class="text-xl font-bold mb-2">
-                Boston Marathon Training Plan
+    <main class="!w-full !max-w-none !p-0">
+      <!-- Hero Section -->
+      <section class="py-20 md:py-32">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
+            <div>
+              <h1 class="text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
+                Train smarter.<br />Run faster.
+              </h1>
+              <p class="mt-6 max-w-lg text-lg text-primary/70">
+                AI-powered coaching and insights that turn your running data into
+                faster times and smarter training.
               </p>
-              <p class="text-gray-600 text-sm">Dec 15, 2024</p>
-            </a>
-
-            <a
-              class="text-center text-foreground transition-colors hover:cursor-pointer"
-              href="/blog/temporary"
-            >
-              <p class="text-xl font-bold mb-2">Temporary</p>
-              <p class="text-gray-600 text-sm">Oct 14, 2024</p>
-            </a>
-
-            <a
-              class="text-center text-foreground transition-colors hover:cursor-pointer"
-              href="/blog/barca-race-review"
-            >
-              <p class="text-xl font-bold mb-2">Barcelona Marathon</p>
-              <p class="text-gray-600 text-sm">Sep 25, 2024</p>
-            </a>
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={`${TORC_APP_URL}/login`}
+                  class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Get Started Free
+                </a>
+                <a
+                  href="/blog"
+                  class="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  Read the Blog
+                </a>
+              </div>
+            </div>
+            <HeroDashboard client:visible />
           </div>
         </div>
-      </div>
-      <div class="h-px bg-gray-200 my-10"></div>
-      <div class="w-full mx-auto space-y-8">
-        <div
-          class="rounded-xl p-8 shadow-sm flex flex-col md:flex-row items-center justify-center"
-        >
-          <div
-            class="flex max-w-3xl flex-col md:flex-row md:items-center md:justify-center gap-6"
-          >
-            <div class="flex-1 space-y-2">
-              <div
-                class="flex items-center gap-2 text-blue-600 dark:text-blue-400"
-              >
-                <h2 class="font-semibold">Stay Updated</h2>
-              </div>
-              <p class="text-sm text-muted-foreground">
-                Get the latest posts delivered straight to your inbox. No spam,
-                unsubscribe anytime.
+      </section>
+
+      <!-- Feature: Activities -->
+      <section class="py-20 md:py-32 bg-muted/30">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
+            <div>
+              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                Every run. Every metric.
+              </h2>
+              <p class="mt-4 text-lg text-primary/70">
+                Track distance, pace, heart rate zones, elevation, and more. See your weekly trends at a glance.
               </p>
             </div>
-            <Contact
-              post="subscribe"
-              containerClass="flex w-full md:w-auto gap-2"
-              buttonText="Subscribe"
-              doneText="You are subscribed!"
-            >
-              <Input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-                className="md:w-64"
-              />
-            </Contact>
+            <ActivitiesDemo client:visible />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="h-px bg-gray-200 my-10"></div>
+      <!-- Feature: Blocks -->
+      <section class="py-20 md:py-32">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
+            <div class="md:order-2">
+              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                Structure your training.
+              </h2>
+              <p class="mt-4 text-lg text-primary/70">
+                Organize runs into training blocks. Set goals, track volume, and see your progression week over week.
+              </p>
+            </div>
+            <BlocksDemo client:visible />
+          </div>
+        </div>
+      </section>
 
-      <p class="uppercase text-sm text-[var(--accent)] font-bold">
-        THE BLOG
-      </p>
-      <ul
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5"
-      >
-        {
-          posts.slice(4).map((post, index) => (
-            <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border border-muted duration-500 group cursor-pointer">
-              <a href={`/blog/${post.slug}/`}>
-                <div class="overflow-hidden">
-                  <Image
-                    src={post.data.heroImage}
-                    alt=""
-                    width={1200}
-                    height={224}
-                    class="h-56 w-full object-cover group-hover:scale-125 transition-all duration-500"
-                    srcset={`${post.data.heroImage.src}?w=600 600w, ${post.data.heroImage.src}?w=1200 1200w`}
-                    sizes="(max-width: 768px) 600px, 1200px"
-                    format="webp"
-                    quality={80}
-                    loading={index < 3 ? "eager" : "lazy"}
-                  />
+      <!-- Feature: Compare -->
+      <section class="py-20 md:py-32 bg-muted/30">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
+            <div>
+              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                Stack your runs.
+              </h2>
+              <p class="mt-4 text-lg text-primary/70">
+                Compare multiple activities side by side. Spot patterns, find your fastest routes, and track improvement.
+              </p>
+            </div>
+            <CompareDemo client:visible />
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature: Coach -->
+      <section class="py-20 md:py-32">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
+            <div class="md:order-2">
+              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+                AI that knows your training.
+              </h2>
+              <p class="mt-4 text-lg text-primary/70">
+                Get AI coaching and personalized insights on every run. Ask questions, get answers grounded in your data.
+              </p>
+            </div>
+            <CoachDemo client:visible />
+          </div>
+        </div>
+      </section>
+
+      <!-- From the Blog -->
+      <section class="py-16 bg-muted/30">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-primary">From the Blog</h2>
+            <a href="/blog" class="text-sm font-medium text-primary/70 hover:text-primary transition-colors">
+              View all &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              posts.slice(0, 3).map((post, index) => (
+                <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-muted duration-500 group cursor-pointer">
+                  <a href={`/blog/${post.slug}/`}>
+                    <div class="overflow-hidden">
+                      <Image
+                        src={post.data.heroImage}
+                        alt=""
+                        width={800}
+                        height={224}
+                        class="h-48 w-full object-cover group-hover:scale-110 transition-all duration-500"
+                        format="webp"
+                        quality={80}
+                        loading={index < 2 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <div class="bg-card p-4 sm:p-6">
+                      {post.data.pubDate && (
+                        <time
+                          datetime={post.data.pubDate.toString()}
+                          class="block text-xs text-gray-500"
+                        >
+                          <FormattedDate date={post.data.pubDate} />
+                        </time>
+                      )}
+                      <h3 class="mt-0.5 text-lg text-foreground">{post.data.title}</h3>
+                      {post.data.description && (
+                        <p class="mt-2 line-clamp-2 text-sm/relaxed text-secondary-foreground">
+                          {post.data.description}
+                        </p>
+                      )}
+                    </div>
+                  </a>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- Free Running Tools -->
+      <section class="py-16">
+        <div class="mx-auto max-w-7xl px-4">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-primary">Free Running Tools</h2>
+            <a href="/tools" class="text-sm font-medium text-primary/70 hover:text-primary transition-colors">
+              View all &rarr;
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a
+              href="/tools/pace-review/"
+              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
+            >
+              <Image
+                src={barca}
+                alt="Race Day Ready tool"
+                format="webp"
+                quality={80}
+                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
+                <div class="p-4 sm:p-6">
+                  <h3 class="text-white font-extrabold text-2xl">Race Day Ready</h3>
+                  <p class="text-white/80 text-sm mt-1">Review your race pacing strategy</p>
                 </div>
-                <div class="bg-card p-4 sm:p-6 h-full">
-                  {post.data.pubDate && (
-                    <time
-                      datetime={post.data.pubDate.toString()}
-                      class="block text-xs text-gray-500"
-                    >
-                      <FormattedDate date={post.data.pubDate} />
-                    </time>
-                  )}
-
-                  <h3 class="mt-0.5 text-lg text-foreground">
-                    {post.data.title}
-                  </h3>
-
-                  {post.data.description && (
-                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-secondary-foreground">
-                      {post.data.description}
-                    </p>
-                  )}
+              </div>
+            </a>
+            <a
+              href="/tools/pace-calculator"
+              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
+            >
+              <Image
+                src={timer}
+                alt="Pace Calculator tool"
+                format="webp"
+                quality={80}
+                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
+                <div class="p-4 sm:p-6">
+                  <h3 class="text-white font-extrabold text-2xl">Pace Calculator</h3>
+                  <p class="text-white/80 text-sm mt-1">Calculate splits for any distance</p>
                 </div>
-              </a>
-            </article>
-          ))
-        }
-      </ul>
+              </div>
+            </a>
+            <a
+              href="/tools/runshare/"
+              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
+            >
+              <Image
+                src={friends}
+                alt="Social Card Builder tool"
+                format="webp"
+                quality={80}
+                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
+                <div class="p-4 sm:p-6">
+                  <h3 class="text-white font-extrabold text-2xl">Social Card Builder</h3>
+                  <p class="text-white/80 text-sm mt-1">Share your runs on social media</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <Footer />
