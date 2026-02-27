@@ -1,0 +1,591 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Privacy Policy" description="Privacy Policy for Tier One Run Club" />
+  </head>
+  <body class="bg-background min-h-screen flex flex-col">
+    <Header />
+
+    <main class="flex-1">
+      <div class="container mx-auto max-w-4xl px-4 py-12">
+        <div class="mb-8">
+          <h1 class="text-4xl font-bold text-primary">Privacy Policy</h1>
+          <p class="mt-2 text-sm text-primary/60">
+            Last updated: February 14, 2026
+          </p>
+        </div>
+
+        <div class="prose prose-slate max-w-none dark:prose-invert">
+          <section class="mb-8">
+            <p class="text-primary/80">
+              Tier One Run Club ("TORC", "we", "us", or "our") is committed to
+              protecting your privacy. This Privacy Policy explains how we
+              collect, use, disclose, and safeguard your information when you use
+              our service.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              1. Information We Collect
+            </h2>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Information You Provide
+            </h3>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Account Information:</strong> Email address, name, and
+                password when you create an account
+              </li>
+              <li>
+                <strong>Profile Information:</strong> Optional details such as
+                age, weight, height, and fitness goals
+              </li>
+              <li>
+                <strong>Payment Information:</strong> Billing details processed
+                securely through Stripe (we do not store your full payment card
+                details)
+              </li>
+              <li>
+                <strong>Communications:</strong> Information you provide when
+                contacting support or providing feedback
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Fitness and Activity Data
+            </h3>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Activity Data:</strong> Running activities, workouts,
+                distance, pace, duration, heart rate, cadence, and other metrics
+              </li>
+              <li>
+                <strong>GPS Data:</strong> Location data from your activities
+                (routes, elevation)
+              </li>
+              <li>
+                <strong>Device Data:</strong> Information from connected fitness
+                devices and wearables
+              </li>
+              <li>
+                <strong>Uploaded Files:</strong> FIT files and other activity
+                files you upload
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Automatically Collected Information
+            </h3>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Device Information:</strong> Browser type, operating
+                system, device identifiers
+              </li>
+              <li>
+                <strong>Usage Data:</strong> Pages visited, features used, time
+                spent on the service
+              </li>
+              <li>
+                <strong>Log Data:</strong> IP address, access times, referring
+                URLs
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              2. How We Use Your Information
+            </h2>
+            <p class="text-primary/80">
+              We use the information we collect to:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>Provide, maintain, and improve our services</li>
+              <li>
+                Analyze your fitness data to generate insights, metrics, and
+                personalized recommendations
+              </li>
+              <li>
+                Power AI-driven features including training analysis and coaching
+                suggestions
+              </li>
+              <li>Process transactions and send related information</li>
+              <li>
+                Send technical notices, updates, security alerts, and support
+                messages
+              </li>
+              <li>Respond to your comments, questions, and customer service requests</li>
+              <li>
+                Monitor and analyze trends, usage, and activities to improve user
+                experience
+              </li>
+              <li>Detect, investigate, and prevent fraudulent or unauthorized activity</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              3. AI and Data Processing
+            </h2>
+            <p class="text-primary/80">
+              TORC uses artificial intelligence to analyze your fitness data and
+              provide personalized insights. This includes:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                Processing your activity data through AI models to generate
+                training recommendations
+              </li>
+              <li>
+                Analyzing patterns in your performance to identify trends and
+                areas for improvement
+              </li>
+              <li>
+                Using third-party AI services (such as language models) to power
+                certain features
+              </li>
+            </ul>
+            <p class="mt-4 text-primary/80">
+              Your personal data is not used to train AI models. We may use
+              anonymized, aggregated data to improve our AI features, but this
+              data cannot be used to identify individual users.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              4. Information Sharing and Disclosure
+            </h2>
+            <p class="text-primary/80">
+              We do not sell your personal information. We may share your
+              information in the following circumstances:
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Service Providers
+            </h3>
+            <p class="mt-2 text-primary/80">
+              We share data with third-party vendors who perform services on our
+              behalf:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Convex:</strong> Database and backend infrastructure
+              </li>
+              <li>
+                <strong>Stripe:</strong> Payment processing
+              </li>
+              <li>
+                <strong>AI Providers:</strong> Language model services for AI
+                features (data is processed but not retained for training)
+              </li>
+              <li>
+                <strong>Email Services:</strong> Transactional email delivery
+              </li>
+              <li>
+                <strong>OpenStreetMap:</strong> Map tiles and reverse geocoding
+                for activity location display
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Third-Party Integrations
+            </h3>
+            <p class="mt-2 text-primary/80">
+              When you connect third-party accounts (such as Intervals.icu), we
+              use OAuth 2.0 authorization to request specific permissions (such
+              as read access to your activities). You choose which permissions to
+              grant, and you can revoke access at any time through the
+              third-party service or by disconnecting in your TORC account
+              settings. We receive data from those services only within the scope
+              of permissions you granted. We do not share your TORC data back to
+              these services unless you explicitly request it.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Legal Requirements
+            </h3>
+            <p class="mt-2 text-primary/80">
+              We may disclose your information if required by law, legal process,
+              or government request, or to protect the rights, property, or safety
+              of TORC, our users, or the public.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Business Transfers
+            </h3>
+            <p class="mt-2 text-primary/80">
+              If TORC is involved in a merger, acquisition, or sale of assets,
+              your information may be transferred as part of that transaction. We
+              will notify you of any such change.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              5. Data Retention
+            </h2>
+            <p class="text-primary/80">
+              We retain your personal information for as long as your account is
+              active or as needed to provide you services. You can request
+              deletion of your data at any time. After account deletion, we may
+              retain certain information as required by law or for legitimate
+              business purposes (such as resolving disputes or enforcing
+              agreements).
+            </p>
+            <p class="mt-4 text-primary/80">
+              Activity data and analytics may be retained in anonymized,
+              aggregated form indefinitely for service improvement purposes.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              6. Data Security
+            </h2>
+            <p class="text-primary/80">
+              We implement appropriate technical and organizational measures to
+              protect your personal information, including:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>Encryption of data in transit (HTTPS/TLS)</li>
+              <li>Encryption of sensitive data at rest</li>
+              <li>Secure authentication mechanisms</li>
+              <li>Regular security assessments and monitoring</li>
+              <li>Access controls limiting employee access to personal data</li>
+            </ul>
+            <p class="mt-4 text-primary/80">
+              However, no method of transmission over the Internet or electronic
+              storage is 100% secure. While we strive to protect your information,
+              we cannot guarantee absolute security.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              7. Your Rights and Choices
+            </h2>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Access and Portability
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can access your personal data through your account settings. You
+              may export your activity data at any time.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Correction
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can update your account information through your profile
+              settings.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Deletion
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can delete your account and associated data through your account
+              settings. Some information may be retained as described in the Data
+              Retention section.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Marketing Communications
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can opt out of marketing emails by clicking the unsubscribe link
+              in any marketing email or updating your notification preferences.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Third-Party Connections
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can disconnect third-party integrations (like Intervals.icu) at any
+              time through your account settings.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              8. Cookies and Similar Technologies
+            </h2>
+            <p class="text-primary/80">
+              We only use strictly necessary cookies and local storage. We do not
+              use any tracking, analytics, or advertising cookies.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              What We Use
+            </h3>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Authentication tokens:</strong> To keep you securely
+                logged in to your account (stored in local storage)
+              </li>
+              <li>
+                <strong>Theme preference:</strong> To remember your light or dark
+                mode setting (stored in local storage)
+              </li>
+              <li>
+                <strong>UI preferences:</strong> To remember display settings
+                such as table column visibility (stored in local storage)
+              </li>
+              <li>
+                <strong>Cookie consent:</strong> To remember that you have been
+                informed about our cookie usage (stored in local storage)
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Third-Party Services
+            </h3>
+            <p class="mt-2 text-primary/80">
+              We use Cloudflare Turnstile on our login page to prevent automated
+              abuse. This service may set its own cookies as part of the
+              verification process. Please refer to
+              <a
+                href="https://www.cloudflare.com/privacypolicy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline underline-offset-2 hover:text-primary"
+              >
+                Cloudflare's Privacy Policy
+              </a>
+              for details.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Legal Basis (GDPR)
+            </h3>
+            <p class="mt-2 text-primary/80">
+              All cookies and local storage we use are strictly necessary for the
+              operation of our service. Under Article 6(1)(f) of the GDPR, we
+              rely on our legitimate interest to provide a functional and secure
+              service. No consent is required for strictly necessary cookies, but
+              we inform you of their use for transparency.
+            </p>
+
+            <p class="mt-4 text-primary/80">
+              You can clear cookies and local storage through your browser
+              settings at any time. Please note that doing so will log you out
+              and reset your preferences.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              9. International Data Transfers
+            </h2>
+            <p class="text-primary/80">
+              Your information may be transferred to and processed in countries
+              other than your country of residence. These countries may have
+              different data protection laws. We take appropriate safeguards to
+              ensure your information remains protected in accordance with this
+              Privacy Policy.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              10. Children's Privacy
+            </h2>
+            <p class="text-primary/80">
+              Our service is not intended for children under 13 years of age. We
+              do not knowingly collect personal information from children under
+              13. If you are a parent or guardian and believe your child has
+              provided us with personal information, please contact us and we will
+              delete such information.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              11. California Privacy Rights (CCPA)
+            </h2>
+            <p class="text-primary/80">
+              If you are a California resident, you have additional rights under
+              the California Consumer Privacy Act:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Right to Know:</strong> You can request information about
+                the categories and specific pieces of personal information we have
+                collected about you
+              </li>
+              <li>
+                <strong>Right to Delete:</strong> You can request deletion of your
+                personal information
+              </li>
+              <li>
+                <strong>Right to Opt-Out:</strong> We do not sell personal
+                information, so this right does not apply
+              </li>
+              <li>
+                <strong>Right to Non-Discrimination:</strong> We will not
+                discriminate against you for exercising your privacy rights
+              </li>
+            </ul>
+            <p class="mt-4 text-primary/80">
+              To exercise these rights, contact us at tieronerunclub@gmail.com.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              12. European Privacy Rights (GDPR)
+            </h2>
+            <p class="text-primary/80">
+              If you are in the European Economic Area (EEA), the United Kingdom,
+              or Switzerland, you have additional rights under the General Data
+              Protection Regulation (GDPR).
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Data Controller
+            </h3>
+            <p class="mt-2 text-primary/80">
+              Tier One Run Club is the data controller responsible for your
+              personal data. You can contact us at tieronerunclub@gmail.com for
+              any data protection inquiries.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Legal Basis for Processing
+            </h3>
+            <p class="mt-2 text-primary/80">
+              We process your personal data on the following legal bases:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Contract (Art. 6(1)(b)):</strong> Processing necessary to
+                provide our service to you, including account management,
+                activity tracking, and AI coaching features
+              </li>
+              <li>
+                <strong>Legitimate Interest (Art. 6(1)(f)):</strong> Processing
+                necessary for service security, fraud prevention, and essential
+                cookies/local storage required for the service to function
+              </li>
+              <li>
+                <strong>Consent (Art. 6(1)(a)):</strong> Where you have given
+                explicit consent, such as for optional profile information or
+                connecting third-party integrations. You may withdraw consent at
+                any time
+              </li>
+              <li>
+                <strong>Legal Obligation (Art. 6(1)(c)):</strong> Where we are
+                required to process data to comply with applicable law
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              Your Rights
+            </h3>
+            <ul class="mt-4 list-disc space-y-2 pl-6 text-primary/80">
+              <li>
+                <strong>Right to Access (Art. 15):</strong> Request a copy of
+                your personal data
+              </li>
+              <li>
+                <strong>Right to Rectification (Art. 16):</strong> Request
+                correction of inaccurate data
+              </li>
+              <li>
+                <strong>Right to Erasure (Art. 17):</strong> Request deletion of
+                your data ("right to be forgotten")
+              </li>
+              <li>
+                <strong>Right to Restrict Processing (Art. 18):</strong> Request
+                limitation of processing in certain circumstances
+              </li>
+              <li>
+                <strong>Right to Data Portability (Art. 20):</strong> Receive
+                your data in a structured, commonly used, machine-readable format
+              </li>
+              <li>
+                <strong>Right to Object (Art. 21):</strong> Object to processing
+                based on legitimate interests
+              </li>
+              <li>
+                <strong>Right to Withdraw Consent (Art. 7(3)):</strong> Withdraw
+                consent at any time where processing is based on consent, without
+                affecting the lawfulness of prior processing
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              How to Exercise Your Rights
+            </h3>
+            <p class="mt-2 text-primary/80">
+              You can exercise many of these rights directly through your account
+              settings (e.g., editing your profile, deleting your account). For
+              any other requests, contact us at tieronerunclub@gmail.com. We will
+              respond within 30 days as required by the GDPR.
+            </p>
+            <p class="mt-4 text-primary/80">
+              You also have the right to lodge a complaint with your local
+              supervisory authority (data protection authority) if you believe
+              your data protection rights have been violated.
+            </p>
+
+            <h3 class="mt-6 text-xl font-medium text-primary">
+              International Transfers
+            </h3>
+            <p class="mt-2 text-primary/80">
+              Your data may be transferred to and processed in countries outside
+              the EEA, including the United States where our service providers
+              operate. We ensure appropriate safeguards are in place for such
+              transfers in accordance with GDPR requirements.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              13. Changes to This Policy
+            </h2>
+            <p class="text-primary/80">
+              We may update this Privacy Policy from time to time. We will notify
+              you of material changes by posting a notice on our website or
+              sending you an email. Your continued use of the service after
+              changes take effect constitutes acceptance of the updated policy.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-primary">
+              14. Contact Us
+            </h2>
+            <p class="text-primary/80">
+              If you have questions about this Privacy Policy or our data
+              practices, please contact us at:
+            </p>
+            <div class="mt-4 text-primary/80">
+              <p>Email: tieronerunclub@gmail.com</p>
+            </div>
+          </section>
+
+          <div class="mt-12 rounded-lg border border-primary/10 bg-card p-6">
+            <p class="text-sm text-primary/60">
+              By using Tier One Run Club, you acknowledge that you have read and
+              understood this Privacy Policy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
