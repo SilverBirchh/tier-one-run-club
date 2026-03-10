@@ -10,166 +10,458 @@ import barca from "../images/torc.webp";
 import timer from "../images/timer.webp";
 import friends from "../images/friends.webp";
 
-import { HeroDashboard } from "@/components/landing/HeroDashboard";
-import { ActivitiesDemo } from "@/components/landing/ActivitiesDemo";
-import { BlocksDemo } from "@/components/landing/BlocksDemo";
-import { CompareDemo } from "@/components/landing/CompareDemo";
-import { CoachDemo } from "@/components/landing/CoachDemo";
-
 const posts = (await getCollection("blog")).sort(
   (a, b) => (b.data.pubDate || 0).valueOf() - (a.data.pubDate || 0).valueOf()
 );
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-background min-h-screen flex flex-col">
+  <body class="landing-body">
     <Header />
 
-    <main class="!w-full !max-w-none !p-0">
-      <!-- Hero Section -->
-      <section class="py-20 md:py-32">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div>
-              <h1 class="text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-                Train smarter.<br />Run faster.
-              </h1>
-              <p class="mt-6 max-w-lg text-lg text-primary/70">
-                AI-powered coaching and insights that turn your running data into
-                faster times and smarter training.
-              </p>
-              <div class="mt-8 flex flex-wrap gap-4">
-                <a
-                  href={`${TORC_APP_URL}/login`}
-                  class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  Get Started Free
-                </a>
-                <a
-                  href="/blog"
-                  class="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  Read the Blog
-                </a>
+    <main class="landing-main">
+
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- HERO                                                       -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <h1 class="hero-headline hero-fade-in">
+              Train smarter.<br />Run faster.
+            </h1>
+            <p class="hero-sub hero-fade-in delay-1">
+              AI-powered coaching and insights that turn your running data into
+              faster times and smarter training.
+            </p>
+            <div class="hero-ctas hero-fade-in delay-2">
+              <a href={`${TORC_APP_URL}/login`} class="btn-primary">
+                Get Started Free
+              </a>
+              <a href="/blog" class="btn-ghost">
+                Read the Blog
+              </a>
+            </div>
+          </div>
+
+          <!-- Dashboard Card -->
+          <div class="hero-card-wrapper hero-fade-in delay-3">
+            <div class="hero-card float">
+              <div class="card-header">
+                <span class="card-label">This Week</span>
+                <span class="trend-badge trend-up">+12%</span>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric">
+                  <span class="metric-label">Distance</span>
+                  <span class="metric-value">47.3 km</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Duration</span>
+                  <span class="metric-value">4h 15m</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Activities</span>
+                  <span class="metric-value">5 runs</span>
+                </div>
+              </div>
+
+              <div class="bar-chart">
+                <div class="bar-col">
+                  <div class="bar" style="height: 34%"></div>
+                  <span class="bar-label">M</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 0%"></div>
+                  <span class="bar-label">T</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 56%"></div>
+                  <span class="bar-label">W</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 41%"></div>
+                  <span class="bar-label">T</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 0%"></div>
+                  <span class="bar-label">F</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 79%"></div>
+                  <span class="bar-label">S</span>
+                </div>
+                <div class="bar-col">
+                  <div class="bar" style="height: 100%"></div>
+                  <span class="bar-label">S</span>
+                </div>
               </div>
             </div>
-            <HeroDashboard client:visible />
           </div>
         </div>
       </section>
 
-      <!-- Feature: Activities -->
-      <section class="py-20 md:py-32 bg-muted/30">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div>
-              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                Every run. Every metric.
-              </h2>
-              <p class="mt-4 text-lg text-primary/70">
-                Track distance, pace, heart rate zones, elevation, and more. See your weekly trends at a glance.
-              </p>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FEATURE: ACTIVITIES                                        -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container feature-grid">
+          <div class="feature-text scroll-fade-up">
+            <span class="section-label">Activities</span>
+            <h2 class="section-headline">Every run. Every metric.</h2>
+            <p class="section-sub">
+              Track distance, pace, heart rate zones, elevation, and more.
+              See your weekly trends at a glance.
+            </p>
+          </div>
+
+          <div class="scroll-fade-up stagger-2">
+            <div class="demo-card">
+              <div class="activity-header">
+                <div>
+                  <span class="activity-name">Morning Run</span>
+                  <span class="activity-date">Today, 6:45 AM</span>
+                </div>
+                <span class="effort-badge effort-tempo">Tempo</span>
+              </div>
+
+              <div class="stat-grid-4">
+                <div class="stat-pill">
+                  <span class="stat-label">Distance</span>
+                  <span class="stat-value">8.5 km</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Duration</span>
+                  <span class="stat-value">42:15</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Avg HR</span>
+                  <span class="stat-value">152 bpm</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Elevation</span>
+                  <span class="stat-value">85 m</span>
+                </div>
+              </div>
+
+              <div class="hr-zones-wrapper">
+                <span class="card-label">Heart Rate Zones</span>
+                <div class="hr-zones-bar">
+                  <div class="hr-zone" style="flex-basis: 8%; background: #3b82f6;" title="Z1 Recovery 8%"></div>
+                  <div class="hr-zone" style="flex-basis: 22%; background: #22c55e;" title="Z2 Easy 22%"></div>
+                  <div class="hr-zone" style="flex-basis: 45%; background: #f59e0b;" title="Z3 Aerobic 45%"></div>
+                  <div class="hr-zone" style="flex-basis: 20%; background: #a855f7;" title="Z4 Threshold 20%"></div>
+                  <div class="hr-zone" style="flex-basis: 5%; background: #ef4444;" title="Z5 Max 5%"></div>
+                </div>
+                <div class="hr-zone-labels">
+                  <span>Z1</span><span>Z2</span><span>Z3</span><span>Z4</span><span>Z5</span>
+                </div>
+              </div>
+
+              <div class="sparkline-wrapper">
+                <span class="card-label">Weekly Trend</span>
+                <svg viewBox="0 0 200 60" class="sparkline-svg" preserveAspectRatio="none">
+                  <polyline
+                    points="0,42 33,60 66,12 99,28 132,60 165,4 200,0"
+                    fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <polyline
+                    points="0,46 33,22 66,60 99,34 132,16 165,8 200,6"
+                    fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" stroke-dasharray="4 3" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                </svg>
+                <div class="sparkline-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>This week</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:rgba(255,255,255,0.25)"></span>Last week</span>
+                </div>
+              </div>
             </div>
-            <ActivitiesDemo client:visible />
           </div>
         </div>
       </section>
 
-      <!-- Feature: Blocks -->
-      <section class="py-20 md:py-32">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div class="md:order-2">
-              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                Structure your training.
-              </h2>
-              <p class="mt-4 text-lg text-primary/70">
-                Organize runs into training blocks. Set goals, track volume, and see your progression week over week.
-              </p>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FEATURE: BLOCKS                                            -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container feature-grid feature-grid-reverse">
+          <div class="feature-text scroll-fade-right">
+            <span class="section-label">Training Blocks</span>
+            <h2 class="section-headline">Structure your training.</h2>
+            <p class="section-sub">
+              Organize runs into training blocks. Set goals, track volume,
+              and see your progression week over week.
+            </p>
+          </div>
+
+          <div class="scroll-fade-left">
+            <div class="demo-card">
+              <div class="card-header">
+                <div>
+                  <span class="activity-name">Marathon Prep</span>
+                  <span class="activity-date">Nov 4 — Dec 29 &middot; 18 days left</span>
+                </div>
+              </div>
+
+              <div class="progress-row">
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 68%"></div>
+                </div>
+                <span class="progress-text">68%</span>
+              </div>
+
+              <div class="stat-grid-4">
+                <div class="stat-pill">
+                  <span class="stat-label">Distance</span>
+                  <span class="stat-value">312 km</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Time</span>
+                  <span class="stat-value">26h 45m</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Avg Pace</span>
+                  <span class="stat-value">5:08/km</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Activities</span>
+                  <span class="stat-value">42</span>
+                </div>
+              </div>
+
+              <div class="volume-section">
+                <span class="card-label">Weekly Volume</span>
+                <div class="volume-bars">
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 73%"></div>
+                    <span class="bar-label">W1</span>
+                  </div>
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 84%"></div>
+                    <span class="bar-label">W2</span>
+                  </div>
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 94%"></div>
+                    <span class="bar-label">W3</span>
+                  </div>
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 77%"></div>
+                    <span class="bar-label">W4</span>
+                  </div>
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 100%"></div>
+                    <span class="bar-label">W5</span>
+                  </div>
+                  <div class="volume-col">
+                    <div class="volume-bar" style="height: 76%"></div>
+                    <span class="bar-label">W6</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="goals-section">
+                <span class="card-label">Race Goals</span>
+                <div class="goal-list">
+                  <div class="goal-item">
+                    <span class="goal-label goal-a">A</span>
+                    <span class="goal-target">3:15:00</span>
+                    <span class="goal-pace">4:37/km</span>
+                    <span class="status-pill status-behind">Behind</span>
+                  </div>
+                  <div class="goal-item">
+                    <span class="goal-label goal-b">B</span>
+                    <span class="goal-target">3:30:00</span>
+                    <span class="goal-pace">4:58/km</span>
+                    <span class="status-pill status-behind">Behind</span>
+                  </div>
+                  <div class="goal-item">
+                    <span class="goal-label goal-c">C</span>
+                    <span class="goal-target">3:45:00</span>
+                    <span class="goal-pace">5:19/km</span>
+                    <span class="status-pill status-ahead">Ahead</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <BlocksDemo client:visible />
           </div>
         </div>
       </section>
 
-      <!-- Feature: Compare -->
-      <section class="py-20 md:py-32 bg-muted/30">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div>
-              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                Stack your runs.
-              </h2>
-              <p class="mt-4 text-lg text-primary/70">
-                Compare multiple activities side by side. Spot patterns, find your fastest routes, and track improvement.
-              </p>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FEATURE: COMPARE                                           -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container feature-grid">
+          <div class="feature-text scroll-fade-up">
+            <span class="section-label">Compare</span>
+            <h2 class="section-headline">Stack your runs.</h2>
+            <p class="section-sub">
+              Compare multiple activities side by side. Spot patterns,
+              find your fastest routes, and track improvement.
+            </p>
+          </div>
+
+          <div class="scroll-scale-in">
+            <div class="demo-card">
+              <div class="compare-cards">
+                <div class="compare-run">
+                  <div class="compare-run-header">
+                    <span class="compare-dot" style="background:#3b82f6"></span>
+                    <div>
+                      <span class="activity-name">Tempo Run</span>
+                      <span class="activity-date">Dec 15</span>
+                    </div>
+                  </div>
+                  <div class="stat-grid-3">
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Distance</span>
+                      <span class="stat-value-sm">10.2 km</span>
+                    </div>
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Pace</span>
+                      <span class="stat-value-sm">4:45/km</span>
+                    </div>
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Avg HR</span>
+                      <span class="stat-value-sm">165 bpm</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare-run">
+                  <div class="compare-run-header">
+                    <span class="compare-dot" style="background:#a855f7"></span>
+                    <div>
+                      <span class="activity-name">Easy Run</span>
+                      <span class="activity-date">Dec 12</span>
+                    </div>
+                  </div>
+                  <div class="stat-grid-3">
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Distance</span>
+                      <span class="stat-value-sm">8.1 km</span>
+                    </div>
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Pace</span>
+                      <span class="stat-value-sm">5:13/km</span>
+                    </div>
+                    <div class="stat-pill-sm">
+                      <span class="stat-label">Avg HR</span>
+                      <span class="stat-value-sm">142 bpm</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="compare-chart-wrapper">
+                <span class="card-label">Pace Comparison (min/km)</span>
+                <svg viewBox="0 0 200 80" class="compare-svg" preserveAspectRatio="none">
+                  <polyline
+                    points="0,30 28,26 57,22 85,18 114,12 142,22 171,26 200,30"
+                    fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <polyline
+                    points="0,58 28,62 57,54 85,48 114,58 142,66 171,62 200,50"
+                    fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div class="compare-badges">
+                <span class="insight-badge"><span class="insight-dot" style="background:#3b82f6"></span>Faster pace</span>
+                <span class="insight-badge"><span class="insight-dot" style="background:#a855f7"></span>Lower HR</span>
+                <span class="insight-badge"><span class="insight-dot" style="background:#22c55e"></span>Negative split</span>
+              </div>
             </div>
-            <CompareDemo client:visible />
           </div>
         </div>
       </section>
 
-      <!-- Feature: Coach -->
-      <section class="py-20 md:py-32">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="grid items-center gap-12 lg:gap-16 md:grid-cols-2">
-            <div class="md:order-2">
-              <h2 class="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                AI that knows your training.
-              </h2>
-              <p class="mt-4 text-lg text-primary/70">
-                Get AI coaching and personalized insights on every run. Ask questions, get answers grounded in your data.
-              </p>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FEATURE: COACH                                             -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container feature-grid feature-grid-reverse">
+          <div class="feature-text scroll-fade-right">
+            <span class="section-label">AI Coach</span>
+            <h2 class="section-headline">AI that knows your training.</h2>
+            <p class="section-sub">
+              Get AI coaching and personalized insights on every run.
+              Ask questions, get answers grounded in your data.
+            </p>
+          </div>
+
+          <div class="scroll-fade-left">
+            <div class="demo-card coach-card">
+              <div class="chat-messages">
+                <div class="chat-msg chat-user">
+                  <div class="chat-bubble chat-bubble-user">
+                    How was my tempo run today?
+                  </div>
+                </div>
+                <div class="chat-msg chat-ai">
+                  <div class="chat-avatar">AI</div>
+                  <div class="chat-bubble chat-bubble-ai">
+                    Great session! You held 4:45/km consistently with a negative
+                    split in the last 2km. Your HR stayed in zone 4 which is
+                    ideal for tempo work. Consider extending to 12km next week.
+                  </div>
+                </div>
+              </div>
+              <div class="chat-input-mock">
+                <span class="chat-placeholder">Ask about your training...</span>
+                <span class="chat-send-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </span>
+              </div>
             </div>
-            <CoachDemo client:visible />
           </div>
         </div>
       </section>
 
-      <!-- From the Blog -->
-      <section class="py-16 bg-muted/30">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold tracking-tight text-primary">From the Blog</h2>
-            <a href="/blog" class="text-sm font-medium text-primary/70 hover:text-primary transition-colors">
-              View all &rarr;
-            </a>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- BLOG PREVIEW                                               -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section section-blog">
+        <div class="container">
+          <div class="section-header scroll-fade-up">
+            <h2 class="section-headline-sm">From the Blog</h2>
+            <a href="/blog" class="view-all">View all &rarr;</a>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="blog-grid">
             {
               posts.slice(0, 3).map((post, index) => (
-                <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border-muted duration-500 group cursor-pointer">
+                <article class={`blog-card scroll-fade-up stagger-${index + 1}`}>
                   <a href={`/blog/${post.slug}/`}>
-                    <div class="overflow-hidden">
+                    <div class="blog-img-wrap">
                       <Image
                         src={post.data.heroImage}
                         alt=""
                         width={800}
                         height={224}
-                        class="h-48 w-full object-cover group-hover:scale-110 transition-all duration-500"
+                        class="blog-img"
                         format="webp"
                         quality={80}
                         loading={index < 2 ? "eager" : "lazy"}
                       />
                     </div>
-                    <div class="bg-card p-4 sm:p-6">
+                    <div class="blog-content">
                       {post.data.pubDate && (
                         <time
                           datetime={post.data.pubDate.toString()}
-                          class="block text-xs text-gray-500"
+                          class="blog-date"
                         >
                           <FormattedDate date={post.data.pubDate} />
                         </time>
                       )}
-                      <h3 class="mt-0.5 text-lg text-foreground">{post.data.title}</h3>
+                      <h3 class="blog-title">{post.data.title}</h3>
                       {post.data.description && (
-                        <p class="mt-2 line-clamp-2 text-sm/relaxed text-secondary-foreground">
-                          {post.data.description}
-                        </p>
+                        <p class="blog-desc">{post.data.description}</p>
                       )}
                     </div>
                   </a>
@@ -180,75 +472,1193 @@ const posts = (await getCollection("blog")).sort(
         </div>
       </section>
 
-      <!-- Free Running Tools -->
-      <section class="py-16">
-        <div class="mx-auto max-w-7xl px-4">
-          <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold tracking-tight text-primary">Free Running Tools</h2>
-            <a href="/tools" class="text-sm font-medium text-primary/70 hover:text-primary transition-colors">
-              View all &rarr;
-            </a>
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FREE TOOLS                                                 -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header scroll-fade-up">
+            <h2 class="section-headline-sm">Free Running Tools</h2>
+            <a href="/tools" class="view-all">View all &rarr;</a>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a
-              href="/tools/pace-review/"
-              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-            >
+          <div class="tools-grid">
+            <a href="/tools/pace-review/" class="tool-card scroll-scale-in stagger-1">
               <Image
                 src={barca}
                 alt="Race Day Ready tool"
                 format="webp"
                 quality={80}
-                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                class="tool-img"
               />
-              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
-                <div class="p-4 sm:p-6">
-                  <h3 class="text-white font-extrabold text-2xl">Race Day Ready</h3>
-                  <p class="text-white/80 text-sm mt-1">Review your race pacing strategy</p>
+              <div class="tool-overlay">
+                <div class="tool-info">
+                  <h3 class="tool-title">Race Day Ready</h3>
+                  <p class="tool-desc">Review your race pacing strategy</p>
                 </div>
               </div>
             </a>
-            <a
-              href="/tools/pace-calculator"
-              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-            >
+            <a href="/tools/pace-calculator" class="tool-card scroll-scale-in stagger-2">
               <Image
                 src={timer}
                 alt="Pace Calculator tool"
                 format="webp"
                 quality={80}
-                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                class="tool-img"
               />
-              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
-                <div class="p-4 sm:p-6">
-                  <h3 class="text-white font-extrabold text-2xl">Pace Calculator</h3>
-                  <p class="text-white/80 text-sm mt-1">Calculate splits for any distance</p>
+              <div class="tool-overlay">
+                <div class="tool-info">
+                  <h3 class="tool-title">Pace Calculator</h3>
+                  <p class="tool-desc">Calculate splits for any distance</p>
                 </div>
               </div>
             </a>
-            <a
-              href="/tools/runshare/"
-              class="relative overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-2xl group"
-            >
+            <a href="/tools/runshare/" class="tool-card scroll-scale-in stagger-3">
               <Image
                 src={friends}
                 alt="Social Card Builder tool"
                 format="webp"
                 quality={80}
-                class="absolute inset-0 h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                class="tool-img"
               />
-              <div class="relative bg-linear-to-t from-gray-900/60 to-gray-900/20 pt-32 sm:pt-48">
-                <div class="p-4 sm:p-6">
-                  <h3 class="text-white font-extrabold text-2xl">Social Card Builder</h3>
-                  <p class="text-white/80 text-sm mt-1">Share your runs on social media</p>
+              <div class="tool-overlay">
+                <div class="tool-info">
+                  <h3 class="tool-title">Social Card Builder</h3>
+                  <p class="tool-desc">Share your runs on social media</p>
                 </div>
               </div>
             </a>
           </div>
         </div>
       </section>
+
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FINAL CTA                                                  -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section section-cta">
+        <div class="cta-glow"></div>
+        <div class="container cta-content scroll-fade-up">
+          <h2 class="cta-headline">Ready to run faster?</h2>
+          <p class="cta-sub">
+            Join runners using AI-powered insights to train smarter.
+          </p>
+          <a href={`${TORC_APP_URL}/login`} class="btn-primary btn-lg">
+            Get Started Free
+          </a>
+        </div>
+      </section>
+
     </main>
 
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  /* ──────────────────────────────────────────────────────────────── */
+  /* LANDING PAGE — BASE                                             */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .landing-body {
+    background: #0c0c0c !important;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: 'DM Sans', 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .landing-main {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* TYPOGRAPHY                                                      */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3b82f6;
+    margin-bottom: 12px;
+  }
+
+  .section-headline {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 16px 0;
+  }
+
+  .section-headline-sm {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 440px;
+    margin: 0;
+  }
+
+  .card-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 8px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* BUTTONS                                                         */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: #fff;
+    color: #0c0c0c;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+    color: #0c0c0c;
+  }
+
+  .btn-lg {
+    padding: 16px 36px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* SECTIONS                                                        */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .section {
+    padding: 80px 0;
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 120px 0; }
+    .section-headline { font-size: 44px; }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  .view-all {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .view-all:hover { color: rgba(255, 255, 255, 0.8); }
+
+  /* Subtle divider between sections */
+  .section + .section::before {
+    content: '';
+    display: block;
+    height: 1px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 50%, transparent);
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* FEATURE GRID                                                    */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .feature-grid {
+    display: grid;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .feature-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+  }
+
+  .feature-grid-reverse .feature-text {
+    order: 1;
+  }
+  @media (min-width: 768px) {
+    .feature-grid-reverse .feature-text {
+      order: 2;
+    }
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* HERO                                                            */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 80px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, #3b82f6 0%, transparent 70%);
+    opacity: 0.06;
+    pointer-events: none;
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+  }
+
+  .hero-headline {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin: 0 0 20px 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.55));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  @media (min-width: 768px) {
+    .hero-headline { font-size: 64px; }
+  }
+  @media (min-width: 1024px) {
+    .hero-headline { font-size: 72px; }
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 480px;
+    margin: 0 0 32px 0;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero-card-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* DEMO CARD (shared across features)                              */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .demo-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .trend-badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .trend-up {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* METRICS                                                         */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .metric-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .metric-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* BAR CHART (Hero)                                                */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 80px;
+  }
+
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .bar {
+    width: 100%;
+    background: linear-gradient(to top, #3b82f6, #60a5fa);
+    border-radius: 4px 4px 0 0;
+    min-height: 2px;
+    transition: height 0.3s ease;
+  }
+
+  .bar-label {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* STAT GRIDS                                                      */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .stat-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 480px) {
+    .stat-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .stat-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .stat-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-pill-sm {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .stat-value-sm {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* ACTIVITY CARD                                                   */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .activity-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .activity-name {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .activity-date {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2px;
+  }
+
+  .effort-badge {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .effort-tempo {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  /* HR Zones */
+  .hr-zones-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .hr-zones-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    gap: 2px;
+  }
+
+  .hr-zone {
+    border-radius: 2px;
+    transition: flex-basis 0.3s ease;
+  }
+
+  .hr-zone-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  .hr-zone-labels span {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+  }
+
+  /* Sparkline */
+  .sparkline-wrapper { margin-top: 4px; }
+
+  .sparkline-svg {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 6px;
+  }
+
+  .sparkline-legend {
+    display: flex;
+    gap: 16px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .legend-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* BLOCKS CARD                                                     */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 3px;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    min-width: 32px;
+  }
+
+  .volume-section { margin-bottom: 20px; }
+
+  .volume-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 64px;
+  }
+
+  .volume-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .volume-bar {
+    width: 100%;
+    background: linear-gradient(to top, #a855f7, #c084fc);
+    border-radius: 4px 4px 0 0;
+    min-height: 2px;
+  }
+
+  .goals-section {}
+
+  .goal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .goal-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .goal-label {
+    font-size: 11px;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .goal-a { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+  .goal-b { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+  .goal-c { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+
+  .goal-target {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    min-width: 60px;
+  }
+
+  .goal-pace {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    flex: 1;
+  }
+
+  .status-pill {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  .status-behind {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+  }
+  .status-ahead {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* COMPARE CARD                                                    */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .compare-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .compare-run {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 14px;
+  }
+
+  .compare-run-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .compare-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .compare-chart-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .compare-svg {
+    width: 100%;
+    height: 64px;
+    margin-top: 4px;
+  }
+
+  .compare-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .insight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .insight-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* COACH CARD                                                      */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .coach-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .chat-msg {
+    display: flex;
+    gap: 10px;
+  }
+
+  .chat-user {
+    justify-content: flex-end;
+  }
+
+  .chat-bubble {
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 85%;
+  }
+
+  .chat-bubble-user {
+    background: #3b82f6;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-bubble-ai {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .chat-input-mock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+  }
+
+  .chat-placeholder {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .chat-send-icon {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* BLOG GRID                                                       */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .blog-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .blog-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .blog-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .blog-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-img-wrap {
+    overflow: hidden;
+  }
+
+  .blog-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .blog-card:hover .blog-img {
+    transform: scale(1.05);
+  }
+
+  .blog-content {
+    padding: 20px;
+  }
+
+  .blog-date {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+  }
+
+  .blog-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 6px 0 0 0;
+    line-height: 1.35;
+  }
+
+  .blog-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.55;
+    margin: 8px 0 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* TOOLS GRID                                                      */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    .tools-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .tool-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .tool-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .tool-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .tool-card:hover .tool-img {
+    transform: scale(1.05);
+  }
+
+  .tool-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .tool-info {
+    padding: 24px;
+  }
+
+  .tool-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+
+  .tool-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 4px 0 0 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* FINAL CTA                                                       */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .section-cta {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, #3b82f6 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-headline {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 12px 0;
+  }
+  @media (min-width: 768px) {
+    .cta-headline { font-size: 48px; }
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0 32px 0;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* HERO LOAD ANIMATIONS                                            */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.06; }
+    50% { opacity: 0.12; }
+  }
+
+  .hero-fade-in {
+    opacity: 0;
+    animation: fade-in-up 0.7s ease-out forwards;
+  }
+  .hero-fade-in.delay-1 { animation-delay: 0.15s; }
+  .hero-fade-in.delay-2 { animation-delay: 0.3s; }
+  .hero-fade-in.delay-3 { animation-delay: 0.45s; }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* SCROLL-DRIVEN ANIMATIONS (Progressive Enhancement)              */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  /* Keyframes */
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes reveal-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-right {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.88);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Default: everything visible (fallback) */
+  .scroll-fade-up,
+  .scroll-fade-left,
+  .scroll-fade-right,
+  .scroll-scale-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Scroll animations for supporting browsers */
+  @supports (animation-timeline: view()) {
+    .scroll-fade-up {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    .scroll-fade-left {
+      animation: reveal-left linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    .scroll-fade-right {
+      animation: reveal-right linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    .scroll-scale-in {
+      animation: scale-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    /* Stagger delays */
+    .stagger-1 { animation-delay: 0ms; }
+    .stagger-2 { animation-delay: 120ms; }
+    .stagger-3 { animation-delay: 240ms; }
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* SECTION BLOG (slight bg tint)                                   */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .section-blog {
+    background: rgba(255, 255, 255, 0.01);
+  }
+</style>
