@@ -10,7 +10,6 @@ import {
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
   type ChartConfig,

@@ -164,7 +164,7 @@ import { Label } from "@/components/ui/label";
 
   copyBtn?.addEventListener("click", () => {
     (resultBox)?.select();
-    document.execCommand("copy");
+    navigator.clipboard.writeText(resultBox.value);
     copyBtn.textContent = "Copied!";
     setTimeout(() => (copyBtn.textContent = "Copy to Clipboard"), 1000);
   });

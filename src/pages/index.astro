@@ -437,7 +437,7 @@ const posts = (await getCollection("blog")).sort(
             {
               posts.slice(0, 3).map((post, index) => (
                 <article class={`blog-card scroll-fade-up stagger-${index + 1}`}>
-                  <a href={`/blog/${post.slug}/`}>
+                  <a href={`/blog/${post.id}/`}>
                     <div class="blog-img-wrap">
                       <Image
                         src={post.data.heroImage}

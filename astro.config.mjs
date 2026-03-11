@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -17,9 +16,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     icon(),
-    react({
-      experimentalReactChildren: true,
-    }),    
+    react(),
   ],
 
   vite: {

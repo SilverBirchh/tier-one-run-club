@@ -38,7 +38,7 @@ const posts = (await getCollection("blog")).sort(
             {
               posts.map((post, index) => (
               <article class="overflow-hidden rounded-lg shadow-sm transition-all hover:shadow-2xl border border border-muted duration-500 group cursor-pointer">
-              <a href={`/blog/${post.slug}/`}>
+              <a href={`/blog/${post.id}/`}>
                 <div class="overflow-hidden">
                   <Image
                     src={post.data.heroImage}
