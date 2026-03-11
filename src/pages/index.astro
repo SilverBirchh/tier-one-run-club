@@ -426,6 +426,89 @@ const posts = (await getCollection("blog")).sort(
       </section>
 
       <!-- ═══════════════════════════════════════════════════════════ -->
+      <!-- FEATURE: COMMAND BAR                                        -->
+      <!-- ═══════════════════════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container feature-grid">
+          <div class="feature-text scroll-fade-up">
+            <span class="section-label">Command Bar</span>
+            <h2 class="section-headline">Do anything. Instantly.</h2>
+            <p class="section-sub">
+              Hit <kbd class="cmdk-kbd-inline">&#8984;K</kbd> from anywhere. Navigate, take actions, and get context-aware
+              suggestions based on exactly where you are.
+            </p>
+          </div>
+
+          <div class="scroll-scale-in">
+            <div class="demo-card cmdk-card">
+              <div class="cmdk-input-row">
+                <svg class="cmdk-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span class="cmdk-input-text">Type a command...</span>
+                <span class="cmdk-kbd">esc</span>
+              </div>
+
+              <div class="cmdk-divider"></div>
+
+              <div class="cmdk-group">
+                <span class="cmdk-group-label">This Activity</span>
+                <div class="cmdk-item cmdk-item-active">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                  <span>Review This Activity</span>
+                </div>
+                <div class="cmdk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                  </svg>
+                  <span>View Laps</span>
+                </div>
+                <div class="cmdk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span>Ask Coach About This Run</span>
+                </div>
+              </div>
+
+              <div class="cmdk-divider"></div>
+
+              <div class="cmdk-group">
+                <span class="cmdk-group-label">Navigation</span>
+                <div class="cmdk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  </svg>
+                  <span>Home</span>
+                </div>
+                <div class="cmdk-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                  <span>Activities</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════════════════════ -->
       <!-- BLOG PREVIEW                                               -->
       <!-- ═══════════════════════════════════════════════════════════ -->
       <section class="section section-blog">
@@ -1661,5 +1744,98 @@ const posts = (await getCollection("blog")).sort(
 
   .section-blog {
     background: rgba(255, 255, 255, 0.01);
+  }
+
+  /* ──────────────────────────────────────────────────────────────── */
+  /* COMMAND BAR CARD                                                */
+  /* ──────────────────────────────────────────────────────────────── */
+
+  .cmdk-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .cmdk-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .cmdk-search-icon {
+    color: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+  }
+
+  .cmdk-input-text {
+    flex: 1;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .cmdk-kbd {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+
+  .cmdk-kbd-inline {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-family: inherit;
+  }
+
+  .cmdk-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .cmdk-group {
+    padding: 8px;
+  }
+
+  .cmdk-group-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.25);
+    padding: 4px 8px 6px;
+  }
+
+  .cmdk-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: default;
+  }
+
+  .cmdk-item svg {
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .cmdk-item-active {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .cmdk-item-active svg {
+    color: #3b82f6;
   }
 </style>
