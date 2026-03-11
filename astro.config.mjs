@@ -10,6 +10,7 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tieronerun.club",
+  output: "server",
   prefetch: true,
 
   integrations: [
